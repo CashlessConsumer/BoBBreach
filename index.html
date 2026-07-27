@@ -26,6 +26,7 @@
       <a href="search.html">🔍 Branches</a>
       <a href="#timeline">Timeline</a>
       <a href="#consumer">Guide</a>
+      <a href="pages/demands.html">⚖️ Demands</a>
       <a href="pages/about.html">About</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
@@ -176,6 +177,8 @@
   <h2>🕵️ Threat Actor: Triple X <span class="sub">Profile of the ransomware group behind the Bank of Baroda breach</span></h2>
 
   <div class="alert alert-yellow"><strong>⚡ Assessment:</strong> Triple X is a <strong>new, financially motivated criminal group</strong> with specialised skill in targeting large Asian banks. First observed May 2026. Only 2 confirmed victims (BNI Indonesia, BoB India) in ~2.5 months.</div>
+  
+  <div class="alert alert-yellow" style="margin-top:12px;"><strong>⚠️ Attribution Caveat:</strong> Cyber threat attribution is <strong>inherently uncertain</strong>. The Triple X identity, origin, motivations, and claimed attack vector ("weak password") are based solely on self-published leak-site statements, file metadata, and observed infrastructure. There is <strong>no independent forensic verification</strong> of these claims. Attribution may shift as CERT-In, CBI, or third-party investigators release their findings. This profile should be read as <strong>indicative threat intelligence, not confirmed identity</strong>.</div>
 
   <div class="grid2">
     <div class="card">
@@ -192,7 +195,7 @@
       </table>
     </div>
     <div class="card">
-      <h3>Modus Operandi</h3>
+      <h3>Suspected Modus Operandi <span style="font-size:0.85rem;font-weight:400;color:var(--muted);display:block;margin-top:4px;">To be verified by cyber forensic audit</span></h3>
       <ol style="padding-left:20px;color:var(--muted);">
         <li><strong>Initial Access:</strong> Weak/compromised credentials (possibly VPN or RDP)</li>
         <li><strong>Lateral Movement:</strong> Harvested Windows domain credentials, moved through SharePoint/file server infrastructure</li>
@@ -327,7 +330,8 @@
   <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
   <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
   <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
-  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="pages/about.html">About</a> | <a href="search.html">🔍 Check Branches</a></p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="pages/demands.html">⚖️ Demands</a>
+      <a href="pages/about.html">About</a> | <a href="search.html">🔍 Check Branches</a></p>
 </footer>
 
 <script src="js/main.js"></script>
