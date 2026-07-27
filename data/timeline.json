@@ -1,0 +1,68 @@
+[
+ {
+  "date": "~May 1-10, 2026",
+  "title": "Triple X Group Emerges",
+  "description": "Ransomware group Triple X first observed establishing leak infrastructure on Tor.",
+  "type": "threat_actor"
+ },
+ {
+  "date": "May 11, 2026",
+  "title": "Triple X Hits BNI (Indonesia)",
+  "description": "First known victim: Bank Negara Indonesia. ~2 TB of customer data allegedly exfiltrated from the state-owned bank.",
+  "type": "breach"
+ },
+ {
+  "date": "May 22, 2026",
+  "title": "BNI Breach Published",
+  "description": "Triple X publishes BNI breach details. Sample data posted including passports and ID cards.",
+  "type": "disclosure"
+ },
+ {
+  "date": "June 2026",
+  "title": "Triple X Added to WatchGuard Tracker",
+  "description": "Ransomware monitoring services track Triple X as a new active threat group with data broker variant classification.",
+  "type": "intel"
+ },
+ {
+  "date": "July 24, 2026",
+  "title": "Triple X Claims Bank of Baroda Breach",
+  "description": "Group lists BoB on its leak site, claiming ~1 TB of data exfiltrated. Claims 'weak password' as initial access vector.",
+  "type": "breach"
+ },
+ {
+  "date": "July 25, 2026",
+  "title": "BoB Dump Server Goes Live",
+  "description": "Full recursive directory of 15,774+ files published on Tor onion service. CKYC records, VAPT reports, admin credentials, international ops data all exposed.",
+  "type": "disclosure"
+ },
+ {
+  "date": "July 25-26, 2026",
+  "title": "Server Intermittent / Returns Online",
+  "description": "BoB dump server briefly goes offline, then returns. Threat intel community amplifies via X/Twitter. CashlessConsumer verifies dump server.",
+  "type": "infrastructure"
+ },
+ {
+  "date": "July 26, 2026",
+  "title": "Full OSINT Investigation Launched",
+  "description": "CashlessConsumer begins comprehensive crawl (995s, 925 HTTP fetches, 0 errors). 92,347 file entries cataloged across L5 inventory. Deep-dive intelligence report drafted.",
+  "type": "investigation"
+ },
+ {
+  "date": "July 26, 2026",
+  "title": "CBI Legal Docs Confirmed in Dump",
+  "description": "CBI FIR #RC2192025E0004 confirmed among leaked files. Legal notices, customer confirmations, Hitachi vendor docs retrieved (63 MB).",
+  "type": "evidence"
+ },
+ {
+  "date": "July 26, 2026",
+  "title": "Customer PII Exposure Confirmed",
+  "description": "178 MB of KYC data including eKYC dumps, LFAR KYC lists, ReKYC notices, DBT BSBD accounts retrieved from the dump server.",
+  "type": "evidence"
+ },
+ {
+  "date": "July 27, 2026",
+  "title": "bobbreach.cashlessconsumer.in Launched",
+  "description": "Consumer-facing portal launched to help customers check if their branch was impacted and understand next steps.",
+  "type": "response"
+ }
+]

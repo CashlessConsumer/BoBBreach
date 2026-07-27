@@ -1,0 +1,48 @@
+{
+ "total_files_exposed": 92347,
+ "total_directories": 9783,
+ "top_level_branches": 62,
+ "estimated_data_volume_tb": 1.0,
+ "total_bob_ifscs": 9992,
+ "ifscs_resolved": 9991,
+ "cities_with_branches": 248,
+ "exposure_categories": {
+  "AUDIT": 3352,
+  "TRANSACTION": 613,
+  "CUSTOMER_PII": 248,
+  "LOAN": 920,
+  "INTERNATIONAL": 387,
+  "EMPLOYEE": 960,
+  "FINANCIAL": 389,
+  "FRAUD": 39,
+  "KYC": 169,
+  "VAPT": 95,
+  "NETWORK": 162,
+  "CREDENTIAL": 228
+ },
+ "exposure_summary": {
+  "critical": [
+   "Customer KYC/PII (eKYC dumps, CKYC lists) \u2014 178 MB",
+   "CBI Legal Docs (FIR, legal notices) \u2014 63 MB",
+   "VAPT Reports (iOS/Android/Base24/NEFT-RTGS) \u2014 12 reports",
+   "Network Configs (httpd.conf DC+DR, firewall rules)",
+   "Transaction Dumps (IRAC loans, recon data) \u2014 700+ MB pending",
+   "Mobile App Source Code (APK/IPA binaries)",
+   "Database Files (ACCEDB, Finacle configs)",
+   "Network Packet Captures (PCAP files)"
+  ],
+  "high": [
+   "Loan Records (Gold, Home, Personal, NPA)",
+   "Fraud/Mule Account Data \u2014 17 MB",
+   "Server Details & Infrastructure Config",
+   "SIEM Integration Logs",
+   "International Operations (UAE, Botswana, Fiji, Kenya, Guyana)"
+  ],
+  "medium": [
+   "Audit Reports (Concurrent, Zonal, Special Audits)",
+   "Board Governance Documents (Cremon dashboards)",
+   "Insurance Data (Micro insurance, policies)",
+   "RBI Regulatory Filings"
+  ]
+ }
+}

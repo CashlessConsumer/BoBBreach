@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IFSC Branch Check — BoBBreach | CashlessConsumer</title>
+<meta name="description" content="Search Bank of Baroda IFSC codes to check if your branch was impacted by the Triple X data breach. Real-time lookup against breach dataset.">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="canonical" href="https://bobbreach.cashlessconsumer.in/search.html">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── Search Page Hero ── */
+.search-hero { text-align: center; padding: 48px 16px 24px; max-width: var(--maxw); margin: 0 auto; margin-top: 0; }
+.search-hero h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; }
+.search-hero .subtitle { font-size: .95rem; color: var(--muted); max-width: 600px; margin: 0 auto 24px; }
+
+.search-main { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; margin: 0 16px 32px; max-width: var(--maxw); margin-left: auto; margin-right: auto; }
+.search-main .search-box { display: flex; gap: 8px; margin-bottom: 12px; }
+.search-main .search-box input { flex: 1; min-width: 200px; padding: 16px 20px; background: var(--bg); border: 2px solid var(--border); border-radius: 10px; color: var(--fg); font-size: 1.15rem; transition: border-color .15s; }
+.search-main .search-box input:focus { outline: none; border-color: var(--accent); }
+.search-main .search-box button { padding: 16px 32px; background: var(--accent); border: none; border-radius: 10px; color: #fff; font-weight: 700; font-size: 1rem; cursor: pointer; min-height: 52px; }
+.search-main .search-box button:hover { background: var(--accent2); }
+.search-main .hint { font-size: .82rem; color: var(--muted); }
+
+.search-results { margin-top: 20px; }
+.search-result { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.search-result .ifsc { font-family: monospace; color: var(--accent); font-weight: 700; font-size: 1.05rem; }
+.search-result .branch-info { flex: 1; min-width: 0; }
+.search-result .status { font-size: .82rem; font-weight: 700; white-space: nowrap; }
+.status-impacted { color: var(--red); }
+.status-unknown { color: var(--muted); }
+
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; max-width: var(--maxw); margin-left: auto; margin-right: auto; padding: 0 16px; }
+.stat-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; }
+.stat-box .num { font-size: 1.3rem; font-weight: 800; color: var(--fg); }
+.stat-box .label { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .search-hero { padding: 32px 16px 16px; }
+  .search-hero h1 { font-size: 1.4rem; }
+  .search-main { padding: 20px; margin: 0 12px 24px; }
+  .search-main .search-box { flex-direction: column; }
+  .search-main .search-box input { font-size: 16px; min-width: 0; padding: 14px; }
+  .search-main .search-box button { width: 100%; min-height: 48px; }
+  .stats-row { grid-template-columns: repeat(3, 1fr); padding: 0 12px; }
+  .stat-box { padding: 12px 8px; }
+  .stat-box .num { font-size: 1rem; }
+  .search-result { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="search.html" class="active">🔍 IFSC Check</a>
+      <a href="pages/about.html">About</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
+  </div>
+</nav>
+
+<!-- LLM Disclaimer -->
+<div style="background:var(--card);border-bottom:1px solid var(--border);padding:16px;font-size:1rem;line-height:1.7;color:var(--muted)">
+  <div style="max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:1.4rem;flex-shrink:0;margin-top:3px;">🤖</span>
+    <div>
+      <strong style="color:var(--fg);font-size:1.1rem;">LLM-Enabled Investigation — Read This First.</strong><br>
+      The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.
+      <br><br>
+      <strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.
+    </div>
+  </div>
+</div>
+
+<!-- Search Hero -->
+<section class="search-hero" id="overview">
+  <span class="date-badge">🔍 IFSC Branch Check</span>
+  <h1>Was Your Branch Exposed?</h1>
+  <p class="subtitle">Enter your Bank of Baroda IFSC code to search 1,088+ branches with confirmed data exposure in the Triple X dump. Branch data resolved via Razorpay IFSC database (9,992 codes) cross-referenced against the breach inventory.</p>
+</section>
+
+<div class="stats-row">
+  <div class="stat-box"><div class="num" id="statBranches">1,088+</div><div class="label">Branches Impacted</div></div>
+  <div class="stat-box"><div class="num" id="statCities">248</div><div class="label">Cities Affected</div></div>
+  <div class="stat-box"><div class="num" id="statStates">31</div><div class="label">States & UTs</div></div>
+</div>
+
+<!-- Search Main -->
+<div class="search-main">
+  <div class="search-box">
+    <input type="text" id="ifscInput" placeholder="Enter IFSC code (e.g. BARB0VJABCD) or branch name / city..." autocomplete="off" spellcheck="false">
+    <button onclick="searchIFSC()">🔍 Search</button>
+  </div>
+  <div class="hint">Tip: All BoB IFSCs start with <strong>BARB0</strong>. You can also search by city, state, or branch name.</div>
+  <div class="search-results" id="ifscResults">
+    <p style="color:var(--muted);font-size:.9rem;">Enter a query above to search branches with confirmed data exposure.</p>
+  </div>
+</div>
+
+<!-- Risk Guide -->
+<section style="max-width:var(--maxw);margin:0 auto;padding:0 16px 48px;">
+  <div class="card">
+    <h3>Understanding Results</h3>
+    <div class="grid2">
+      <div>
+        <p style="font-size:.88rem;margin-bottom:12px;"><strong style="color:var(--red);">⚠️ EXPOSED</strong><br>Your branch had files in the dump. Risk varies by data type found — from KYC/PII (critical) to operational documents (medium).</p>
+        <p style="font-size:.88rem;"><strong style="color:var(--muted);">❓ NOT FOUND</strong><br>No files from this branch were found. May still be affected — the dump covers the file server, not the core banking system.</p>
+      </div>
+      <div>
+        <h4 style="margin-bottom:8px;">Recommended Actions</h4>
+        <ul style="padding-left:20px;font-size:.85rem;color:var(--muted);">
+          <li>Monitor all BoB account transactions</li>
+          <li>Change net banking password & enable 2FA</li>
+          <li>Freeze credit report (CIBIL, Experian, Equifax)</li>
+          <li>Be alert for phishing targeting leaked data</li>
+          <li><a href="/#consumer">Full consumer guide →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Browse by State</h3>
+    <p style="font-size:.85rem;color:var(--muted);margin-bottom:12px;">Filter impacted branches by state to see the geographic scope of exposure.</p>
+    <div class="filter-bar" id="stateFilters">
+      <button class="filter-btn active" data-state="all">All States</button>
+    </div>
+    <div id="branchList"></div>
+    <p style="margin-top:12px;font-size:.85rem;color:var(--muted);" id="branchCount"></p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>⚠️ BoBBreach</strong> — Bank of Baroda Data Breach Investigation by <a href="https://cashlessconsumer.in">CashlessConsumer</a></p>
+  <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
+  <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
+  <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="pages/about.html">About</a> | <a href="index.html">Home</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ── Branches by State ──
+let branchData = [];
+
+async function loadBranchData() {
+  try {
+    const resp = await fetch('data/branches.min.json');
+    branchData = await resp.json();
+    const cities = new Set(branchData.map(b => b.c));
+    const states = new Set(branchData.map(b => b.s));
+    document.getElementById('statBranches').textContent = branchData.length.toLocaleString();
+    document.getElementById('statCities').textContent = cities.size;
+    document.getElementById('statStates').textContent = states.size;
+    renderStateFilters();
+    renderBranches('all');
+  } catch(e) {
+    console.error('Failed to load branch data:', e);
+    document.getElementById('branchList').innerHTML = '<p style="color:var(--muted);">Branch data could not be loaded. Try again later.</p>';
+  }
+}
+
+function renderStateFilters() {
+  const states = [...new Set(branchData.map(b => b.s))].sort();
+  const bar = document.getElementById('stateFilters');
+  bar.innerHTML = '<button class="filter-btn active" data-state="all">All States</button>';
+  states.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.textContent = `${s} (${branchData.filter(b=>b.s===s).length})`;
+    btn.dataset.state = s;
+    btn.onclick = () => {
+      document.querySelectorAll('#stateFilters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderBranches(s);
+    };
+    bar.appendChild(btn);
+  });
+}
+
+function renderBranches(state) {
+  const list = document.getElementById('branchList');
+  const count = document.getElementById('branchCount');
+  const filtered = state === 'all' ? branchData : branchData.filter(b => b.s === state);
+  list.innerHTML = filtered.map(b => `
+    <div class="search-result">
+      <div class="branch-info">
+        <div class="ifsc">${b.i}</div>
+        <div style="font-size:.85rem;">${b.b}</div>
+        <div style="font-size:.75rem;color:var(--muted);">${b.c}, ${b.s}</div>
+      </div>
+      <span class="status status-impacted">⚠️ EXPOSED</span>
+    </div>
+  `).join('');
+  count.textContent = `Showing ${filtered.length.toLocaleString()} branches with confirmed exposure`;
+}
+
+// ── IFSC Search ──
+function searchIFSC() {
+  const input = document.getElementById('ifscInput');
+  const results = document.getElementById('ifscResults');
+  const query = input.value.trim().toUpperCase();
+
+  if (!query) {
+    results.innerHTML = '<p style="color:var(--muted);font-size:.9rem;">Enter an IFSC code or branch/city name to search.</p>';
+    return;
+  }
+
+  const matched = branchData.filter(b => {
+    const inIFSC = b.i.toUpperCase().includes(query);
+    const inBranch = (b.b || '').toUpperCase().includes(query);
+    const inCity = (b.c || '').toUpperCase().includes(query);
+    const inState = (b.s || '').toUpperCase().includes(query);
+    return inIFSC || inBranch || inCity || inState;
+  });
+
+  if (matched.length === 0) {
+    results.innerHTML = `
+      <div class="search-result">
+        <div class="branch-info">
+          <div>"${query}" not found in our dataset</div>
+          <div style="font-size:.82rem;color:var(--muted);">This IFSC may not correspond to a BoB branch, or data from this branch was not on the compromised file server. Remain vigilant.</div>
+        </div>
+        <span class="status status-unknown">❓ NOT FOUND</span>
+      </div>`;
+    return;
+  }
+
+  if (matched.length > 200) {
+    results.innerHTML = `<p style="color:var(--muted);font-size:.9rem;">${matched.length} results found. Try a more specific query.</p>`;
+    return;
+  }
+
+  results.innerHTML = matched.slice(0, 100).map(b => `
+    <div class="search-result">
+      <div class="branch-info">
+        <div class="ifsc">${b.i}</div>
+        <div style="font-size:.85rem;">${b.b}</div>
+        <div style="font-size:.75rem;color:var(--muted);">${b.c}, ${b.s}</div>
+      </div>
+      <span class="status status-impacted">⚠️ EXPOSED</span>
+    </div>
+  `).join('');
+
+  if (matched.length > 100) {
+    results.innerHTML += `<p style="font-size:.8rem;color:var(--muted);margin-top:8px;">Showing 100 of ${matched.length.toLocaleString()} results. Try a more specific query.</p>`;
+  }
+}
+
+// ── Enter key handler ──
+document.getElementById('ifscInput')?.addEventListener('keydown', e => {
+  if (e.key === 'Enter') searchIFSC();
+});
+
+// ── Init ──
+loadBranchData();
+</script>
+
+</body>
+</html>

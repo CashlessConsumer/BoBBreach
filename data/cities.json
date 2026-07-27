@@ -1,0 +1,997 @@
+{
+ "Adambakkam": [
+  "BARB0ADAMBA"
+ ],
+ "Adilabad": [
+  "BARB0ADILAB"
+ ],
+ "Agra": [
+  "BARB0AGRABS",
+  "BARB0AGRAXX",
+  "BARB0AGRUNI",
+  "BARB0AGSHAH",
+  "BARB0ARTONI"
+ ],
+ "Ahmadabad": [
+  "BARB0ADVALX",
+  "BARB0AKHABA",
+  "BARB0AMBAWA",
+  "BARB0ASARWA",
+  "BARB0ASHAHM",
+  "BARB0ASHRAM",
+  "BARB0ASTODI"
+ ],
+ "Ahmadnagar": [
+  "BARB0AHMEDN",
+  "BARB0AKOLEX",
+  "BARB0AMBIJA"
+ ],
+ "Ahmedabad": [
+  "BARB0ARMAHM",
+  "BARB0BAKBUJ"
+ ],
+ "Ahthibung": [
+  "BARB0AHTHIB"
+ ],
+ "Aizawal": [
+  "BARB0AIZWAL"
+ ],
+ "Ajmer": [
+  "BARB0ADARAJ",
+  "BARB0AJMERX",
+  "BARB0AJMRAJ",
+  "BARB0ARAINX",
+  "BARB0BADAKH"
+ ],
+ "Akola": [
+  "BARB0AKOLAX",
+  "BARB0AKOTBR"
+ ],
+ "Alappuzha": [
+  "BARB0AMBALP",
+  "BARB0AROORX"
+ ],
+ "Alapuzzha": [
+  "BARB0ALLEPP"
+ ],
+ "Aligarh": [
+  "BARB0ALIGAR",
+  "BARB0ATRAUL"
+ ],
+ "Allahabad": [
+  "BARB0ALBANS",
+  "BARB0ALLAHA",
+  "BARB0ALLALL",
+  "BARB0ALLKAT",
+  "BARB0ANDAWA",
+  "BARB0ASHALL",
+  "BARB0BAHALL",
+  "BARB0BAHERI",
+  "BARB0BAIRHA",
+  "BARB0BAJHAX"
+ ],
+ "Almora": [
+  "BARB0ALMORA"
+ ],
+ "Alwar": [
+  "BARB0ALWARX",
+  "BARB0ALWDEL",
+  "BARB0ARAVIH",
+  "BARB0ARYANA"
+ ],
+ "Ambala": [
+  "BARB0AMBALA"
+ ],
+ "Ambedkar Nagar": [
+  "BARB0AKBARP",
+  "BARB0AKLUJX",
+  "BARB0ANAMBE",
+  "BARB0ANWAXX"
+ ],
+ "Amravati": [
+  "BARB0ACHALP",
+  "BARB0AMRAVA"
+ ],
+ "Amreli": [
+  "BARB0AMRAPU",
+  "BARB0AMRELI",
+  "BARB0BABRAX",
+  "BARB0BADHAD",
+  "BARB0BAGASA"
+ ],
+ "Amritsar": [
+  "BARB0AMRITS"
+ ],
+ "Anand": [
+  "BARB0ALARSA",
+  "BARB0AMODAN",
+  "BARB0ANANDX",
+  "BARB0ANASTA",
+  "BARB0ANKLAV",
+  "BARB0BADALP",
+  "BARB0BAKROL"
+ ],
+ "Anantapur": [
+  "BARB0ANAPOL"
+ ],
+ "Angul": [
+  "BARB0ANGULX",
+  "BARB0BADKER"
+ ],
+ "Araria": [
+  "BARB0ARARIA"
+ ],
+ "Arwal": [
+  "BARB0ARWALX"
+ ],
+ "Ashok Nagar": [
+  "BARB0ASHBHO"
+ ],
+ "Atpadi": [
+  "BARB0ATPADI"
+ ],
+ "Atru": [
+  "BARB0ATRUXX"
+ ],
+ "Aurangabad": [
+  "BARB0AURANG"
+ ],
+ "Azamgarh": [
+  "BARB0ANWABS",
+  "BARB0AZAMGA",
+  "BARB0BALAIS"
+ ],
+ "Bagalkote": [
+  "BARB0BAGALK"
+ ],
+ "Bageshwar": [
+  "BARB0BAGESH"
+ ],
+ "Bagpat": [
+  "BARB0BAGHPA"
+ ],
+ "Balaghat": [
+  "BARB0BALBHO"
+ ],
+ "Balasore": [
+  "BARB0BALASO"
+ ],
+ "Ballia": [
+  "BARB0ATARSU",
+  "BARB0BALLUX"
+ ],
+ "Balrampur": [
+  "BARB0BALRAM"
+ ],
+ "Banas Kantha": [
+  "BARB0AMBBAN"
+ ],
+ "Banda": [
+  "BARB0ATARRA",
+  "BARB0BANDXX"
+ ],
+ "Bangalore": [
+  "BARB0ARMBAN"
+ ],
+ "Bangalore Rural": [
+  "BARB0ARADES"
+ ],
+ "Bangalore Urban": [
+  "BARB0AMARJY",
+  "BARB0ANEKAL",
+  "BARB0APMCYA",
+  "BARB0BANASH",
+  "BARB0BANGAL",
+  "BARB0BANGBS"
+ ],
+ "Bankura": [
+  "BARB0AMDANG"
+ ],
+ "Banswara": [
+  "BARB0ADORXX",
+  "BARB0AKEDAX"
+ ],
+ "Baran": [
+  "BARB0ANTAXX"
+ ],
+ "Bardhaman": [
+  "BARB0ASANSO"
+ ],
+ "Bareilly": [
+  "BARB0BALLIA",
+  "BARB0BANBLY"
+ ],
+ "Barmer": [
+  "BARB0BALOTR"
+ ],
+ "Barwani": [
+  "BARB0ANJADX"
+ ],
+ "Beed": [
+  "BARB0AMALNE",
+  "BARB0AMBBHI"
+ ],
+ "Begusarai": [
+  "BARB0BAKHOD"
+ ],
+ "Belagavi": [
+  "BARB0BAILHO"
+ ],
+ "Belgaum": [
+  "BARB0ATHANI"
+ ],
+ "Bhadrak": [
+  "BARB0ADHALP"
+ ],
+ "Bharuch": [
+  "BARB0AMODXX",
+  "BARB0ANKLES",
+  "BARB0ATALIX"
+ ],
+ "Bhavnagar": [
+  "BARB0BAGDAN"
+ ],
+ "Bhilwara": [
+  "BARB0AGOOCH",
+  "BARB0AMARWA",
+  "BARB0ASHAXX",
+  "BARB0ASINDX"
+ ],
+ "Bhojpur": [
+  "BARB0ARRAHX",
+  "BARB0BAKHOR"
+ ],
+ "Bhopal": [
+  "BARB0AIIMSX",
+  "BARB0AIRPOR",
+  "BARB0ARERAC",
+  "BARB0ASHOKA",
+  "BARB0AWADHP",
+  "BARB0AYOBHO",
+  "BARB0BAGHMU",
+  "BARB0BAIRAG"
+ ],
+ "Bijapur": [
+  "BARB0ALMELX"
+ ],
+ "Bikaner": [
+  "BARB0BAJJUX"
+ ],
+ "Budaun": [
+  "BARB0BABRAL",
+  "BARB0BADAUN",
+  "BARB0BAINXX",
+  "BARB0BANAIX"
+ ],
+ "Bulandshahr": [
+  "BARB0AKBABU",
+  "BARB0ANUPSH",
+  "BARB0AUAHIR"
+ ],
+ "Buldhana": [
+  "BARB0ANJABK"
+ ],
+ "Bundi": [
+  "BARB0ALODXX"
+ ],
+ "Burhanpur": [
+  "BARB0BAKADI"
+ ],
+ "Champawat": [
+  "BARB0BANBAS"
+ ],
+ "Chandigarh": [
+  "BARB0AGRCHA",
+  "BARB0ARMCHD"
+ ],
+ "Chandrapur": [
+  "BARB0BALLAR"
+ ],
+ "Chennai": [
+  "BARB0AAMBUR",
+  "BARB0ADAYAR",
+  "BARB0ALWARP",
+  "BARB0AMBATT",
+  "BARB0ARMMAS",
+  "BARB0ARUMBA",
+  "BARB0AYANAV"
+ ],
+ "Chittaurgarh": [
+  "BARB0ARNODA",
+  "BARB0ARNODX",
+  "BARB0BADISA"
+ ],
+ "Chittoor": [
+  "BARB0AIRTPT"
+ ],
+ "Coimbatore": [
+  "BARB0ANNURX",
+  "BARB0ANUPPA",
+  "BARB0AVINAS"
+ ],
+ "Cuddalore": [
+  "BARB0ANGUCH"
+ ],
+ "Cuddapah": [
+  "BARB0BADVEL"
+ ],
+ "Cuttack": [
+  "BARB0ABRSUR",
+  "BARB0ANCHHA",
+  "BARB0ARMCUT",
+  "BARB0ATHAGA"
+ ],
+ "Dahod": [
+  "BARB0BANDIB"
+ ],
+ "Dakshin Dinajpur": [
+  "BARB0BALURG"
+ ],
+ "Dangs": [
+  "BARB0AHWAXX"
+ ],
+ "Dausa": [
+  "BARB0BALSAW",
+  "BARB0BANDIK"
+ ],
+ "Dehradun": [
+  "BARB0AJABPU",
+  "BARB0ARHATB"
+ ],
+ "Delhi": [
+  "BARB0ALIDEL",
+  "BARB0ASAFAL"
+ ],
+ "Delhi Metro Region - Ii": [
+  "BARB0AFCDEL"
+ ],
+ "Deoghar": [
+  "BARB0AIMDEO"
+ ],
+ "Dewas": [
+  "BARB0ASHTAX",
+  "BARB0BAGLIX"
+ ],
+ "Dhanbad": [
+  "BARB0BALIAP"
+ ],
+ "Dhar": [
+  "BARB0BADNAW"
+ ],
+ "Dholpur": [
+  "BARB0BADIXX"
+ ],
+ "Dungarpur": [
+  "BARB0ASPURX",
+  "BARB0BALWAD"
+ ],
+ "Durg": [
+  "BARB0AMLESH",
+  "BARB0BALODX"
+ ],
+ "East Godavari": [
+  "BARB0AMALAP",
+  "BARB0APPANA"
+ ],
+ "Ernakulam": [
+  "BARB0ALWAYE",
+  "BARB0ANGAMA"
+ ],
+ "Faizabad": [
+  "BARB0ANJANA",
+  "BARB0ARVATX",
+  "BARB0AYODHY"
+ ],
+ "Farrukhabad": [
+  "BARB0AMEJAD"
+ ],
+ "Fatehgarh Sahib": [
+  "BARB0AMLOHX"
+ ],
+ "Fatehpur": [
+  "BARB0AMAULI",
+  "BARB0ASOTHA",
+  "BARB0BAKEWA"
+ ],
+ "Ferozepur": [
+  "BARB0ABOHAR"
+ ],
+ "Gandhinagar": [
+  "BARB0ADALAJ",
+  "BARB0AMBICA",
+  "BARB0ATLADA"
+ ],
+ "Ganganagar": [
+  "BARB0ANUPGA"
+ ],
+ "Ganjam": [
+  "BARB0BADABA"
+ ],
+ "Gaya": [
+  "BARB0ALIGAY"
+ ],
+ "Ghaziabad": [
+  "BARB0ABHAYK"
+ ],
+ "Greater Bombay": [
+  "BARB0AMBEAS",
+  "BARB0AMBOLI",
+  "BARB0ANDEAS"
+ ],
+ "Greater Mumbai": [
+  "BARB0AIROLI",
+  "BARB0AKURLI",
+  "BARB0ALTAMO",
+  "BARB0AMBARN",
+  "BARB0ANDHER",
+  "BARB0BACKBA",
+  "BARB0BALBOM",
+  "BARB0BANDRA",
+  "BARB0BANEAS"
+ ],
+ "Guntur": [
+  "BARB0AMAGUN",
+  "BARB0ANGALA"
+ ],
+ "Gurgaon": [
+  "BARB0BADSHA"
+ ],
+ "Hardoi": [
+  "BARB0BALAMA"
+ ],
+ "Haridwar": [
+  "BARB0BAHADR"
+ ],
+ "Hisar": [
+  "BARB0ADAHIS"
+ ],
+ "Hoshangabad": [
+  "BARB0ANCHAL"
+ ],
+ "Howrah": [
+  "BARB0ANTBAG",
+  "BARB0AUNDUL",
+  "BARB0BAGNAN",
+  "BARB0BAINAN",
+  "BARB0BAKSHI"
+ ],
+ "Hugli": [
+  "BARB0ARAMBA",
+  "BARB0BANDEL"
+ ],
+ "Hyderabad": [
+  "BARB0ARMHYD",
+  "BARB0BANHIL"
+ ],
+ "Hyderabad Urban": [
+  "BARB0ADAHYD",
+  "BARB0AGRHYD",
+  "BARB0ASRAON",
+  "BARB0ATTAPU"
+ ],
+ "Indore": [
+  "BARB0AERODR",
+  "BARB0ANNAPU"
+ ],
+ "Jabalpur": [
+  "BARB0ADAJAB",
+  "BARB0ARMBJA"
+ ],
+ "Jagatsinghpur": [
+  "BARB0ATHARB"
+ ],
+ "Jaipur": [
+  "BARB0ADARSH",
+  "BARB0AIRPLA",
+  "BARB0AKSHYA",
+  "BARB0AMEJAI",
+  "BARB0ARMJAI",
+  "BARB0BAGJAI",
+  "BARB0BAGRAN"
+ ],
+ "Jalandhar": [
+  "BARB0ADAMPU"
+ ],
+ "Jalaun": [
+  "BARB0AITJAL"
+ ],
+ "Jalgaon": [
+  "BARB0BAMBRU"
+ ],
+ "Jalpaiguri": [
+  "BARB0ALIJAL"
+ ],
+ "Jamnagar": [
+  "BARB0ALIYAB",
+  "BARB0ANGIYA"
+ ],
+ "Janjgir-Champa": [
+  "BARB0AKALTA"
+ ],
+ "Jaunpur": [
+  "BARB0BADJAU"
+ ],
+ "Jhabua": [
+  "BARB0ALIRAJ",
+  "BARB0BAMANI"
+ ],
+ "Jhajjar": [
+  "BARB0BAHADU"
+ ],
+ "Jhalawar": [
+  "BARB0AKLERA"
+ ],
+ "Jhansi": [
+  "BARB0AANTIY"
+ ],
+ "Jhunjhunu": [
+  "BARB0ALSISA",
+  "BARB0BAGARX",
+  "BARB0BALODA"
+ ],
+ "Jodhpur": [
+  "BARB0BALESA"
+ ],
+ "Junagadh": [
+  "BARB0AMRJUN",
+  "BARB0ANJARX",
+  "BARB0BAGADU"
+ ],
+ "Kachchh": [
+  "BARB0ADIPUR"
+ ],
+ "Kamrup": [
+  "BARB0AMBARI",
+  "BARB0ATROAD",
+  "BARB0BAMUNI"
+ ],
+ "Kamrup Metropolitan": [
+  "BARB0AMINGA"
+ ],
+ "Kannur": [
+  "BARB0ALAKOD"
+ ],
+ "Kanpur City": [
+  "BARB0AMILIH",
+  "BARB0ASADHA",
+  "BARB0ASVIXX",
+  "BARB0AZADNA",
+  "BARB0BAKARG"
+ ],
+ "Kanpur Dehat": [
+  "BARB0AKBKAN",
+  "BARB0AURONT"
+ ],
+ "Kanpur Nagar": [
+  "BARB0ANWARG",
+  "BARB0BAGDOD"
+ ],
+ "Karauli": [
+  "BARB0BALAGH"
+ ],
+ "Karnal": [
+  "BARB0ASANDH"
+ ],
+ "Karur": [
+  "BARB0ARAVAK"
+ ],
+ "Kasaragod": [
+  "BARB0ADOORX"
+ ],
+ "Kaushambi": [
+  "BARB0AFZALP",
+  "BARB0AJUHAB",
+  "BARB0ALKADA",
+  "BARB0ASHADH",
+  "BARB0BAIRAA",
+  "BARB0BAIRAM"
+ ],
+ "Keonjhar": [
+  "BARB0ANANDA"
+ ],
+ "Khagaria": [
+  "BARB0AMBAIC"
+ ],
+ "Khammam Dist": [
+  "BARB0BALLEP"
+ ],
+ "Kheda": [
+  "BARB0ALINDR",
+  "BARB0ANARAX",
+  "BARB0ANTISA",
+  "BARB0BALASI",
+  "BARB0BAMROL"
+ ],
+ "Kishanganj": [
+  "BARB0ALTAKA"
+ ],
+ "Kolar": [
+  "BARB0ALIKOL"
+ ],
+ "Kolhapur": [
+  "BARB0ATIGRE"
+ ],
+ "Kolkata": [
+  "BARB0ALICAL",
+  "BARB0ARMCAL",
+  "BARB0AROBIN",
+  "BARB0BAGBAZ",
+  "BARB0BAGHAJ",
+  "BARB0BAGUIA",
+  "BARB0BAISHN",
+  "BARB0BALLYG",
+  "BARB0BANGUR"
+ ],
+ "Koriya": [
+  "BARB0BAIKUN"
+ ],
+ "Kozhikode": [
+  "BARB0BALUSS"
+ ],
+ "Kurnool": [
+  "BARB0ADONIX"
+ ],
+ "Kutch": [
+  "BARB0BALADI"
+ ],
+ "Lucknow": [
+  "BARB0AISHBA",
+  "BARB0AMINAB",
+  "BARB0ARJUNG",
+  "BARB0AVALUC",
+  "BARB0BAKLUC"
+ ],
+ "Ludhiana": [
+  "BARB0BAHLUD"
+ ],
+ "Madurai": [
+  "BARB0ANNANA"
+ ],
+ "Maharajganj": [
+  "BARB0ANAMAH"
+ ],
+ "Mahasamund": [
+  "BARB0BAGBAH"
+ ],
+ "Mahesana": [
+  "BARB0AMBLIA"
+ ],
+ "Mainpuri": [
+  "BARB0AUDENP"
+ ],
+ "Mathura": [
+  "BARB0AJHAIX"
+ ],
+ "Mirzapur": [
+  "BARB0AHRABS"
+ ],
+ "Moradabad": [
+  "BARB0ASHIYA"
+ ],
+ "Mumbai": [
+  "BARB0ARMBOM",
+  "BARB0ASHOKV"
+ ],
+ "Mumbai Suburban": [
+  "BARB0BAEAST"
+ ],
+ "Murshidabad": [
+  "BARB0AMARKU",
+  "BARB0BALUMA"
+ ],
+ "Muzaffarnagar": [
+  "BARB0AZROAD",
+  "BARB0BAMANH"
+ ],
+ "Muzaffarpur": [
+  "BARB0AKHARA",
+  "BARB0BALTHI"
+ ],
+ "Nagpur": [
+  "BARB0AMBAZA",
+  "BARB0ANANTN"
+ ],
+ "Nainital": [
+  "BARB0AZAHAL"
+ ],
+ "Nashik": [
+  "BARB0ANDERS"
+ ],
+ "Navansahar": [
+  "BARB0BANGAX"
+ ],
+ "Navsari": [
+  "BARB0ABRAMA",
+  "BARB0ADADAX",
+  "BARB0ALIPOR",
+  "BARB0AMADHA",
+  "BARB0AMALSA",
+  "BARB0ANTALI",
+  "BARB0ASHTAG",
+  "BARB0ATNAVS"
+ ],
+ "Nayagarh": [
+  "BARB0BANAMA"
+ ],
+ "New Delhi": [
+  "BARB0ARMDEL"
+ ],
+ "Nizamabad": [
+  "BARB0ARMOOR"
+ ],
+ "North 24 Parganas": [
+  "BARB0AIRKOL"
+ ],
+ "North Goa": [
+  "BARB0ALDONA",
+  "BARB0ANJUNA"
+ ],
+ "Palakkad": [
+  "BARB0ALATHU"
+ ],
+ "Panch Mahals": [
+  "BARB0AMBALI",
+  "BARB0ARALXX",
+  "BARB0BAKPAN",
+  "BARB0BAKROP",
+  "BARB0BAMGOD"
+ ],
+ "Paschimi Champaran": [
+  "BARB0BAGAHA"
+ ],
+ "Patan": [
+  "BARB0AGHARX",
+  "BARB0BALISA"
+ ],
+ "Patna": [
+  "BARB0AGCPAT",
+  "BARB0ASHPAT",
+  "BARB0BAHPAT",
+  "BARB0BAKHTI"
+ ],
+ "Perambalur": [
+  "BARB0ARIYAL"
+ ],
+ "Pilibhit": [
+  "BARB0AMERIA",
+  "BARB0AMRITA"
+ ],
+ "Prakasam": [
+  "BARB0ADDANK"
+ ],
+ "Pratapgarh": [
+  "BARB0AJHARA",
+  "BARB0ANTUXX",
+  "BARB0ASPURD"
+ ],
+ "Prayagraj": [
+  "BARB0ARMALL"
+ ],
+ "Pudukkottai": [
+  "BARB0ARANTH"
+ ],
+ "Pune": [
+  "BARB0AGRPUN",
+  "BARB0AKURDI",
+  "BARB0AMANOR",
+  "BARB0ANJANN",
+  "BARB0ARMPUN",
+  "BARB0ASHOKN",
+  "BARB0AUNDHX",
+  "BARB0AVASAR"
+ ],
+ "Purbi Champaran": [
+  "BARB0ARERAX"
+ ],
+ "Puri": [
+  "BARB0ABADAN",
+  "BARB0BALIDU"
+ ],
+ "Purnea": [
+  "BARB0BAGHMA"
+ ],
+ "Purnia": [
+  "BARB0BAHORA"
+ ],
+ "Puruliya": [
+  "BARB0BAMUND"
+ ],
+ "Rae Bareli": [
+  "BARB0BACHHR",
+  "BARB0BAHLUC"
+ ],
+ "Rai Bareli": [
+  "BARB0ATARHA",
+  "BARB0BAHAIX",
+  "BARB0BAINTI"
+ ],
+ "Raigad": [
+  "BARB0ALIBAG"
+ ],
+ "Raipur": [
+  "BARB0ABHANP",
+  "BARB0ARANGX",
+  "BARB0AVANTI",
+  "BARB0BALBAZ"
+ ],
+ "Rajkot": [
+  "BARB0AJIRAJ",
+  "BARB0AMARNA"
+ ],
+ "Rajsamand": [
+  "BARB0AMETXX"
+ ],
+ "Ranchi": [
+  "BARB0ARGORA"
+ ],
+ "Rangareddy": [
+  "BARB0ALWALX"
+ ],
+ "Ranipet": [
+  "BARB0ARAKKO"
+ ],
+ "Ratlam": [
+  "BARB0ALOTXX"
+ ],
+ "Sabar Kantha": [
+  "BARB0ARODAX"
+ ],
+ "Salem": [
+  "BARB0ATTURX"
+ ],
+ "Sant Ravidas Nagar": [
+  "BARB0AURAIX"
+ ],
+ "Saraikela-Kharsawan": [
+  "BARB0ADITYA"
+ ],
+ "Sas Nagar Mohali": [
+  "BARB0AEROCI"
+ ],
+ "Satara": [
+  "BARB0ARVISA",
+  "BARB0BAMNOL"
+ ],
+ "Sawai Madhopur": [
+  "BARB0BAHRAW",
+  "BARB0BALERX",
+  "BARB0BAMANB"
+ ],
+ "Shahjahanpur": [
+  "BARB0AKARRA",
+  "BARB0ALLAHG",
+  "BARB0AURSHA",
+  "BARB0BAJHER",
+  "BARB0BANDAX"
+ ],
+ "Shajapur": [
+  "BARB0AGARXX"
+ ],
+ "Sheohar": [
+  "BARB0ADAURI",
+  "BARB0AMBAKA"
+ ],
+ "Sirohi": [
+  "BARB0ABROAD",
+  "BARB0ABUXXX"
+ ],
+ "Sitamarhi": [
+  "BARB0BACHAR"
+ ],
+ "Solan": [
+  "BARB0BADDIX"
+ ],
+ "Sonbhadra": [
+  "BARB0ANPABS"
+ ],
+ "South 24 Parganas": [
+  "BARB0AMTALA",
+  "BARB0BAKRAH"
+ ],
+ "South Goa": [
+  "BARB0AMBELI"
+ ],
+ "Sultanpur": [
+  "BARB0AIDHIX",
+  "BARB0ALIGAN",
+  "BARB0AMETHI",
+  "BARB0BADHMA",
+  "BARB0BAHURA",
+  "BARB0BANDHU",
+  "BARB0BANGAW"
+ ],
+ "Surat": [
+  "BARB0AMBAJI",
+  "BARB0AMBHET",
+  "BARB0AMROLI",
+  "BARB0ANAVAL",
+  "BARB0ARETHX",
+  "BARB0ATHWAL",
+  "BARB0BALESH",
+  "BARB0BAMSUR",
+  "BARB0BANDHA"
+ ],
+ "Surendranagar": [
+  "BARB0BALDAN"
+ ],
+ "Surguja": [
+  "BARB0AMBIKA",
+  "BARB0AMBRAI"
+ ],
+ "Thane": [
+  "BARB0BADLAP"
+ ],
+ "Thiruvallur": [
+  "BARB0AVADIX"
+ ],
+ "Thiruvananthapuram": [
+  "BARB0ALAMCO",
+  "BARB0AMBTRI"
+ ],
+ "Thrissur": [
+  "BARB0ASHTAM"
+ ],
+ "Tiruvannamalai": [
+  "BARB0AARANI"
+ ],
+ "Tonk": [
+  "BARB0ALIKOT",
+  "BARB0BADAKU",
+  "BARB0BAGRIX",
+  "BARB0BANETH"
+ ],
+ "Udaipur": [
+  "BARB0AMBAMA"
+ ],
+ "Ujjain": [
+  "BARB0BADNAG"
+ ],
+ "Vadodara": [
+  "BARB0AKOTAX",
+  "BARB0ALIBAR",
+  "BARB0ALKAPU",
+  "BARB0AMBADA",
+  "BARB0ANAGAD",
+  "BARB0ANANDI",
+  "BARB0ARMSGZ",
+  "BARB0ASOJXX",
+  "BARB0ATMAJY",
+  "BARB0BAHADA",
+  "BARB0BAJWAX"
+ ],
+ "Vaishali": [
+  "BARB0AGRHAJ"
+ ],
+ "Valsad": [
+  "BARB0ABRBUL"
+ ],
+ "Varanasi": [
+  "BARB0AMARAK",
+  "BARB0BAIRWA"
+ ],
+ "Vellore": [
+  "BARB0ALANGA"
+ ],
+ "Villupuram": [
+  "BARB0ANATHU",
+  "BARB0ARASUR"
+ ],
+ "Virudhunagar": [
+  "BARB0ARUPPU"
+ ],
+ "Vishakhapatnam": [
+  "BARB0AKKAYY",
+  "BARB0ANAKAP",
+  "BARB0ASILME"
+ ],
+ "Wardha": [
+  "BARB0ARVIXX"
+ ],
+ "West Godavari": [
+  "BARB0AKIVEE",
+  "BARB0ARIKIR"
+ ],
+ "West Tripura": [
+  "BARB0AGARTA"
+ ]
+}

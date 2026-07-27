@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoBBreach — Bank of Baroda Data Breach Investigation | CashlessConsumer</title>
+<meta name="description" content="Indicative analysis of files exposed in the Bank of Baroda data breach by Triple X ransomware group. Check your branch, understand the impact, and protect yourself.">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="canonical" href="https://bobbreach.cashlessconsumer.in/">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+    <div class="links" id="navLinks">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#breach">The Breach</a>
+      <a href="#data">Data Exposed</a>
+      <a href="#actor">Threat Actor</a>
+      <a href="search.html">🔍 Branches</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#consumer">Guide</a>
+      <a href="pages/about.html">About</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
+  </div>
+</nav>
+
+<!-- ═══ LLM-Ethics Disclaimer ═══ -->
+<div style="background:var(--card);border-bottom:1px solid var(--border);padding:16px;font-size:1rem;line-height:1.7;color:var(--muted)">
+  <div style="max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:1.4rem;flex-shrink:0;margin-top:3px;">🤖</span>
+    <div>
+      <strong style="color:var(--fg);font-size:1.1rem;">LLM-Enabled Investigation — Read This First.</strong><br>
+      The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.
+      <br><br>
+      <strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="overview">
+  <span class="date-badge">🔴 July 27, 2026 — Ongoing Investigation</span>
+  <h1>Your Data Was in the BoB Breach.<br><span>Here's What We Found.</span></h1>
+  <!-- CTA INSERT --> <p class="subtitle">On July 24, 2026, the Triple X ransomware group claimed to have exfiltrated 1 TB of data from India's second-largest public sector bank. The full dump is publicly accessible on Tor with <strong>over 92,000 files</strong> observed — including customer KYC, security reports, and internal audit documents. <em>These are indicative numbers from initial ongoing analysis.</em></p>
+  <a href="#breach" class="cta">→ Understand the Breach</a>
+  <a href="search.html" class="cta" style="background:var(--bg2);color:var(--fg);margin-left:12px;">🔍 Check Your Branch</a>
+  <div class="stats">
+    <div class="stat-card"><div class="num">92K+</div><div class="label">Files Observed</div></div>
+    <div class="stat-card"><div class="num">9,783</div><div class="label">Directories</div></div>
+    <div class="stat-card"><div class="num">62</div><div class="label">Top-Level Branches</div></div>
+    <div class="stat-card"><div class="num">1,088+</div><div class="label">Branches Impacted</div></div>
+    <div class="stat-card"><div class="num">~1 TB</div><div class="label">Data Volume</div></div>
+  </div>
+</section>
+
+<!-- Section Navigation -->
+<div class="section-nav">
+  <a href="#breach">📋 What Happened</a>
+  <a href="#data">📂 Exposed Data</a>
+  <a href="#actor">🕵️ Threat Actor</a>
+  <a href="search.html">🔍 Check Your Branch</a>
+  <a href="#timeline">📅 Timeline</a>
+  <a href="#consumer">🛡️ Consumer Guide</a>
+</div>
+
+<!-- 1. The Breach - 101 Explainer -->
+<section class="anchor" id="breach">
+  <h2>📋 What Happened <span class="sub">A plain-English explainer of the Bank of Baroda data breach</span></h2>
+  <div class="alert alert-red"><strong>🔴 Bottom Line:</strong> If you're a Bank of Baroda customer, your personal information — including KYC documents, account details, and loan records — may have been exposed. Here's what you need to know.</div>
+
+  <div class="card">
+    <h3>What is this breach?</h3>
+    <p>On July 24, 2026, a ransomware group called <strong>Triple X</strong> claimed to have broken into Bank of Baroda's internal systems and stolen massive amounts of data. The group published the stolen data on the dark web (Tor network) — completely accessible to anyone, with no password required.</p>
+    <p>The investigation by CashlessConsumer confirmed <strong>over 92,000 files</strong> across <strong>9,783 directories</strong> are visible in the publicly available dump. The data comes from what appears to be Bank of Baroda's internal SharePoint / file-sharing system — not directly from the core banking database (Finacle), but enough to cause serious harm.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>How did it happen?</h3>
+      <p>According to Triple X's announcement, the breach was enabled by a <strong>"weak password"</strong>. The attackers likely:</p>
+      <ol style="padding-left:20px;color:var(--muted);">
+        <li>Gained initial access through compromised credentials</li>
+        <li>Moved laterally through Bank of Baroda's internal network</li>
+        <li>Reached the SharePoint / file server infrastructure</li>
+        <li>Exfiltrated <strong>~1 TB</strong> of documents over an extended period</li>
+        <li>Published everything publicly</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>What data was stolen?</h3>
+      <p>The dump covers nearly every aspect of the bank's operations:</p>
+      <ul style="padding-left:20px;color:var(--muted);">
+        <li><strong>Customer KYC</strong> — eKYC dumps, CKYC lists, ReKYC notices (178 MB)</li>
+        <li><strong>Legal & Audit Docs</strong> — Legal notices, audit reports, compliance docs (63 MB)</li>
+        <li><strong>Loan Records</strong> — Gold loans, home loans, NPAs, IRAC data</li>
+        <li><strong>VAPT Reports</strong> — Security vulnerability reports (iOS, Android, NEFT-RTGS)</li>
+        <li><strong>Network Configs</strong> — httpd.conf (DC+DR), firewall rules, VPN configs</li>
+        <li><strong>Employee Workspaces</strong> — Named employee directories with personal files</li>
+        <li><strong>International Ops</strong> — UAE, Botswana, Fiji, Kenya, Guyana, Uganda branches</li>
+        <li><strong>Transaction Data</strong> — IRAC loan dumps, reconciliation data, MAU transactions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Who is affected?</h3>
+    <p><strong>Virtually all Bank of Baroda customers</strong> are potentially affected. The compromised file server covered operations across <strong>62 top-level branches</strong> including zones and regions spanning all of India and 12+ international locations. Customer data was found in KYC lists, transaction dumps, loan files, and audit documents — meaning if you've had any relationship with BoB, your data may be in the dump.</p>
+  </div>
+
+  <div class="alert alert-yellow"><strong>⚡ Important:</strong> The dump does NOT appear to include direct access to Finacle (core banking system), so account passwords and sensitive transaction credentials may not be directly exposed. However, the KYC data (Aadhaar, PAN, photos) and loan documents are sufficient for identity theft and social engineering attacks.</div>
+</section>
+
+<!-- 2. Data Exposed -->
+<section class="anchor" id="data">
+  <h2>📂 What Data Was Exposed <span class="sub">Indicative counts from initial ongoing analysis — for illustrative purposes only, not comprehensive</span></h2>
+
+  <div class="alert alert-red"><strong>🔴 Critical:</strong> Approximately 242 MB of high-signal files identified through directory listing analysis. ~4.1 GB more observed across the full dump. <em>These are preliminary numbers from ongoing analysis.</em></div>
+
+  <div class="exposure-grid" id="exposureGrid">
+    <!-- Filled by JS -->
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <h3>Critical Evidence Identified in Dump</h3>
+    <div class="grid2">
+      <div>
+        <h4 style="color:var(--red);margin-bottom:8px;">🔴 Legal & Audit Documents</h4>
+        <p style="font-size:.85rem;">Legal notices, customer confirmation documents, audit findings, and vendor correspondence are present in the dump. These expose internal legal processes and third-party contract details.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--red);margin-bottom:8px;">🔴 Customer PII (KYC)</h4>
+        <p style="font-size:.85rem;">Full eKYC dumps (53.8 MB), customer KYC lists (45.9 MB), ReKYC test data (35.8 MB), and DBT BSBD accounts due for ReKYC (26 MB). These contain Aadhaar numbers, PAN cards, photographs, and address proofs.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--red);margin-bottom:8px;">🔴 VAPT / Security Reports</h4>
+        <p style="font-size:.85rem;">Security vulnerability reports for Bob World mobile app (iOS 3.7.1/3.7.2, Android), Base24, BBPS API, NEFT-RTGS, and international banking platforms (Uganda, Guyana). This gives attackers a complete map of the bank's security weaknesses.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--red);margin-bottom:8px;">🔴 Infrastructure Configs</h4>
+        <p style="font-size:.85rem;">File names reveal Apache httpd.conf files (Data Center + Disaster Recovery), server configuration details, backup policies, SIEM integration logs, technical architecture manuals, and threat model documents. Network packet capture (PCAP) files also visible in directory listing.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>File Types Breakdown</h3>
+    <p style="font-size:.85rem;">The most common file types in the dump:</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px;">
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">PDF</strong><br><span style="font-size:.8rem;color:var(--muted);">13,678 files (86.7%)</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">XLSX/XLS</strong><br><span style="font-size:.8rem;color:var(--muted);">993 files</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">ZIP/7z</strong><br><span style="font-size:.8rem;color:var(--muted);">436 archives</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">JPG/PNG</strong><br><span style="font-size:.8rem;color:var(--muted);">601 images</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">APK/IPA</strong><br><span style="font-size:.8rem;color:var(--muted);">23 mobile binaries</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">DB/ACCDB</strong><br><span style="font-size:.8rem;color:var(--muted);">17 database files</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">PCAP</strong><br><span style="font-size:.8rem;color:var(--muted);">2 network captures</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">E codes, WSDL, CERT</strong><br><span style="font-size:.8rem;color:var(--muted);">5+ enterprise archives</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Threat Actor -->
+<section class="anchor" id="actor">
+  <h2>🕵️ Threat Actor: Triple X <span class="sub">Profile of the ransomware group behind the Bank of Baroda breach</span></h2>
+
+  <div class="alert alert-yellow"><strong>⚡ Assessment:</strong> Triple X is a <strong>new, financially motivated criminal group</strong> with specialised skill in targeting large Asian banks. First observed May 2026. Only 2 confirmed victims (BNI Indonesia, BoB India) in ~2.5 months.</div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>Group Profile</h3>
+      <table style="width:100%;font-size:.85rem;border-collapse:collapse;">
+        <tr><td style="padding:6px 0;color:var(--muted);">Name</td><td style="padding:6px 0;font-weight:600;">Triple X (TripleX, TX)</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">Type</td><td style="padding:6px 0;border-top:1px solid var(--border);">Ransomware-as-a-Service / Data extortion</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">First Seen</td><td style="padding:6px 0;border-top:1px solid var(--border);">~May 1-10, 2026</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">Leak Site</td><td style="padding:6px 0;border-top:1px solid var(--border);">Tor onion service (no auth)</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">Victims</td><td style="padding:6px 0;border-top:1px solid var(--border);">BNI (Indonesia), Bank of Baroda (India)</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">Target Sector</td><td style="padding:6px 0;border-top:1px solid var(--border);">Financial services (state-owned banks)</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">Geographic Focus</td><td style="padding:6px 0;border-top:1px solid var(--border);">Asia-Pacific (Indonesia, India)</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);border-top:1px solid var(--border);">M.O.</td><td style="padding:6px 0;border-top:1px solid var(--border);">Double extortion + public leak + full dump access</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>Modus Operandi</h3>
+      <ol style="padding-left:20px;color:var(--muted);">
+        <li><strong>Initial Access:</strong> Weak/compromised credentials (possibly VPN or RDP)</li>
+        <li><strong>Lateral Movement:</strong> Harvested Windows domain credentials, moved through SharePoint/file server infrastructure</li>
+        <li><strong>Exfiltration:</strong> ~1 TB of data using rclone or similar tool (detectable but not stopped)</li>
+        <li><strong>Encryption:</strong> Double extortion — encrypt victim data + threaten public release</li>
+        <li><strong>Leak:</strong> Full directory listing published on Tor — no paywall, no staged release</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Known Attack Timeline</h3>
+    <table style="width:100%;font-size:.85rem;border-collapse:collapse;">
+      <tr><th style="text-align:left;padding:8px 0;border-bottom:1px solid var(--border);color:var(--fg);">Date</th><th style="text-align:left;padding:8px 0;border-bottom:1px solid var(--border);color:var(--fg);">Event</th></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);">May 2026</td><td style="padding:8px 0;border-bottom:1px solid var(--border);">Triple X first observed / establishes leak infrastructure</td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);">May 11, 2026</td><td style="padding:8px 0;border-bottom:1px solid var(--border);">Claims breach of Bank Negara Indonesia (BNI) — ~2 TB data</td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);">June 2026</td><td style="padding:8px 0;border-bottom:1px solid var(--border);">Added to WatchGuard ransomware tracker as "data broker variant"</td></tr>
+      <tr><td style="padding:8px 0;border-bottom:1px solid var(--border);color:var(--muted);">July 24, 2026</td><td style="padding:8px 0;border-bottom:1px solid var(--border);">Claims Bank of Baroda breach — ~1 TB, "weak password" attribution</td></tr>
+      <tr><td style="padding:8px 0;color:var(--muted);">July 25-26, 2026</td><td style="padding:8px 0;">Full BoB dump publicly accessible on Tor — verified by CashlessConsumer</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Attribution & Open Questions</h3>
+    <p><strong>Confidence:</strong> Low-to-Moderate. Triple X is very new with only 2 confirmed victims. No known ties to established ransomware families, state actors, or prior criminal groups.</p>
+    <p style="margin-top:8px;"><strong>Key unknowns:</strong> Is the "weak password" claim accurate? Does Triple X operate purely for profit or is there a geopolitical dimension? Are they a new independent group or a rebrand of an existing actor?</p>
+  </div>
+</section>
+
+<!-- 4. Branch CTA Section -->
+<section class="anchor" id="branches">
+  <h2>🔍 Was Your Branch in the Breach? <span class="sub">Check IFSC code, search branch name or city — see if your BoB branch was hit</span></h2>
+
+  <div class="card" style="text-align:center;padding:40px 24px;">
+    <div style="font-size:3rem;margin-bottom:12px;">🏦</div>
+    <h3 style="font-size:1.3rem;margin-bottom:8px;">1,088+ Branches Impacted Across 31 States & UTs</h3>
+    <p style="font-size:.95rem;color:var(--muted);max-width:500px;margin:0 auto 20px;">
+      We cross-referenced the Tor dump directory listing against 9,992 BoB IFSC codes. Search your branch to see if customer data, KYC documents, or internal files from it were exposed.
+    </p>
+    <a href="search.html" class="cta" style="font-size:1.05rem;padding:14px 36px;">🔍 Check Your Branch Now</a>
+    <p style="font-size:.82rem;color:var(--muted);margin-top:12px;">Search by IFSC (e.g. BARB0VJABCD), branch name, or city</p>
+  </div>
+</section>
+
+<!-- 5. Timeline -->
+<section class="anchor" id="timeline">
+  <h2>📅 Breach Timeline <span class="sub">From Triple X's emergence to full public disclosure — a chronological account</span></h2>
+
+  <div class="timeline" id="timelineList">
+    <!-- Filled by JS -->
+  </div>
+</section>
+
+<!-- 6. Consumer Guide -->
+<section class="anchor" id="consumer">
+  <h2>🛡️ Consumer Protection Guide <span class="sub">What to do if you're a Bank of Baroda customer</span></h2>
+
+  <div class="alert alert-red"><strong>🔴 Take action now.</strong> If you have an account with Bank of Baroda, assume your personal data has been exposed. Here's your action plan:</div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>✅ Immediate Steps</h3>
+      <ul class="checklist">
+        <li><strong>Check your branch</strong> using <a href="search.html">the IFSC search tool</a> to see if your branch was in the dump</li>
+        <li><strong>Enable transaction alerts</strong> on all BoB accounts — SMS and email for every debit/credit</li>
+        <li><strong>Change your net banking password</strong> and enable 2-factor authentication</li>
+        <li><strong>Update your bob World app PIN</strong> and ensure you're running the latest version</li>
+        <li><strong>Review recent transactions</strong> for any unauthorised activity — report immediately if found</li>
+        <li><strong>Freeze your credit report</strong> with credit bureaus (CIBIL, Experian, Equifax) to prevent new account fraud</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📞 Who to Contact</h3>
+      <ul style="list-style:none;">
+        <li style="padding:8px 0;border-bottom:1px solid var(--border);">
+          <strong>Bank of Baroda Helpline</strong><br>
+          <span style="font-size:.85rem;color:var(--muted);">1800 258 44 55 (toll-free)<br>1800 1022 445 (toll-free)</span>
+        </li>
+        <li style="padding:8px 0;border-bottom:1px solid var(--border);">
+          <strong>RBI Banking Ombudsman</strong><br>
+          <span style="font-size:.85rem;color:var(--muted);">https://cms.rbi.org.in — Register a complaint</span>
+        </li>
+        <li style="padding:8px 0;border-bottom:1px solid var(--border);">
+          <strong>Cyber Crime Portal</strong><br>
+          <span style="font-size:.85rem;color:var(--muted);">https://cybercrime.gov.in — Report identity theft</span>
+        </li>
+        <li style="padding:8px 0;border-bottom:1px solid var(--border);">
+          <strong>File a Police Complaint</strong><br>
+          <span style="font-size:.85rem;color:var(--muted);">Report identity theft and fraud at your local cyber crime police station</span>
+        </li>
+        <li style="padding:8px 0;">
+          <strong>CashlessConsumer Investigation</strong><br>
+          <span style="font-size:.85rem;color:var(--muted);">Follow updates at cashlessconsumer.in</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>⚠️ Watch Out For</h3>
+    <div class="grid2">
+      <div>
+        <p style="font-size:.88rem;"><strong style="color:var(--red);">🔴 Phishing Scams</strong><br>Expect fake calls, SMS, and emails pretending to be from BoB offering "protection" or asking you to "verify" your account. The leaked KYC data gives scammers everything they need to sound legitimate.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem;"><strong style="color:var(--red);">🔴 Loan Fraud</strong><br>With KYC documents and loan records exposed, fraudsters may attempt to open loans in your name. Monitor CIBIL score regularly.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem;"><strong style="color:var(--yellow);">🟡 SIM Swap Attacks</strong><br>Personal details in the dump enable SIM swap attacks. Contact your mobile provider to add extra verification.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem;"><strong style="color:var(--yellow);">🟡 Social Engineering</strong><br>Scammers may reference specific transaction details from the dump. Never share OTPs or passwords.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📢 What We're Doing</h3>
+    <ul style="padding-left:20px;color:var(--muted);">
+      <li>Continuing to monitor the Tor dump server for new data dumps</li>
+      <li>Cataloging all exposed files to identify affected branches and customers</li>
+      <li>Liaising with cyber security researchers to track Triple X activity</li>
+      <li>Publishing updates as the situation develops</li>
+      <li>Advocating for regulatory action and improved breach notification protocols</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><strong>⚠️ BoBBreach</strong> — Bank of Baroda Data Breach Investigation by <a href="https://cashlessconsumer.in">CashlessConsumer</a></p>
+  <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
+  <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
+  <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="pages/about.html">About</a> | <a href="search.html">🔍 Check Branches</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ── Data ──
+const exposureCategories = [
+  {id:"AUDIT",label:"Audit Reports",icon:"📊",color:"var(--blue)",count:3352,severity:"medium"},
+  {id:"CUSTOMER_PII",label:"Customer PII",icon:"🆔",color:"var(--red)",count:248,severity:"critical"},
+  {id:"KYC",label:"KYC Documents",icon:"📋",color:"var(--red)",count:169,severity:"critical"},
+  {id:"TRANSACTION",label:"Transaction Data",icon:"💳",color:"var(--red)",count:613,severity:"critical"},
+  {id:"LOAN",label:"Loan Records",icon:"💰",color:"var(--yellow)",count:920,severity:"high"},
+  {id:"CREDENTIAL",label:"Credentials",icon:"🔑",color:"var(--red)",count:228,severity:"critical"},
+  {id:"VAPT",label:"VAPT Reports",icon:"🔒",color:"var(--red)",count:95,severity:"critical"},
+  {id:"NETWORK",label:"Network Configs",icon:"🌐",color:"var(--yellow)",count:162,severity:"high"},
+  {id:"FRAUD",label:"Fraud Data",icon:"🚩",color:"var(--red)",count:39,severity:"critical"},
+  {id:"INTERNATIONAL",label:"Intl. Operations",icon:"🌍",color:"var(--yellow)",count:387,severity:"high"},
+  {id:"EMPLOYEE",label:"Employee Data",icon:"👤",color:"var(--yellow)",count:960,severity:"high"},
+  {id:"FINANCIAL",label:"Financial Records",icon:"📈",color:"var(--yellow)",count:389,severity:"high"},
+];
+
+const timeline = [
+  {date:"~May 1-10, 2026",title:"Triple X Group Emerges",description:"Ransomware group Triple X first observed establishing leak infrastructure on Tor.",type:"threat"},
+  {date:"May 11, 2026",title:"Triple X Hits BNI (Indonesia)",description:"First known victim: Bank Negara Indonesia. ~2 TB of customer data allegedly exfiltrated.",type:"breach"},
+  {date:"May 22, 2026",title:"BNI Breach Published",description:"Triple X publishes BNI breach details. Sample data posted including passports and ID cards.",type:"disclosure"},
+  {date:"June 2026",title:"Triple X Added to WatchGuard Tracker",description:"Ransomware monitoring services track Triple X as a new active threat group.",type:"intel"},
+  {date:"July 24, 2026",title:"Triple X Claims BoB Breach",description:"Group lists Bank of Baroda on leak site, claiming ~1 TB data exfiltrated via 'weak password'.",type:"breach"},
+  {date:"July 25, 2026",title:"BoB Dump Server Goes Live",description:"Full directory of 15,774+ files published on Tor. CKYC, VAPT reports, admin credentials exposed.",type:"disclosure"},
+  {date:"July 25-26, 2026",title:"Server Intermittent",description:"BoB dump server briefly goes offline then returns. Threat intel amplified on X/Twitter.",type:"threat"},
+  {date:"July 26, 2026",title:"Full OSINT Investigation",description:"CashlessConsumer begins comprehensive crawl: 995s, 925 HTTP fetches, 0 errors. Over 92,000 entries identified from publicly visible directory listing.",type:"evidence"},
+  {date:"July 27, 2026",title:"Consumer Portal Launched",description:"bobbreach.cashlessconsumer.in launched to help customers check impact and understand next steps.",type:"response"},
+];
+
+// ── Render Exposure Grid ──
+function renderExposure() {
+  const grid = document.getElementById('exposureGrid');
+  if (!grid) return;
+  grid.innerHTML = exposureCategories.map(c => `
+    <div class="exp-card" style="border-left:3px solid ${c.color};">
+      <div class="icon">${c.icon}</div>
+      <h4>${c.label}</h4>
+      <div class="file-count" style="color:${c.color};">${c.count.toLocaleString()}</div>
+      <div class="count">files exposed</div>
+      <span class="tag tag-${c.severity}">${c.severity.toUpperCase()}</span>
+    </div>
+  `).join('');
+}
+
+// ── Render Timeline ──
+function renderTimeline() {
+  const el = document.getElementById('timelineList');
+  if (!el) return;
+  el.innerHTML = timeline.map(t => {
+    const typeMap = {breach:'tl-breach',disclosure:'tl-disclosure',intel:'tl-intel',threat:'tl-threat',infrastructure:'tl-threat',evidence:'tl-evidence',investigation:'tl-evidence',response:'tl-response'};
+    const cls = typeMap[t.type] || 'tl-breach';
+    return `<div class="tl-item ${cls}"><div class="date">${t.date}</div><div class="title">${t.title}</div><div class="desc">${t.description}</div></div>`;
+  }).join('');
+}
+
+// ── Init ──
+renderExposure();
+renderTimeline();
+</script>
+
+</body>
+</html>

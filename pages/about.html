@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — BoBBreach Investigation | CashlessConsumer</title>
+<meta name="description" content="About the Bank of Baroda breach investigation by CashlessConsumer. Methodology, LLM disclosure, and independent research approach.">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="canonical" href="https://bobbreach.cashlessconsumer.in/pages/about.html">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+    <div class="links" id="navLinks">
+      <a href="../">Home</a>
+      <a href="../search.html">🔍 Branches</a>
+      <a href="about.html" class="active">About</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
+  </div>
+</nav>
+
+<!-- ═══ LLM-Ethics Disclaimer ═══ -->
+<div style="background:var(--card);border-bottom:1px solid var(--border);padding:16px;font-size:1rem;line-height:1.7;color:var(--muted)">
+  <div style="max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:1.4rem;flex-shrink:0;margin-top:3px;">🤖</span>
+    <div>
+      <strong style="color:var(--fg);font-size:1.1rem;">LLM-Enabled Investigation — Read This First.</strong><br>
+      The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.
+      <br><br>
+      <strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ About Hero ═══ -->
+<section class="hero" id="overview" style="min-height:auto;padding-bottom:24px;">
+  <h1>About This Investigation<br><span>Independent & Community-Driven</span></h1>
+  <p class="subtitle">BoBBreach is a consumer-focused investigation portal for the July 2026 Bank of Baroda data breach. Built and maintained by <strong>CashlessConsumer</strong> — a fintech and digital public infrastructure research initiative.</p>
+</section>
+
+<!-- ═══ Content ═══ -->
+<section style="padding-top:0;">
+  <div class="card">
+    <h3>🔬 Why This Exists</h3>
+    <p>When the Triple X ransomware group published Bank of Baroda's stolen data on the open Tor network, affected customers had no way to understand what happened, whether their data was compromised, or what to do next. The bank's official communication was minimal.</p>
+    <p style="margin-top:8px;">BoBBreach was launched within 48 hours of the breach going public — to give consumers a clear, independent account of the breach, help them check if their branch was affected, and provide actionable steps to protect themselves.</p>
+  </div>
+
+  <div class="card">
+    <h3>🛠️ Methodology</h3>
+    <p><strong>Data source:</strong> Publicly accessible directory listing from the Triple X Tor leak server. We crawled only the directory structure and file metadata — <strong>no actual file contents were downloaded or analyzed</strong>.</p>
+    <p style="margin-top:8px;"><strong>Cross-referencing:</strong> File paths, names, and document types visible in the directory listing were programmatically extracted and cross-referenced against the Razorpay IFSC database (9,992 Bank of Baroda IFSC codes). This allowed us to map exposed files to specific branches, regions, and data categories.</p>
+    <p style="margin-top:8px;"><strong>Data classification:</strong> Files were categorised by type (KYC, audit, loan, VAPT, etc.) based on naming patterns in the directory structure — e.g., folders named "eKYC Sample", "CKYCR" and file names containing "ReKYC", "IRAC", etc.</p>
+    <div style="margin-top:12px;padding:12px;background:var(--bg2);border-radius:8px;font-size:.85rem;color:var(--yellow);">
+      <strong>⚠️ Important caveats:</strong>
+      <ul style="margin-top:4px;padding-left:20px;">
+        <li>This is <strong>metadata-level analysis</strong> — we catalogued what the directory listing shows, not what the files actually contain</li>
+        <li>File counts and categories are <strong>indicative</strong> — based on file name patterns and directory structure, not content inspection</li>
+        <li>Branch IFSC mapping is based on <strong>file path patterns</strong> — some branches may have data in the dump without being in our resolved dataset</li>
+        <li>This is <strong>ongoing, early analysis</strong> — numbers and findings may be updated as investigation continues</li>
+        <li>All findings should be <strong>independently verified</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>👤 About CashlessConsumer</h3>
+    <p>CashlessConsumer is an independent fintech and digital public infrastructure (DPI) research initiative. We investigate, document, and explain how India's financial systems actually work — especially when they break.</p>
+    <p style="margin-top:8px;">Our work spans:</p>
+    <ul style="padding-left:20px;color:var(--muted);">
+      <li><strong>Consumer protection</strong> — investigating data breaches, unfair practices, and accountability gaps</li>
+      <li><strong>DPI research</strong> — analysing India's digital public infrastructure (UPI, Aadhaar, ONDC, Account Aggregator)</li>
+      <li><strong>Security research</strong> — responsible disclosure of vulnerabilities found in public digital infrastructure</li>
+      <li><strong>Financial journalism</strong> — daily fintech news, stock analysis, and deep dives</li>
+    </ul>
+    <p style="margin-top:12px;">Led by <strong>Srikanth (CashlessConsumer)</strong>. Independent. Community-funded. No corporate or government affiliations.</p>
+  </div>
+
+  <div class="card">
+    <h3>📊 What We Track</h3>
+    <div class="grid2">
+      <div>
+        <p style="font-size:.88rem;"><strong>📰 CashlessWatch</strong><br>Daily fintech newsletter covering payments, lending, neobanks, and regulatory developments across India. Published every morning.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem;"><strong>🌐 DPI Watch</strong><br>Daily brief on India's digital public infrastructure — UPI, Aadhaar, ONDC, Account Aggregator, DigiLocker. Stock market summaries included.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem;"><strong>🔒 Security Research</strong><br>OSINT-driven investigations into digital infrastructure vulnerabilities. Responsible disclosure to CERT-In and relevant authorities.</p>
+      </div>
+      <div>
+        <p style="font-size:.88rem;"><strong>🎥 YouTube Channels</strong><br>@cashlessconsumer — fintech/DPI explainers.<br>@seyarkaiarasiyal — Tamil Nadu politics.<br>@caseturn — Indian court case reviews.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📞 Contact & Follow</h3>
+    <p>Questions, corrections, or tips? Get in touch.</p>
+    <div style="margin-top:12px;">
+      <a href="mailto:cashlessconsumerin@gmail.com" class="cta" style="font-size:.85rem;">📧 Email Us</a>
+      <a href="https://github.com/CashlessConsumer" target="_blank" class="cta" style="font-size:.85rem;background:var(--bg2);color:var(--fg);margin-left:8px;">🐙 GitHub</a>
+      <a href="https://x.com/logic" target="_blank" class="cta" style="font-size:.85rem;background:var(--bg2);color:var(--fg);margin-left:8px;">𝕏 / Twitter</a>
+      <a href="https://cashlessconsumer.in" target="_blank" class="cta" style="font-size:.85rem;background:var(--bg2);color:var(--fg);margin-left:8px;">🌐 Website</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📜 License & Attribution</h3>
+    <p>All content on this site is published for <strong>research and educational purposes</strong>. No personally identifiable information from the dump is distributed on this site. Raw metadata is retained for investigative purposes only.</p>
+    <p style="margin-top:8px;">Built independently. Not affiliated with Bank of Baroda, the Government of India, or any law enforcement agency.</p>
+  </div>
+</section>
+
+<!-- ═══ Footer ═══ -->
+<footer>
+  <p><strong>⚠️ BoBBreach</strong> — Bank of Baroda Data Breach Investigation by <a href="https://cashlessconsumer.in">CashlessConsumer</a></p>
+  <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
+  <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
+  <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="about.html">About</a> | <a href="../search.html">🔍 Check Branches</a></p>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,741 @@
+[
+ {
+  "name": "AGRICULTURE TEAM BHILWARA",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "AGRICULTURETEAMBHILWARA816",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "AHMEDABAD-III REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "ANNUAL AUDIT MARCH 2026",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "ANNUALCLOSING2025-26VARANASIZONE",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "ARANI BRANCH",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "ATM AWITCH AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "ATM OPERATION AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "AUDIT REPORT FATEHPUR REGION",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "AUDITED BRANCHES",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BAREILLY ZONE SIGNED REPORTS MAR 24",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BELOW 10 LAK HASSAN REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BHARUCH REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BOB HYD ZONE MOC 14",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BOB HYD ZONE RETURNS EXCEL FILES",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BOB HYD ZONE SIGNED RETURNS CONSOLIDATED",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BOB ONLY  UNAUDITED BRANCHES",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB ONLY AUDITED BRANCHES - SBA BRANCHES",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORL AUDIT SCAN 5",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORL AUDIT SCAN 6A",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORL AUDIT SCAN 7A",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORL AUDIT SCAN 8",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORL AUDIT SCAN 9",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORLD AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORLD AUDIT 02092023",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORLD AUDIT 02092023_1",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORLD AUDIT 02092023_2",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORLD AUDIT 02092023_3",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB WORLD AUDIT COMPLIANCE",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOB ZONE CONSOLIDATED",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "BOBWORLD3AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOBWORLDAUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOBWORLDSPECIALAUDITRECTIFICATIONAR-III",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "BOBWORLDTIRUCHIREGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "CERTIFICATES FATEHPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "CONCURRENT AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "CONCURRENT AUDIT POST COMPLIANCE EVIDENCE",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "CONCURRENT AUDITOR",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "CREDIT AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "CURRENCY CHEST PATNA MAIN BRANCH",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "DEVIKERE BRANCH SIRSI",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "DISB AUTH FY 24-25 BRANCH WISE",
+  "exposure_types": [
+   "CREDENTIAL"
+  ],
+  "severity": "critical"
+ },
+ {
+  "name": "DO LETTER TO ZONES AND REGIONS",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "EVB BRANCHWISE RETURN 14D",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "EVB ZO AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "FATEHPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "GL PL REGIONS_MAR 2026",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "GOLD LOAN AUDIT REPORT",
+  "exposure_types": [
+   "AUDIT",
+   "LOAN"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "GOLD LOAN DOC AUDIT COMPLIANCE",
+  "exposure_types": [
+   "AUDIT",
+   "LOAN"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "HASSAN REGION_MERGED ACCOUNTS 031123",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "HYDERABAD REGION AS AN OFFICE 1724",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "HYDZOBOBAUDIT2019-20",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "HYDZOEVBAUDIT2019-20",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "JAUNPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "KHEDA-BOBWORLD-AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "LAST FY 24-25 AUDIT CERT DATA",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "LEGAL AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "LFAR AND AUDITOR REPORTS",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "LFAR CONSOLIDATION FOR SIGN BY AUDITOR",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "LFAR FATEHPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "LUCKNOWMETROREGIONRMP",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "MANDYA REGION-OFFICE ACCOUNT RELAXATION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "MOC FATEHPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "MUMBAI BRANCHES CONTACT LIST",
+  "exposure_types": [
+   "CUSTOMER_PII"
+  ],
+  "severity": "critical"
+ },
+ {
+  "name": "NAVSARI REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "NEW PHYGITAL BRANCH",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "NEYVELI BRANCH PUDUCHERRY REGION CHENNAI ZONE",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "PORTFOLIO AUDIT SALPURA",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "PRAYAGRAJ II REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "PRAYAGRAJ REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "RBCA DAILY ZONE DATA",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "RBCA MONTHLY ZONE DATA",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "RBI AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "RECOVERY AUDITOR REQUIREMENTS",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "REKYC AUDIT",
+  "exposure_types": [
+   "AUDIT",
+   "KYC"
+  ],
+  "severity": "critical"
+ },
+ {
+  "name": "REVICED BOB AUDIT COMPLAINCE",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "ROAMDKAUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "ROI AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "ROI AUDIT DATA",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "ROKOLH AUDIT MARCH 2025",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "SA 600 FATEHPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "SBA BRANCHES",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "SHIVAMOGGA-AUDITDOCUMENTS",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "SITE AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "SPECIAL AUDIT MOBILE NO FORMS",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "STATUTORY AUDITOR BILL",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "STOCK AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "SULTANPUR REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "SUPPORT TEAM",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "SURAT CITY II REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "SURAT CITY REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "SURAT DISTRICT REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "TAX AUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "TELANGANAREGIONAUDIT",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "TIRUPATI REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "TOP 20 AUDITED",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "TOP 30 UN-AUDITED ACCOUNTS",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "TRICHY GOLD LOAN AUDIT DOCUMENT UPLOAD",
+  "exposure_types": [
+   "AUDIT",
+   "LOAN"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "UNAUDITED BRANCHES",
+  "exposure_types": [
+   "AUDIT"
+  ],
+  "severity": "medium"
+ },
+ {
+  "name": "VALSAD REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "VARANASI REGION",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "VIJAYAWADA REGION BOB",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "VIJAYAWADA REGION EVB",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "VJDAMA BRANCH",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ },
+ {
+  "name": "WEBAPP ZONE IT",
+  "exposure_types": [
+   "GENERAL"
+  ],
+  "severity": "low"
+ }
+]

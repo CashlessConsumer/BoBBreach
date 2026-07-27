@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Data build artifacts (keep JSON but ignore raw)
+downloaded/*.pdf
+downloaded/*.zip
+downloaded/*.7z
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
