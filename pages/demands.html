@@ -20,24 +20,40 @@
   </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <div class="nav-inner">
-      <a href="../" class="logo">🏦 BoBBreach</a>
-      <div class="nav-links">
-        <a href="../#overview">Overview</a>
-        <a href="../search.html">🔍 Branches</a>
-        <a href="demands.html" class="active">Demands</a>
-        <a href="about.html">About</a>
-      </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+    <div class="links" id="navLinks">
+      <a href="../">Home</a>
+      <a href="../search.html">🔍 Branches</a>
+      <a href="demands.html" class="active">⚖️ Demands</a>
+      <a href="about.html">About</a>
     </div>
-  </nav>
-
-  <div class="llm-disclaimer">
-    <strong>🤖 LLM-Enabled Investigation</strong> — This site uses AI-assisted analysis for rapid triage of leaked data. All findings are <strong>indicative and unverified</strong>. Verify critical information through official Bank of Baroda or CERT-In channels. <a href="about.html">Read our methodology →</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
   </div>
+</nav>
+
+<!-- ═══ LLM-Ethics Disclaimer ═══ -->
+<div style="background:var(--card);border-bottom:1px solid var(--border);padding:16px;font-size:1rem;line-height:1.7;color:var(--muted)">
+  <div style="max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:1.4rem;flex-shrink:0;margin-top:3px;">🤖</span>
+    <div>
+      <strong style="color:var(--fg);font-size:1.1rem;">LLM-Enabled Investigation — Read This First.</strong><br>
+      The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.
+      <br><br>
+      <strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.
+    </div>
+  </div>
+</div>
 
   <main class="demands-container">
     <h1>Demands, Regulatory Response &amp; Government Action</h1>
