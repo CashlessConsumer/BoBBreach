@@ -93,7 +93,11 @@
 <section class="search-hero" id="overview">
   <span class="date-badge">🔍 IFSC Branch Check</span>
   <h1>Was Your Branch Exposed?</h1>
-  <p class="subtitle">Enter your Bank of Baroda IFSC code to search 1,088+ branches with confirmed data exposure in the Triple X dump. Branch data resolved via Razorpay IFSC database (9,992 codes) cross-referenced against the breach inventory.</p>
+  <p class="subtitle">Enter your Bank of Baroda IFSC code to check if your branch has confirmed data exposure in the Triple X dump. Branch data resolved by cross-referencing the dump's directory listing against the Razorpay IFSC database (9,992 BoB IFSC codes on record). Of these, <strong id="liveImpactedCount">1,088+</strong> branches matched files in the dump.
+    <span style="display:inline-block;position:relative;">
+      <span style="cursor:help;border-bottom:1px dotted var(--muted);" title="9,992 = all active BoB IFSC codes in the public Razorpay database. 1,088+ = branches whose file paths appeared in the Tor dump directory listing. The remaining ~8,900 codes had no matching files in the dump — those customers' data may still have been exposed through other systems, including the core banking database (Finacle)." aria-label="9,992 is the total number of BoB IFSC codes listed in the public Razorpay database. 1,088+ is the number of branches whose file paths appeared in the Tor dump directory listing.">ⓘ</span>
+    </span>
+  </p>
 </section>
 
 <div class="stats-row">
@@ -116,6 +120,29 @@
 
 <!-- Risk Guide -->
 <section style="max-width:var(--maxw);margin:0 auto;padding:0 16px 48px;">
+  <div class="card">
+    <h3>🔬 Methodology & How This Was Built</h3>
+    <p style="font-size:.88rem;color:var(--muted);">This branch checker matches file paths observed in the publicly available Triple X Tor dump directory listing against the Razorpay IFSC database.</p>
+    <div class="grid2" style="margin-top:12px;">
+      <div>
+        <p style="font-size:.85rem;"><strong>Step 1 — Dump crawl</strong><br><span style="color:var(--muted);">We crawled the directory structure visible on the Triple X Tor leak server. File names, paths, and metadata were recorded. <strong>No actual file contents were downloaded or accessed.</strong></span></p>
+        <p style="font-size:.85rem;"><strong>Step 2 — IFSC extraction</strong><br><span style="color:var(--muted);">File paths in the dump frequently contain IFSC codes, branch codes, city names, or region abbreviations embedded in folder and document names. These were extracted programmatically.</span></p>
+      </div>
+      <div>
+        <p style="font-size:.85rem;"><strong>Step 3 — Cross-reference</strong><br><span style="color:var(--muted);">Extracted branch identifiers were matched against the Razorpay IFSC database, which lists ~9,992 active BoB IFSC codes. This maps exposed files to specific branches, cities, and states.</span></p>
+        <p style="font-size:.85rem;"><strong>Step 4 — Validation</strong><br><span style="color:var(--muted);">Matches were manually reviewed against directory naming patterns. Some branches may have data in the dump without a resolvable IFSC pattern in file paths — this dataset undercounts rather than overcounts.</span></p>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:12px;background:var(--bg2);border-radius:8px;font-size:.82rem;color:var(--yellow);">
+      <strong>⚠️ Important caveats:</strong>
+      <ul style="margin-top:4px;padding-left:18px;">
+        <li><strong>Metadata only</strong> — counts reflect file paths in the directory listing, not file content</li>
+        <li><strong>Indicative numbers</strong> — branch counts are from initial ongoing analysis and may change as we refine mapping</li>
+        <li><strong>File server ≠ core banking</strong> — this maps what was on the compromised SharePoint, not the Finacle database. Customers of branches not in this dataset may still be affected via other systems</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="card">
     <h3>Understanding Results</h3>
     <div class="grid2">
@@ -164,9 +191,10 @@ async function loadBranchData() {
   try {
     const resp = await fetch('data/branches.min.json');
     branchData = await resp.json();
-    const cities = new Set(branchData.map(b => b.c));
-    const states = new Set(branchData.map(b => b.s));
-    document.getElementById('statBranches').textContent = branchData.length.toLocaleString();
+    const impacted = branchData.filter(b => b.t === 1);
+    const cities = new Set(impacted.map(b => b.c));
+    const states = new Set(impacted.map(b => b.s));
+    document.getElementById('statBranches').textContent = impacted.length.toLocaleString();
     document.getElementById('statCities').textContent = cities.size;
     document.getElementById('statStates').textContent = states.size;
     renderStateFilters();
