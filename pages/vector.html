@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Breach Vector — What The Dump Structure Suggests | BoBBreach</title>
+<meta name="description" content="A metadata-level analysis of what the leaked data's structure tells us about the Bank of Baroda breach vector. Observing document organisation, file types, and access patterns from the publicly available Tor dump.">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="canonical" href="https://bobbreach.cashlessconsumer.in/pages/vector.html">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .vector-section { max-width: 780px; margin: 0 auto; padding: 24px 16px 48px; }
+  .vector-section h2 { font-size: 1.3rem; font-weight: 700; margin: 40px 0 12px; }
+  .vector-section h2:first-of-type { margin-top: 0; }
+  .vector-section p { color: var(--muted); line-height: 1.8; margin-bottom: 16px; font-size: .95rem; }
+  .vector-section .callout { padding: 16px 20px; background: var(--card); border-left: 3px solid var(--accent); border-radius: 8px; margin: 20px 0; font-size: .92rem; color: var(--muted); }
+  .vector-section .callout strong { color: var(--fg); }
+  .vector-section .evidence-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 16px 0; }
+  .vector-section .evidence-box h4 { font-size: .9rem; margin-bottom: 8px; color: var(--fg); }
+  .vector-section .evidence-box ul { padding-left: 20px; color: var(--muted); font-size: .9rem; }
+  .vector-section .evidence-box ul li { margin-bottom: 6px; }
+  .vector-section .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .vector-section .comparison-grid .col { padding: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+  .vector-section .comparison-grid .col h4 { font-size: .9rem; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .vector-section .comparison-grid .col ul { padding-left: 16px; color: var(--muted); font-size: .85rem; }
+  .vector-section .comparison-grid .col ul li { margin-bottom: 4px; }
+  .vector-section .unknown-box { background: rgba(210,153,34,.08); border: 1px solid rgba(210,153,34,.25); border-radius: 8px; padding: 20px; margin: 20px 0; }
+  .vector-section .unknown-box h4 { color: var(--yellow); font-size: .9rem; margin-bottom: 8px; }
+  .vector-section .unknown-box p { font-size: .88rem; }
+  .vector-section .question-item { padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .vector-section .question-item:last-child { border-bottom: none; }
+  .vector-section .question-item .q { font-weight: 600; display: block; margin-bottom: 4px; color: var(--fg); font-size: .92rem; }
+  .vector-section .question-item .a { font-size: .88rem; color: var(--muted); }
+  .vector-section .tag-small { display: inline-block; font-size: .65rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+  .tag-evidence { background: rgba(88,166,255,.15); color: var(--blue); }
+  .tag-question { background: rgba(210,153,34,.15); color: var(--yellow); }
+  .tag-model { background: rgba(63,185,80,.15); color: var(--green); }
+  .intro-card { text-align: center; padding: 48px 24px 32px; max-width: 700px; margin: 0 auto; }
+  .intro-card h1 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 800; margin-bottom: 12px; }
+  .intro-card .date-badge { display: inline-block; font-size: .75rem; font-weight: 600; padding: 4px 14px; border-radius: 20px; background: rgba(210,153,34,.12); color: var(--yellow); margin-bottom: 16px; }
+  .intro-card .subtitle { color: var(--muted); font-size: 1rem; line-height: 1.7; }
+  @media (max-width: 600px) { .vector-section .comparison-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+        <div class="links" id="navLinks">
+      <a href="../">Home</a>
+      <a href="overview.html">📋 Full Overview</a>
+      <a href="eli5.html">🧒 TL;DR / ELI5</a>
+      <a href="vector.html" class="active" >🔬 Vector</a>
+      <a href="../search.html">🔍 Branches</a>
+      <a href="demands.html">⚖️ Demands</a>
+      <a href="about.html">About</a>
+      <a href="censorship.html">🔇 Censored</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
+  </div>
+</nav>
+
+<!-- ═══ LLM Disclosure ═══ -->
+<details class="disclosure">
+  <summary>
+    <span class="d-icon">🤖</span>
+    <strong>LLM-Enabled Investigation</strong>
+    <span class="d-toggle">▾</span>
+  </summary>
+  <div class="disclosure-body">
+    <p>The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.</p>
+    <p><strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.</p>
+  </div>
+</details>
+
+<!-- ═══ Intro ═══ -->
+<div class="intro-card">
+  <div class="date-badge">🟡 July 28, 2026 — Ongoing Analysis</div>
+  <h1>The Breach Vector:<br><span style="background:linear-gradient(135deg,var(--accent),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">What the Dump Structure Suggests</span></h1>
+  <p class="subtitle">The bank has attributed the incident to a compromised employee email account. This page looks at what the publicly visible dump structure does — and doesn't — tell us about how the data got out. <strong>This is metadata-level reasoning, not forensic confirmation.</strong></p>
+</div>
+
+<!-- ═══ Main Content ═══ -->
+<div class="vector-section">
+
+  <!-- 1. The Official Account -->
+  <h2>📄 The Official Account</h2>
+  <p>On July 27, 2026, Bank of Baroda issued a statement acknowledging a cybersecurity incident. The bank characterised it as follows:</p>
+
+  <div class="callout">
+    <strong>Bank of Baroda's stated position:</strong><br>
+    — The incident involved the compromise of an employee's email account<br>
+    — Core banking systems remain secure and were not accessed<br>
+    — A forensic investigation has been initiated<br>
+    — Regulatory authorities have been notified
+  </div>
+
+  <p>This is a standard incident response posture: acknowledge, contain, investigate. There is nothing inherently unusual about a statement at this level of generality — most organisations hold back operational details during an active investigation.</p>
+
+  <p>But the publicly available dump has characteristics that invite a closer look at what kind of system produced this data — and whether the "compromised email" frame is the full picture.</p>
+
+  <!-- 2. What the Dump Looks Like -->
+  <h2>📂 What the Dump Actually Looks Like</h2>
+  <p>Based on the publicly visible directory listing, the leaked data has a structure that is worth examining. These are observations from the directory tree — not file contents — but the <em>arrangement</em> of files can be informative in its own right.</p>
+
+  <div class="evidence-box">
+    <h4>Observed Characteristics of the Dump</h4>
+    <ul>
+      <li><strong>Hierarchical branch structure:</strong> 62 top-level directories correspond to zones, regions, and branches — consistent with an organisational SharePoint site collection or mapped network drive</li>
+      <li><strong>Named employee folders:</strong> Individual user directories visible within branch structures, suggesting personal workspaces or department shares rather than a central archive</li>
+      <li><strong>Cross-departmental scope:</strong> Separate directories for audit, legal, IT/security, HR, and international operations — each with its own sub-structure</li>
+      <li><strong>Technical artifacts present:</strong> Server config files (httpd.conf), mobile app binaries (APK/IPA), network packet captures (PCAP), Access databases (ACCDB), WSDL service definitions</li>
+      <li><strong>Volume and granularity:</strong> ~92,000 files, ~9,700 directories, ~1 TB — not a single bulk export but a fine-grained directory tree</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <strong>Key observation:</strong> The dump's structure is that of a <strong>document management or file server system</strong> — organised by business unit, location, and function. It does not closely resemble an email archive export (typically .PST, .NSF, or MBOX format) or a single user's mailbox dump.
+  </div>
+
+  <!-- 3. The Mailbox Question -->
+  <h2>📧 The Mailbox Question</h2>
+  <p>Could a single compromised email account produce a dump with these characteristics? Let's look at what the data would require.</p>
+
+  <p>Bank of Baroda uses Microsoft 365 / Exchange Online for email — confirmed by the organisation's MX records (<code>bankofbaroda-com.mail.protection.outlook.com</code>) and SPF records (<code>include:spf.protection.outlook.com</code>). This is relevant because it means the bank runs on the Microsoft 365 platform, where email (Exchange Online) and document management (SharePoint Online / OneDrive for Business) share the same authentication domain.</p>
+
+  <div class="comparison-grid">
+    <div class="col">
+      <h4>📮 If It Were Purely Email</h4>
+      <ul>
+        <li>Data would likely be in mailbox export format (.PST) or individual .MSG/.EML files</li>
+        <li>Would reflect one user's correspondence — unlikely to span 62 branch directories</li>
+        <li>Would contain primarily email attachments, not server configs, mobile app binaries, or Access databases</li>
+        <li>A 1 TB mailbox is extremely unusual — Microsoft 365 caps mailboxes at 100 GB (with archive)</li>
+        <li>Access DB files, PCAPs, httpd.conf — these are not typical email attachments</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h4>🏢 If It Were a File Server / SharePoint</h4>
+      <ul>
+        <li>Hierarchy by branch, zone, region, department — exactly what's observed</li>
+        <li>Named employee folders match OneDrive or "My Documents" redirection patterns</li>
+        <li>VAPT reports, server configs, APK/IPA files — standard artifacts in IT/document repositories</li>
+        <li>Access databases are common in bank branch operations (branch-level reporting tools)</li>
+        <li>Scope: branch-level logical organisation naturally covers the entire bank</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>It is possible that the attacker used the compromised email account's credentials to access SharePoint Online or OneDrive for Business — but that's a different claim from saying an "email account" was compromised. In Microsoft 365, the same password grants access to email, documents, and potentially a much wider surface depending on permissions.</p>
+
+  <!-- 4. The Permissions Dimension -->
+  <h2>🔑 The Permissions Dimension</h2>
+  <p>This brings us to the most consequential question — one that affects how we understand both the breach and what needs to change going forward.</p>
+
+  <div class="evidence-box">
+    <h4>Two Different Vulnerabilities</h4>
+    <ul>
+      <li><strong>Weak credential:</strong> An employee chose a weak password or fell victim to phishing. This is a <em>hygiene</em> failure — unfortunate, but it happens anywhere.</li>
+      <li><strong>Over-permissioned access:</strong> The same employee's account had read or write access to most of the bank's document infrastructure — VAPT reports, server configs, international operations, employee workspaces. This is a <em>governance</em> failure.</li>
+    </ul>
+  </div>
+
+  <p>If the dump spans 62 top-level branches, 1,088+ branch directories, IT/security repositories, international operations, and named employee workspaces — the compromised account must have had remarkably broad permissions within the bank's M365 / SharePoint environment.</p>
+
+  <p>In enterprise SharePoint deployments, this pattern typically results from one of a few configurations:</p>
+
+  <ul style="padding-left:20px;color:var(--muted);font-size:.9rem;margin-bottom:16px;">
+    <li>A site collection with inheritance enabled and permissive access — e.g. "Everyone except external users" granted to a root site</li>
+    <li>AD security group membership that inadvertently grants organisation-wide document access</li>
+    <li>OneDrive sharing links configured with broad tenant-level access</li>
+    <li>A departmental file share migrated to SharePoint without re-examining the underlying permission model</li>
+  </ul>
+
+  <p>None of these would be visible in the dump structure itself. But the <em>result</em> — data spanning the entire organisation — is what we can observe.</p>
+
+  <!-- 5. What We Don't Know -->
+  <h2>❓ What We Don't Know</h2>
+  <p>This is the most important section. Metadata analysis has limits. There are several things the dump alone cannot tell us:</p>
+
+  <div class="unknown-box">
+    <h4>Open Questions — Unknown Unknowns</h4>
+
+    <div class="question-item">
+      <span class="q">Was the initial compromise an email credential, a VPN credential, or an M365 tenant credential?</span>
+      <span class="a">The bank says "email account." But in M365, the same credentials authenticate Exchange Online, SharePoint Online, Teams, and Azure AD-joined resources. The dump structure is more consistent with SharePoint/OneDrive access than mailbox access. Was the mailbox the target, or was it just the authenticated entry point?</span>
+    </div>
+
+    <div class="question-item">
+      <span class="q">How long was the account compromised before exfiltration?</span>
+      <span class="a">Exfiltrating ~1 TB of data across 92,000+ files takes time — especially if done covertly. Was the intruder present for days, weeks, or months? The bank's statement doesn't address dwell time. The answer would be in the audit logs, not in the dump.</span>
+    </div>
+
+    <div class="question-item">
+      <span class="q">Did the same credentials unlock SharePoint sites the user wasn't supposed to access, or were they authorised to see everything?</span>
+      <span class="a">This is the critical distinction. If the employee had legitimate business need for organisation-wide access, the breach is about a stolen credential. If they didn't, it's about a broken permission model. Either way, the outcome is the same — but the remedy is very different.</span>
+    </div>
+
+    <div class="question-item">
+      <span class="q">Are there signs of lateral movement beyond the employee's account?</span>
+      <span class="a">Ransomware groups typically use an initial foothold to move laterally — compromising additional accounts, escalating privileges, and mapping the network. Did the attacker access other systems? The bank says core banking was untouched, but what about Active Directory, SIEM, backup infrastructure?</span>
+    </div>
+
+    <div class="question-item">
+      <span class="q">Was this credential-based access or session hijacking / token theft?</span>
+      <span class="a">M365 supports token-based authentication. If a session token was stolen (e.g., via a phishing proxy like EvilGinx2), the attacker could access resources without ever knowing the password — and without triggering the usual "failed login" alerts. The bank's statement doesn't specify the method of compromise.</span>
+    </div>
+
+    <div class="question-item">
+      <span class="q">What does the forensic investigation show?</span>
+      <span class="a">The bank has stated a forensic investigation is underway. When published, it will provide answers that metadata analysis cannot. The question is whether it will be made public — and whether it addresses the permission model as well as the initial access vector.</span>
+    </div>
+  </div>
+
+  <!-- 6. Testable Propositions -->
+  <h2>⚖️ Testable Propositions</h2>
+  <p>There are two competing models for this breach. Both are testable — and a thorough forensic audit should be able to distinguish between them.</p>
+
+  <div class="comparison-grid">
+    <div class="col" style="border-left: 3px solid var(--blue);">
+      <h4>📧 Model A: Email-Only Compromise</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:10px;">The attacker accessed a single employee's mailbox and extracted attachments, then organised them into a directory structure for publication.</p>
+      <p style="font-size:.85rem;color:var(--muted);">Would need to explain: how server configs, APK/IPA files, Access databases, and network PCAPs came to be in that mailbox; how 62 branch directories were represented in one person's correspondence; and how the volume reached ~1 TB within standard mailbox limits.</p>
+      <span class="tag-small tag-question">Plausibility: Low based on dump structure</span>
+    </div>
+    <div class="col" style="border-left: 3px solid var(--accent);">
+      <h4>🏢 Model B: M365 / SharePoint Access via Compromised Credentials</h4>
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:10px;">The attacker obtained credentials (or a session token) and accessed SharePoint Online, OneDrive for Business, or a related file repository — then enumerated and exfiltrated documents that the account had permission to read.</p>
+      <p style="font-size:.85rem;color:var(--muted);">This aligns with the observed directory structure, file type diversity, and organisational scope. The question shifts from "how did they get in" to "why could one account see everything."</p>
+      <span class="tag-small tag-evidence">Plausibility: Higher based on dump structure</span>
+    </div>
+  </div>
+
+  <!-- 7. Why This Matters -->
+  <h2>🎯 Why This Matters</h2>
+  <p>The distinction between these two models isn't academic — it determines what the fix looks like:</p>
+
+  <ul style="padding-left:20px;color:var(--muted);font-size:.9rem;margin-bottom:16px;">
+    <li><strong>If it's a weak password:</strong> The remedy is stronger authentication — password policies, MFA enforcement, and phishing awareness training. Necessary, but insufficient if the underlying permissions were already too broad.</li>
+    <li><strong>If it's over-permissioned access:</strong> The remedy is a fundamental review of the bank's document governance model — least-privilege access, SharePoint permission auditing, regular access reviews, and data classification. This is a deeper, more systemic fix.</li>
+  </ul>
+
+  <p>Most security incidents involve elements of both. But which one gets the emphasis in the bank's public communication matters — because it shapes what regulators, customers, and the public understand about the nature of the failure.</p>
+
+  <div class="callout">
+    <strong>A note on what this analysis is — and isn't:</strong> This page is based on publicly observable metadata from the Triple X Tor dump directory listing. We have not accessed the file contents, conducted forensic analysis of the bank's systems, or reviewed internal audit logs. The purpose is not to assert a definitive vector — it is to examine whether the available evidence fits the stated explanation, and to surface the open questions that only a formal investigation can answer. <strong>Independent verification is encouraged.</strong>
+  </div>
+
+  <!-- 8. What Would Settle This -->
+  <h2>📋 What Would Settle This</h2>
+  <p>A few pieces of evidence that would clarify the vector, if made public:</p>
+
+  <ul style="padding-left:20px;color:var(--muted);font-size:.9rem;margin-bottom:16px;">
+    <li><strong>SharePoint audit logs:</strong> File access logs would show whether the data was accessed via SharePoint/OneDrive or via mailbox — and from which IP addresses, over what period</li>
+    <li><strong>M365 sign-in logs:</strong> Authentication logs would show whether the compromised account accessed SharePoint Online, what applications were used, and whether the access pattern matched manual browsing or automated exfiltration</li>
+    <li><strong>Mailbox export records:</strong> Whether the organisation's own eDiscovery or compliance tools were used to extract data (a known ransomware tactic — using the victim's own tools against them)</li>
+    <li><strong>Permission scope:</strong> What SharePoint sites, document libraries, and OneDrive folders the compromised account had access to — ideally compared to the data that was actually exfiltrated</li>
+    <li><strong>Independent forensic report:</strong> Subject to the investigation's outcome, a public summary of findings would help the bank's customers understand the actual risk</li>
+  </ul>
+
+  <p style="padding-top:20px;border-top:1px solid var(--border);font-size:.85rem;color:var(--muted);">
+    <strong>Last updated:</strong> July 28, 2026. This analysis will be updated as new information becomes available.
+  </p>
+
+</div>
+
+<!-- ═══ Footer ═══ -->
+<footer>
+  <p><strong>⚠️ BoBBreach</strong> — Bank of Baroda Data Breach Investigation by <a href="https://cashlessconsumer.in">CashlessConsumer</a></p>
+  <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
+  <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
+  <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="demands.html">⚖️ Demands</a> | <a href="censorship.html">🔇 Censored</a> | <a href="about.html">About</a> | <a href="vector.html">🔬 Vector</a> | <a href="../search.html">🔍 Check Branches</a></p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+// ── Theme toggle ──
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const html = document.documentElement;
+const saved = localStorage.getItem('theme') || 'dark';
+html.setAttribute('data-theme', saved);
+updateIcon(saved);
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateIcon(next);
+});
+function updateIcon(theme) {
+  themeIcon.innerHTML = theme === 'dark'
+    ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+    : '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g>';
+}
+
+</script>
+</body>
+</html>

@@ -18,10 +18,15 @@
       <span></span><span></span><span></span>
     </button>
     <span class="logo">⚠️ BoBBreach</span>
-    <div class="links" id="navLinks">
+        <div class="links" id="navLinks">
       <a href="../">Home</a>
+      <a href="overview.html">📋 Full Overview</a>
+      <a href="eli5.html">🧒 TL;DR / ELI5</a>
+      <a href="vector.html">🔬 Vector</a>
       <a href="../search.html">🔍 Branches</a>
-      <a href="about.html" class="active">About</a>
+      <a href="demands.html">⚖️ Demands</a>
+      <a href="censorship.html">🔇 Censored</a>
+      <a href="about.html" class="active" >About</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
       <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -32,19 +37,18 @@
   </div>
 </nav>
 
-<!-- ═══ LLM-Ethics Disclaimer ═══ -->
-<div style="background:var(--card);border-bottom:1px solid var(--border);padding:16px;font-size:1rem;line-height:1.7;color:var(--muted)">
-  <div style="max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:flex-start">
-    <span style="font-size:1.4rem;flex-shrink:0;margin-top:3px;">🤖</span>
-    <div>
-      <strong style="color:var(--fg);font-size:1.1rem;">LLM-Enabled Investigation — Read This First.</strong><br>
-      The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.
-      <br><br>
-      <strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.
-    </div>
+<!-- ═══ LLM Disclosure (collapsible) ═══ -->
+<details class="disclosure">
+  <summary>
+    <span class="d-icon">🤖</span>
+    <strong>LLM-Enabled Investigation</strong>
+    <span class="d-toggle">▾</span>
+  </summary>
+  <div class="disclosure-body">
+    <p>The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.</p>
+    <p><strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.</p>
   </div>
-</div>
-
+</details>
 <!-- ═══ About Hero ═══ -->
 <section class="hero" id="overview" style="min-height:auto;padding-bottom:24px;">
   <h1>About This Investigation<br><span>Independent & Community-Driven</span></h1>
@@ -79,33 +83,18 @@
   <div class="card">
     <h3>👤 About CashlessConsumer</h3>
     <p>CashlessConsumer is an independent fintech and digital public infrastructure (DPI) research initiative. We investigate, document, and explain how India's financial systems actually work — especially when they break.</p>
-    <p style="margin-top:8px;">Our work spans:</p>
-    <ul style="padding-left:20px;color:var(--muted);">
-      <li><strong>Consumer protection</strong> — investigating data breaches, unfair practices, and accountability gaps</li>
-      <li><strong>DPI research</strong> — analysing India's digital public infrastructure (UPI, Aadhaar, ONDC, Account Aggregator)</li>
-      <li><strong>Security research</strong> — responsible disclosure of vulnerabilities found in public digital infrastructure</li>
-      <li><strong>Financial journalism</strong> — daily fintech news, stock analysis, and deep dives</li>
-    </ul>
-    <p style="margin-top:12px;">Led by <strong>Srikanth (CashlessConsumer)</strong>. Independent. Community-funded. No corporate or government affiliations.</p>
-  </div>
-
-  <div class="card">
-    <h3>📊 What We Track</h3>
-    <div class="grid2">
+    <p style="margin-top:8px;">This breach investigation is part of a broader body of work. For a deeper look at our research approach and other investigations:</p>
+    <div class="grid2" style="margin-top:12px;">
       <div>
-        <p style="font-size:.88rem;"><strong>📰 CashlessWatch</strong><br>Daily fintech newsletter covering payments, lending, neobanks, and regulatory developments across India. Published every morning.</p>
+        <p style="font-size:.88rem;"><strong><a href="https://www.cashlessconsumer.in/post/killerloanapps/" target="_blank" style="color:var(--accent);">🔪 Killer Loan Apps Investigation</a></strong><br>Predatory digital lending apps, data harvesting, regulatory gaps, and Chinese entity links — a deep-dive into India's fintech dark side.</p>
       </div>
       <div>
-        <p style="font-size:.88rem;"><strong>🌐 DPI Watch</strong><br>Daily brief on India's digital public infrastructure — UPI, Aadhaar, ONDC, Account Aggregator, DigiLocker. Stock market summaries included.</p>
-      </div>
-      <div>
-        <p style="font-size:.88rem;"><strong>🔒 Security Research</strong><br>OSINT-driven investigations into digital infrastructure vulnerabilities. Responsible disclosure to CERT-In and relevant authorities.</p>
-      </div>
-      <div>
-        <p style="font-size:.88rem;"><strong>🎥 YouTube Channels</strong><br>@cashlessconsumer — fintech/DPI explainers.<br>@seyarkaiarasiyal — Tamil Nadu politics.<br>@caseturn — Indian court case reviews.</p>
+        <p style="font-size:.88rem;"><strong><a href="https://bankin-report.cashlessconsumer.in/" target="_blank" style="color:var(--accent);">🏦 .bank.in Governance Report</a></strong><br>IDRBT's domain security, procurement irregularities, unauthenticated APIs, and institutional accountability failures at India's banking technology regulator.</p>
       </div>
     </div>
+    <p style="margin-top:16px;font-size:.88rem;color:var(--muted);">For a full overview of our research, visit <a href="https://cashlessconsumer.in" target="_blank" style="color:var(--accent);">cashlessconsumer.in</a> — fintech analysis, DPI research, security audit findings, and daily market coverage.</p>
   </div>
+
 
   <div class="card">
     <h3>📞 Contact & Follow</h3>
@@ -131,7 +120,7 @@
   <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
   <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
   <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
-  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="about.html">About</a> | <a href="../search.html">🔍 Check Branches</a></p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="demands.html">Demands</a> | <a href="censorship.html">🔇 Censored</a> | <a href="about.html">About</a> | <a href="vector.html">🔬 Vector</a> | <a href="../search.html">🔍 Check Branches</a></p>
 </footer>
 
 <script src="../js/main.js"></script>

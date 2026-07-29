@@ -273,3 +273,68 @@ nav .links a.active-page { color: var(--fg); background: var(--bg2); }
   .search-hero { padding: 56px 16px 32px; }
   .page-header { padding: 48px 16px 24px; }
 }
+
+/* Landing page grid */
+.grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+@media (max-width: 768px) { .grid3 { grid-template-columns: 1fr; } }
+
+/* ── Collapsible disclosure banner ── */
+.disclosure {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  font-size: .92rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.disclosure summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.disclosure summary::-webkit-details-marker,
+.disclosure summary::marker {
+  display: none;
+  content: "";
+}
+.disclosure summary .d-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.disclosure summary strong {
+  color: var(--fg);
+  font-size: .85rem;
+  white-space: nowrap;
+}
+.disclosure summary .d-toggle {
+  margin-left: auto;
+  font-size: .7rem;
+  transition: transform .2s;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.disclosure[open] summary .d-toggle {
+  transform: rotate(180deg);
+}
+.disclosure-body {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 16px 14px;
+  font-size: .85rem;
+  line-height: 1.7;
+}
+.disclosure-body p { margin-bottom: 10px; }
+.disclosure-body p:last-child { margin-bottom: 0; }
+
+@media (max-width: 768px) {
+  .disclosure summary { padding: 8px 12px; }
+  .disclosure summary strong { font-size: .78rem; white-space: normal; }
+  .disclosure-body { padding: 0 12px 12px; font-size: .8rem; }
+}

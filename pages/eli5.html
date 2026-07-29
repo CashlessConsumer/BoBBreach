@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELI5 — BoB Breach Explained Simply | CashlessConsumer</title>
+<meta name="description" content="A simple, jargon-free explanation of the Bank of Baroda data breach. Available in 11 Indian languages. Understand what happened, whether you're affected, and what to do.">
+<meta name="theme-color" content="#0b0d0e">
+<link rel="canonical" href="https://bobbreach.cashlessconsumer.in/pages/eli5.html">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.lang-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.lang-tab { padding: 8px 16px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg2); color: var(--muted); cursor: pointer; font-size: .85rem; transition: all .15s; }
+.lang-tab:hover { border-color: var(--accent); color: var(--fg); }
+.lang-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.lang-content { display: none; }
+.lang-content.active { display: block; }
+
+.eli5-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; }
+.eli5-card h3 { font-size: 1.1rem; margin-bottom: 8px; display: flex; gap: 10px; align-items: center; }
+.eli5-card p { font-size: .95rem; color: var(--muted); line-height: 1.6; }
+.eli5-card .alert { margin-top: 12px; }
+.eli5-card ul { padding-left: 20px; color: var(--muted); font-size: .9rem; }
+.eli5-card ul li { margin-bottom: 6px; }
+
+@media (max-width: 600px) {
+  .lang-tabs { gap: 4px; }
+  .lang-tab { padding: 6px 10px; font-size: .78rem; }
+  .eli5-card { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ Navigation ═══ -->
+<nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+        <div class="links" id="navLinks">
+      <a href="../">Home</a>
+      <a href="overview.html">📋 Full Overview</a>
+      <a href="eli5.html" class="active" >🧒 TL;DR / ELI5</a>
+      <a href="vector.html">🔬 Vector</a>
+      <a href="../search.html">🔍 Branches</a>
+      <a href="demands.html">⚖️ Demands</a>
+      <a href="why.html">☢️ Why</a>
+      <a href="about.html">About</a>
+      <a href="censorship.html">🔇 Censored</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
+  </div>
+</nav>
+
+<!-- ═══ LLM Disclosure (collapsible) ═══ -->
+<details class="disclosure">
+  <summary>
+    <span class="d-icon">🤖</span>
+    <strong>LLM-Enabled Investigation</strong>
+    <span class="d-toggle">▾</span>
+  </summary>
+  <div class="disclosure-body">
+    <p>The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.</p>
+    <p><strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.</p>
+  </div>
+</details>
+<!-- ═══ Hero ═══ -->
+<section class="hero" style="padding-bottom:0;">
+  <span class="date-badge">🧒 ELI5 — Explain Like I'm 5</span>
+  <h1>The BoB Breach in<br><span>Plain Language</span></h1>
+  <p class="subtitle">No jargon. No confusing terms. Just the simple facts about what happened at Bank of Baroda, what it means for you, and what you can do about it. Available in 11 Indian languages.</p>
+
+  <div class="translation-notice" style="margin-top:-0.5rem;margin-bottom:1.5rem;padding:10px 16px;background:rgba(255,183,77,0.12);border:1px solid rgba(255,183,77,0.3);border-radius:8px;font-size:.85rem;line-height:1.5;">
+    <strong>⚠️ Auto-Translated — May Contain Errors:</strong> Non-English content on this page is machine-translated and has not been human-reviewed. The English version is the authoritative source of truth. If something seems unclear, please <a href="../pages/about.html" style="text-decoration:underline;">contact us</a> or refer to the English version.
+  </div>
+</section>
+
+<!-- ═══ Language Tabs ═══ -->
+<section style="max-width:var(--maxw);margin:0 auto;padding:0 16px 48px;">
+  <div class="lang-tabs" id="langTabs">
+    <button class="lang-tab active" data-lang="en">🇬🇧 English</button>
+    <button class="lang-tab" data-lang="hi">🇮🇳 हिन्दी</button>
+    <button class="lang-tab" data-lang="ta">🇮🇳 தமிழ்</button>
+    <button class="lang-tab" data-lang="bn">🇮🇳 বাংলা</button>
+    <button class="lang-tab" data-lang="te">🇮🇳 తెలుగు</button>
+    <button class="lang-tab" data-lang="mr">🇮🇳 मराठी</button>
+    <button class="lang-tab" data-lang="gu">🇮🇳 ગુજરાતી</button>
+    <button class="lang-tab" data-lang="ur">🇮🇳 اردو</button>
+    <button class="lang-tab" data-lang="kn">🇮🇳 ಕನ್ನಡ</button>
+    <button class="lang-tab" data-lang="ml">🇮🇳 മലയാളം</button>
+    <button class="lang-tab" data-lang="or">🇮🇳 ଓଡ଼ିଆ</button>
+  </div>
+
+  <!-- ═══ English ═══ -->
+  <div class="lang-content active" id="lang-en">
+    <div class="eli5-card">
+      <h3>🔴 What Happened?</h3>
+      <p>Bad guys called "Triple X" broke into Bank of Baroda's computer systems and stole private information about customers. They put all this stolen information on the internet where anyone can see it. This happened in late July 2026.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 Am I Affected?</h3>
+      <p><strong>If you have a bank account with Bank of Baroda (India), yes — you are likely affected.</strong> The hackers got files from over 1,088 branches across India. You can <a href="../search.html"><strong>check your branch here</strong></a> to see if specific data from your branch was exposed.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 What Information Was Stolen?</h3>
+      <p>More than 92,000 files were taken. This includes:</p>
+      <ul>
+        <li><strong>Your ID proof</strong> — Aadhaar cards, PAN cards, passport copies</li>
+        <li><strong>Account details</strong> — loan papers, transaction records</li>
+        <li><strong>Bank's internal files</strong> — security reports, employee data, network passwords</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ Should I Be Worried?</h3>
+      <p>You should be careful. Scammers can use this information to pretend to be you, trick you, or try to steal money. But don't panic — there are simple steps you can take to protect yourself.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ What Should I Do Right Now?</h3>
+      <ul>
+        <li><strong>Change your net banking password</strong> and turn on two-factor authentication</li>
+        <li><strong>Turn on SMS alerts</strong> for every transaction on your account</li>
+        <li><strong>Check your recent transactions</strong> for anything suspicious</li>
+        <li><strong>Don't click links</strong> in SMS or emails claiming to be from Bank of Baroda — they could be fake</li>
+        <li><strong>Never share your OTP</strong> or password with anyone who calls you</li>
+        <li><strong>Check your CIBIL score</strong> regularly to see if anyone is opening loans in your name</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 Who Can Help?</h3>
+      <ul>
+        <li><strong>Bank of Baroda helpline:</strong> 1800 258 44 55</li>
+        <li><strong>RBI Banking Ombudsman:</strong> cms.rbi.org.in</li>
+        <li><strong>Cyber Crime Portal:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Hindi ═══ -->
+  <div class="lang-content" id="lang-hi">
+    <div class="eli5-card">
+      <h3>🔴 क्या हुआ?</h3>
+      <p>"ट्रिपल एक्स" नाम के बुरे लोगों ने बैंक ऑफ बड़ौदा के कंप्यूटर सिस्टम में घुसपैठ की और ग्राहकों की निजी जानकारी चुरा ली। उन्होंने यह सारी चुराई गई जानकारी इंटरनेट पर डाल दी, जहां कोई भी इसे देख सकता है। यह जुलाई 2026 के अंत में हुआ।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 क्या मैं प्रभावित हूं?</h3>
+      <p><strong>अगर आपका बैंक ऑफ बड़ौदा (इंडिया) में खाता है, तो हाँ — आप प्रभावित हो सकते हैं।</strong> हैकर्स ने पूरे भारत में 1,088 से अधिक शाखाओं की फ़ाइलें प्राप्त कीं। आप <a href="../search.html"><strong>यहां अपनी शाखा की जांच कर सकते हैं</strong></a> कि आपकी शाखा का डेटा एक्सपोज़ हुआ या नहीं।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 कौन सी जानकारी चुराई गई?</h3>
+      <p>92,000 से अधिक फ़ाइलें चुराई गईं। इनमें शामिल हैं:</p>
+      <ul>
+        <li><strong>आपकी पहचान प्रमाण</strong> — आधार कार्ड, पैन कार्ड, पासपोर्ट कॉपी</li>
+        <li><strong>खाता विवरण</strong> — लोन पेपर, लेन-देन रिकॉर्ड</li>
+        <li><strong>बैंक की आंतरिक फ़ाइलें</strong> — सुरक्षा रिपोर्ट, कर्मचारी डेटा, नेटवर्क पासवर्ड</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ क्या मुझे चिंता करनी चाहिए?</h3>
+      <p>आपको सावधान रहना चाहिए। स्कैमर्स इस जानकारी का उपयोग आपका रूप धारण करने, आपको धोखा देने या पैसे चुराने की कोशिश करने के लिए कर सकते हैं। लेकिन घबराएं नहीं — अपनी सुरक्षा के लिए आप सरल कदम उठा सकते हैं।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ मुझे अभी क्या करना चाहिए?</h3>
+      <ul>
+        <li><strong>नेट बैंकिंग पासवर्ड बदलें</strong> और टू-फ़ैक्टर प्रमाणीकरण चालू करें</li>
+        <li><strong>हर लेन-देन के लिए SMS अलर्ट चालू करें</strong></li>
+        <li><strong>हाल के लेन-देन की जाँच करें</strong> किसी भी संदिग्ध गतिविधि के लिए</li>
+        <li><strong>SMS या ईमेल में लिंक पर क्लिक न करें</strong> जो बैंक ऑफ बड़ौदा से होने का दावा करते हैं — वे नकली हो सकते हैं</li>
+        <li><strong>अपना OTP या पासवर्ड कभी साझा न करें</strong> किसी के साथ जो आपको कॉल करता है</li>
+        <li><strong>अपना CIBIL स्कोर नियमित रूप से जाँचें</strong> देखने के लिए कि कोई आपके नाम पर लोन तो नहीं खोल रहा</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 कौन मदद कर सकता है?</h3>
+      <ul>
+        <li><strong>बैंक ऑफ बड़ौदा हेल्पलाइन:</strong> 1800 258 44 55</li>
+        <li><strong>RBI बैंकिंग लोकपाल:</strong> cms.rbi.org.in</li>
+        <li><strong>साइबर क्राइम पोर्टल:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Tamil ═══ -->
+  <div class="lang-content" id="lang-ta">
+    <div class="eli5-card">
+      <h3>🔴 என்ன நடந்தது?</h3>
+      <p>"டிரிபிள் எக்ஸ்" என்ற கெட்டவர்கள் பாங்க் ஆஃப் பரோடாவின் கணினி அமைப்புகளில் ஊடுருவி வாடிக்கையாளர்களின் தனிப்பட்ட தகவல்களைத் திருடினர். அவர்கள் இந்தத் தகவல்களை இணையத்தில் வெளியிட்டனர், அதை யார் வேண்டுமானாலும் பார்க்க முடியும். இது ஜூலை 2026 இன் பிற்பகுதியில் நடந்தது.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 நான் பாதிக்கப்பட்டேனா?</h3>
+      <p><strong>உங்களுக்கு பாங்க் ஆஃப் பரோடாவில் (இந்தியா) கணக்கு இருந்தால், ஆம் — நீங்கள் பாதிக்கப்பட்டிருக்கலாம்.</strong> ஹேக்கர்கள் இந்தியா முழுவதும் 1,088+ கிளைகளின் கோப்புகளைப் பெற்றனர். உங்கள் கிளையின் தரவு வெளியானதா என்பதை <a href="../search.html"><strong>இங்கே சரிபார்க்கலாம்</strong></a>.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 என்ன தகவல்கள் திருடப்பட்டன?</h3>
+      <p>92,000 க்கும் மேற்பட்ட கோப்புகள் திருடப்பட்டன. இதில் அடங்கும்:</p>
+      <ul>
+        <li><strong>உங்கள் அடையாள ஆவணங்கள்</strong> — ஆதார், பான் கார்டு, பாஸ்போர்ட் நகல்கள்</li>
+        <li><strong>கணக்கு விவரங்கள்</strong> — கடன் ஆவணங்கள், பரிவர்த்தனை பதிவுகள்</li>
+        <li><strong>வங்கியின் உள் கோப்புகள்</strong> — பாதுகாப்பு அறிக்கைகள், ஊழியர் தரவு, நெட்வொர்க் கடவுச்சொற்கள்</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ நான் கவலைப்பட வேண்டுமா?</h3>
+      <p>நீங்கள் எச்சரிக்கையாக இருக்க வேண்டும். மோசடி செய்பவர்கள் இந்தத் தகவலைப் பயன்படுத்தி உங்களைப் போல் நடித்து, உங்களை ஏமாற்ற முயற்சிக்கலாம். ஆனால் பீதி அடைய வேண்டாம் — உங்களைப் பாதுகாக்க எளிய நடவடிக்கைகள் உள்ளன.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ நான் இப்போது என்ன செய்ய வேண்டும்?</h3>
+      <ul>
+        <li><strong>நெட் பேங்கிங் கடவுச்சொல்லை மாற்றவும்</strong> மற்றும் இரு-காரணி அங்கீகாரத்தை இயக்கவும்</li>
+        <li><strong>ஒவ்வொரு பரிவர்த்தனைக்கும் SMS எச்சரிக்கைகளை இயக்கவும்</strong></li>
+        <li><strong>சமீபத்திய பரிவர்த்தனைகளைச் சரிபார்க்கவும்</strong> சந்தேகத்திற்குரிய ஏதேனும் இருந்தால்</li>
+        <li><strong>SMS அல்லது மின்னஞ்சலில் உள்ள இணைப்புகளைக் கிளிக் செய்ய வேண்டாம்</strong> — அவை போலியாக இருக்கலாம்</li>
+        <li><strong>உங்கள் OTP அல்லது கடவுச்சொல்லை யாருடனும் பகிர வேண்டாம்</strong></li>
+        <li><strong>உங்கள் CIBIL ஸ்கோரை தவறாமல் சரிபார்க்கவும்</strong></li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 யார் உதவ முடியும்?</h3>
+      <ul>
+        <li><strong>பாங்க் ஆஃப் பரோடா உதவி எண்:</strong> 1800 258 44 55</li>
+        <li><strong>RBI வங்கி நீதிபதி:</strong> cms.rbi.org.in</li>
+        <li><strong>சைபர் கிரைம் போர்டல்:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Bengali ═══ -->
+  <div class="lang-content" id="lang-bn">
+    <div class="eli5-card">
+      <h3>🔴 কী ঘটেছে?</h3>
+      <p>"ট্রিপল এক্স" নামের খারাপ লোকেরা ব্যাঙ্ক অফ বরোদার কম্পিউটার সিস্টেমে ঢুকে গ্রাহকদের ব্যক্তিগত তথ্য চুরি করেছে। তারা এই চুরি করা তথ্য ইন্টারনেটে প্রকাশ করেছে, যা যে কেউ দেখতে পারে। এটি ২০২৬ সালের জুলাইয়ের শেষে ঘটেছে।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 আমি কি প্রভাবিত?</h3>
+      <p><strong>আপনার যদি ব্যাঙ্ক অফ বরোদায় (ভারত) অ্যাকাউন্ট থাকে, তাহলে হ্যাঁ — আপনি প্রভাবিত হতে পারেন।</strong> হ্যাকাররা সারা ভারতে ১,০৮৮+ শাখার ফাইল পেয়েছে। আপনার শাখার ডেটা প্রকাশিত হয়েছে কিনা তা <a href="../search.html"><strong>এখানে পরীক্ষা করতে পারেন</strong></a>।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 কী তথ্য চুরি হয়েছে?</h3>
+      <p>৯২,০০০-এর বেশি ফাইল চুরি হয়েছে। এর মধ্যে রয়েছে:</p>
+      <ul>
+        <li><strong>আপনার পরিচয়পত্র</strong> — আধার কার্ড, প্যান কার্ড, পাসপোর্ট কপি</li>
+        <li><strong>অ্যাকাউন্ট বিবরণ</strong> — ঋণ কাগজপত্র, লেনদেন রেকর্ড</li>
+        <li><strong>ব্যাঙ্কের অভ্যন্তরীণ ফাইল</strong> — নিরাপত্তা রিপোর্ট, কর্মচারী ডেটা, নেটওয়ার্ক পাসওয়ার্ড</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ আমার কি চিন্তা করা উচিত?</h3>
+      <p>আপনার সতর্ক হওয়া উচিত। প্রতারকরা এই তথ্য ব্যবহার করে আপনার পরিচয় নকল করতে, আপনাকে প্রতারিত করতে বা টাকা চুরি করার চেষ্টা করতে পারে। তবে আতঙ্কিত হবেন না — নিজেকে রক্ষা করার সহজ উপায় রয়েছে।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ আমার এখনই কী করা উচিত?</h3>
+      <ul>
+        <li><strong>নেট ব্যাঙ্কিং পাসওয়ার্ড পরিবর্তন করুন</strong> এবং দ্বি-ফ্যাক্টর প্রমাণীকরণ চালু করুন</li>
+        <li><strong>প্রতি লেনদেনের জন্য SMS সতর্কতা চালু করুন</strong></li>
+        <li><strong>সাম্প্রতিক লেনদেন পরীক্ষা করুন</strong> সন্দেহজনক কিছুর জন্য</li>
+        <li><strong>SMS বা ইমেইলের লিঙ্কে ক্লিক করবেন না</strong> — সেগুলো জাল হতে পারে</li>
+        <li><strong>আপনার OTP বা পাসওয়ার্ড কখনো শেয়ার করবেন না</strong></li>
+        <li><strong>নিয়মিত আপনার CIBIL স্কোর পরীক্ষা করুন</strong></li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 কে সাহায্য করতে পারে?</h3>
+      <ul>
+        <li><strong>ব্যাঙ্ক অফ বরোদা হেল্পলাইন:</strong> 1800 258 44 55</li>
+        <li><strong>RBI ব্যাঙ্কিং ওম্বাডসম্যান:</strong> cms.rbi.org.in</li>
+        <li><strong>সাইবার ক্রাইম পোর্টাল:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Telugu ═══ -->
+  <div class="lang-content" id="lang-te">
+    <div class="eli5-card">
+      <h3>🔴 ఏమి జరిగింది?</h3>
+      <p>"ట్రిపుల్ ఎక్స్" అనే సైబర్ నేరగాళ్ళు బ్యాంక్ ఆఫ్ బరోడా కంప్యూటర్ సిస్టమ్‌లోకి చొరబడి వినియోగదారుల వ్యక్తిగత సమాచారాన్ని దొంగిలించారు. ఈ దొంగిలించిన డేటా మొత్తాన్ని వారు ఇంటర్నెట్‌లో బహిర్గతం చేశారు. ఇది జూలై 2026 చివరలో జరిగింది.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 నేను ప్రభావితమయ్యానా?</h3>
+      <p><strong>మీకు బ్యాంక్ ఆఫ్ బరోడా (ఇండియా)లో ఖాతా ఉంటే, అవును — మీరు ప్రభావితమయ్యే అవకాశం ఉంది.</strong> హ్యాకర్లు భారతదేశం‌లోని 1,088+ బ్రాంచీల నుండి ఫైళ్ళను పొందారు. మీ బ్రాంచ్ డేటా బహిర్గతమైందో లేదో తెలుసుకోవడానికి <a href="../search.html"><strong>మీరు ఇక్కడ తనిఖీ చేసుకోవచ్చు</strong></a>.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 ఏ సమాచారం దొంగిలించబడింది?</h3>
+      <p>92,000+ ఫైళ్ళు దొంగిలించబడ్డాయి. వీటిలో ఇవి ఉన్నాయి:</p>
+      <ul>
+        <li><strong>మీ గుర్తింపు పత్రాలు</strong> — ఆధార్ కార్డు, ప్యాన్ కార్డు, పాస్‌పోర్ట్ కాపీలు</li>
+        <li><strong>ఖాతా వివరాలు</strong> — రుణ పత్రాలు, లావాదేవీ రికార్డులు</li>
+        <li><strong>బ్యాంకు అంతర్గత ఫైళ్ళు</strong> — భద్రతా నివేదికలు, ఉద్యోగుల డేటా, నెట్‌వర్క్ పాస్‌వర్డ్‌లు</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ నేను ఆందోళన చెందాలా?</h3>
+      <p>మీరు అప్రమత్తంగా ఉండాలి. స్కామర్లు ఈ సమాచారాన్ని ఉపయోగించి మీరు అని నటించడానికి, మిమ్మల్ని మోసం చేయడానికి లేదా డబ్బు దొంగిలించడానికి ప్రయత్నించవచ్చు. కానీ భయపడవద్దు — మిమ్మల్ని మీరు రక్షించుకోవడానికి సాధారణ చర్యలు తీసుకోవచ్చు.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ నేను ఇప్పుడు ఏమి చేయాలి?</h3>
+      <ul>
+        <li><strong>నెట్ బ్యాంకింగ్ పాస్‌వర్డ్ మార్చండి</strong> మరియు టూ-ఫ్యాక్టర్ ప్రామాణీకరణను ఆన్ చేయండి</li>
+        <li><strong>ప్రతి లావాదేవీకి SMS అలర్ట్‌లు ఆన్ చేయండి</strong></li>
+        <li><strong>ఇటీవలి లావాదేవీలను తనిఖీ చేయండి</strong> అనుమానాస్పద చర్య కోసం</li>
+        <li><strong>SMS లేదా ఇమెయిల్‌లో లింక్‌లపై క్లిక్ చేయవద్దు</strong> — అవి బ్యాంక్ ఆఫ్ బరోడా నుండి వచ్చినట్లు నటించవచ్చు</li>
+        <li><strong>మీ OTP లేదా పాస్‌వర్డ్ ఎవరితోనూ పంచుకోవద్దు</strong> ఫోన్‌లో మాట్లాడే వారితో కూడా</li>
+        <li><strong>మీ CIBIL స్కోర్ క్రమం తప్పకుండా తనిఖీ చేయండి</strong> మీ పేరుపై ఎవరైనా రుణం తీసుకుంటున్నారో లేదో చూడడానికి</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 ఎవరు సహాయం చేయగలరు?</h3>
+      <ul>
+        <li><strong>బ్యాంక్ ఆఫ్ బరోడా హెల్ప్‌లైన్:</strong> 1800 258 44 55</li>
+        <li><strong>RBI బ్యాంకింగ్ లోక్‌పాల్:</strong> cms.rbi.org.in</li>
+        <li><strong>సైబర్ క్రైమ్ పోర్టల్:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Marathi ═══ -->
+  <div class="lang-content" id="lang-mr">
+    <div class="eli5-card">
+      <h3>🔴 काय घडले?</h3>
+      <p>"ट्रिपल एक्स" नावाच्या सायबर गुन्हेगारांनी बँक ऑफ बडोदाच्या संगणक प्रणालीत घुसखोरी करून ग्राहकांची वैयक्तिक माहिती चोरली. ही सर्व चोरीची माहिती त्यांनी इंटरनेटवर सार्वजनिक केली. हे जुलै २०२६ च्या शेवटी घडले.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 मी प्रभावित आहे का?</h3>
+      <p><strong>तुमचे बँक ऑफ बडोदा (इंडिया) मध्ये खाते असल्यास, हो — तुम्ही प्रभावित होऊ शकता.</strong> हॅकर्सनी भारतभरातील १,०८८+ शाखांमधील फायली मिळवल्या. तुमच्या शाखेचा डेटा उघड झाला आहे का हे पाहण्यासाठी <a href="../search.html"><strong>तुम्ही येथे तपासू शकता</strong></a>.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 कोणती माहिती चोरली गेली?</h3>
+      <p>९२,०००+ फायली चोरल्या गेल्या. यामध्ये हे समाविष्ट आहे:</p>
+      <ul>
+        <li><strong>तुमची ओळखपत्रे</strong> — आधार कार्ड, पॅन कार्ड, पासपोर्ट प्रती</li>
+        <li><strong>खाते तपशील</strong> — कर्ज कागदपत्रे, व्यवहार नोंदी</li>
+        <li><strong>बँकेच्या अंतर्गत फायली</strong> — सुरक्षा अहवाल, कर्मचारी डेटा, नेटवर्क पासवर्ड</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ मी काळजी करावी का?</h3>
+      <p>तुम्ही सावध असले पाहिजे. स्कॅमर्स या माहितीचा वापर तुमचे रूप धारण करण्यासाठी, तुम्हाला फसवण्यासाठी किंवा पैसे चोरण्यासाठी करू शकतात. पण घाबरू नका — तुम्ही स्वतःचे संरक्षण करण्यासाठी सोपी पावले उचलू शकता.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ मी आता काय करावे?</h3>
+      <ul>
+        <li><strong>नेट बँकिंग पासवर्ड बदला</strong> आणि द्वि-चरण प्रमाणीकरण सुरू करा</li>
+        <li><strong>प्रत्येक व्यवहारासाठी SMS सूचना चालू करा</strong></li>
+        <li><strong>अलीकडील व्यवहार तपासा</strong> संशयास्पद क्रियाकलापासाठी</li>
+        <li><strong>SMS किंवा ईमेलमधील लिंकवर क्लिक करू नका</strong> — त्या बँक ऑफ बडोदाकडून आल्याचे भासवू शकतात</li>
+        <li><strong>तुमचा OTP किंवा पासवर्ड कोणाशीही शेअर करू नका</strong> फोनवर बोलणाऱ्यांशीही नाही</li>
+        <li><strong>तुमचा CIBIL स्कोर नियमितपणे तपासा</strong> कोणी तुमच्या नावावर कर्ज घेत आहे का हे पाहण्यासाठी</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 कोण मदत करू शकते?</h3>
+      <ul>
+        <li><strong>बँक ऑफ बडोदा हेल्पलाइन:</strong> 1800 258 44 55</li>
+        <li><strong>RBI बँकिंग लोकपाल:</strong> cms.rbi.org.in</li>
+        <li><strong>सायबर क्राइम पोर्टल:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Gujarati ═══ -->
+  <div class="lang-content" id="lang-gu">
+    <div class="eli5-card">
+      <h3>🔴 શું થયું?</h3>
+      <p>"ટ્રિપલ એક્સ" નામના સાયબર ગુનેગારોએ બેંક ઓફ બરોડાના કમ્પ્યુટર સિસ્ટમમાં ઘૂસણખોરી કરી અને ગ્રાહકોની અંગત માહિતી ચોરી લીધી. આ ચોરાયેલી બધી માહિતી તેઓએ ઇન્ટરનેટ પર જાહેર કરી દીધી. આ જુલાઈ 2026 ના અંતમાં બન્યું.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 શું હું પ્રભાવિત થયો છું?</h3>
+      <p><strong>જો તમારું બેંક ઓફ બરોડા (ઇન્ડિયા)માં એકાઉન્ટ છે, તો હા — તમે પ્રભાવિત થઈ શકો છો.</strong> હેકરોએ સમગ્ર ભારતની 1,088+ શાખાઓની ફાઇલો મેળવી છે. તમારી શાખાનો ડેટા ખુલ્લો થયો છે કે કેમ તે <a href="../search.html"><strong>તમે અહીં ચકાસી શકો છો</strong></a>.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 કઈ માહિતી ચોરાઈ?</h3>
+      <p>92,000+ ફાઇલો ચોરાઈ. આમાં શામેલ છે:</p>
+      <ul>
+        <li><strong>તમારા ઓળખ પત્રો</strong> — આધાર કાર્ડ, પાન કાર્ડ, પાસપોર્ટ નકલ</li>
+        <li><strong>ખાતાની વિગતો</strong> — લોન પેપરો, વ્યવહાર રેકોર્ડ</li>
+        <li><strong>બેંકની આંતરિક ફાઇલો</strong> — સુરક્ષા અહેવાલો, કર્મચારી માહિતી, નેટવર્ક પાસવર્ડ</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ શું મારે ચિંતા કરવી જોઈએ?</h3>
+      <p>તમારે સાવચેત રહેવું જોઈએ. સ્કેમર્સ આ માહિતીનો ઉપયોગ તમારું રૂપ ધારણ કરવા, તમને છેતરવા અથવા પૈસા ચોરવા માટે કરી શકે છે. પણ ગભરાશો નહીં — તમે તમારા સંરક્ષણ માટે સરળ પગલાં લઈ શકો છો.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ મારે હવે શું કરવું જોઈએ?</h3>
+      <ul>
+        <li><strong>નેટ બેંકિંગ પાસવર્ડ બદલો</strong> અને ટુ-ફેક્ટર ઓથેન્ટિકેશન ચાલુ કરો</li>
+        <li><strong>દરેક વ્યવહાર માટે SMS ચેતવણીઓ ચાલુ કરો</strong></li>
+        <li><strong>તાજેતરના વ્યવહારો ચકાસો</strong> કોઈ શંકાસ્પદ પ્રવૃત્તિ માટે</li>
+        <li><strong>SMS અથવા ઇમેઇલમાં લિંક પર ક્લિક કરશો નહીં</strong> — તે બેંક ઓફ બરોડા તરફથી હોવાનો દાવો કરી શકે છે</li>
+        <li><strong>તમારો OTP અથવા પાસવર્ડ ક્યારેય શેર ન કરો</strong> ફોન પર બોલનારા સાથે પણ નહીં</li>
+        <li><strong>તમારો CIBIL સ્કોર નિયમિતપણે ચકાસો</strong> કોઈ તમારા નામે લોન ખોલી રહ્યું છે કે કેમ</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 કોણ મદદ કરી શકે?</h3>
+      <ul>
+        <li><strong>બેંક ઓફ બરોડા હેલ્પલાઇન:</strong> 1800 258 44 55</li>
+        <li><strong>RBI બેંકિંગ લોકપાલ:</strong> cms.rbi.org.in</li>
+        <li><strong>સાયબર ક્રાઇમ પોર્ટલ:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Urdu ═══ -->
+  <div class="lang-content" id="lang-ur" dir="rtl">
+    <div class="eli5-card">
+      <h3>🔴 کیا ہوا؟</h3>
+      <p>"ٹرپل ایکس" نامی سائبر جرائم پیشہ افراد نے بینک آف بڑودہ کے کمپیوٹر سسٹم میں گھس کر صارفین کی ذاتی معلومات چرا لیں۔ انہوں نے یہ تمام چوری شدہ ڈیٹا انٹرنیٹ پر عوامی کر دیا۔ یہ جولائی 2026 کے آخر میں ہوا۔</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 کیا میں متاثر ہوا ہوں؟</h3>
+      <p><strong>اگر آپ کا بینک آف بڑودہ (انڈیا) میں اکاؤنٹ ہے، تو ہاں — آپ متاثر ہو سکتے ہیں۔</strong> ہیکرز نے پورے ہندوستان میں 1,088+ شاخوں کی فائلیں حاصل کی ہیں۔ آپ <a href="../search.html"><strong>یہاں اپنی شاخ چیک کر سکتے ہیں</strong></a> کہ آیا آپ کی شاخ کا ڈیٹا لیک ہوا ہے۔</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 کون سی معلومات چوری ہوئی؟</h3>
+      <p>92,000+ فائلیں چوری ہوئیں۔ ان میں شامل ہیں:</p>
+      <ul>
+        <li><strong>آپ کے شناختی دستاویزات</strong> — آدھار کارڈ، پین کارڈ، پاسپورٹ کاپیاں</li>
+        <li><strong>اکاؤنٹ کی تفصیلات</strong> — قرض کے کاغذات، لین دین کے ریکارڈ</li>
+        <li><strong>بینک کی اندرونی فائلیں</strong> — سیکیورٹی رپورٹس، ملازمین کا ڈیٹا، نیٹ ورک پاس ورڈ</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ کیا مجھے فکر کرنی چاہیے؟</h3>
+      <p>آپ کو چوکنا رہنا چاہیے۔ اسکامرز اس معلومات کا استعمال آپ کا روپ دھارنے، آپ کو دھوکہ دینے، یا پیسے چرانے کی کوشش کر سکتے ہیں۔ لیکن گھبرائیں نہیں — آپ اپنی حفاظت کے لیے آسان اقدامات اٹھا سکتے ہیں۔</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ مجھے ابھی کیا کرنا چاہیے؟</h3>
+      <ul>
+        <li><strong>نیٹ بینکنگ کا پاس ورڈ تبدیل کریں</strong> اور دو عنصری تصدیق (2FA) آن کریں</li>
+        <li><strong>ہر لین دین کے لیے SMS الرٹس آن کریں</strong></li>
+        <li><strong>حالیہ لین دین چیک کریں</strong> کسی مشکوک سرگرمی کے لیے</li>
+        <li><strong>SMS یا ای میل میں لنک پر کلک نہ کریں</strong> — یہ بینک آف بڑودہ کا دعویٰ کر سکتے ہیں</li>
+        <li><strong>اپنا OTP یا پاس ورڈ کبھی شیئر نہ کریں</strong> فون پر بات کرنے والے سے بھی نہیں</li>
+        <li><strong>اپنا CIBIL سکور باقاعدگی سے چیک کریں</strong> دیکھنے کے لیے کہ کوئی آپ کے نام پر قرض تو نہیں لے رہا</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 کون مدد کر سکتا ہے؟</h3>
+      <ul>
+        <li><strong>بینک آف بڑودہ ہیلپ لائن:</strong> 1800 258 44 55</li>
+        <li><strong>RBI بینکنگ لوک پال:</strong> cms.rbi.org.in</li>
+        <li><strong>سائبر کرائم پورٹل:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Kannada ═══ -->
+  <div class="lang-content" id="lang-kn">
+    <div class="eli5-card">
+      <h3>🔴 ಏನಾಯಿತು?</h3>
+      <p>"ಟ್ರಿಪಲ್ ಎಕ್ಸ್" ಎಂಬ ಸೈಬರ್ ಅಪರಾಧಿಗಳು ಬ್ಯಾಂಕ್ ಆಫ್ ಬರೋಡಾದ ಕಂಪ್ಯೂಟರ್ ಸಿಸ್ಟಮ್‌ಗೆ ನುಗ್ಗಿ ಗ್ರಾಹಕರ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಕಳವು ಮಾಡಿದ್ದಾರೆ. ಈ ಎಲ್ಲಾ ಕಳವು ಮಾಡಿದ ಡೇಟಾವನ್ನು ಅವರು ಅಂತರ್ಜಾಲದಲ್ಲಿ ಸಾರ್ವಜನಿಕಗೊಳಿಸಿದ್ದಾರೆ. ಇದು ಜುಲೈ 2026 ರ ಕೊನೆಯಲ್ಲಿ ಸಂಭವಿಸಿದೆ.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 ನಾನು ಪರಿಣಾಮಿತನಾಗಿದ್ದೇನೆಯೇ?</h3>
+      <p><strong>ನಿಮಗೆ ಬ್ಯಾಂಕ್ ಆಫ್ ಬರೋಡಾ (ಇಂಡಿಯಾ) ನಲ್ಲಿ ಖಾತೆ ಇದ್ದರೆ, ಹೌದು — ನೀವು ಪರಿಣಾಮಿತರಾಗಿರಬಹುದು.</strong> ಹ್ಯಾಕರ್‌ಗಳು ಭಾರತದಾದ್ಯಂತ 1,088+ ಶಾಖೆಗಳ ಫೈಲ್‌ಗಳನ್ನು ಪಡೆದಿದ್ದಾರೆ. ನಿಮ್ಮ ಶಾಖೆಯ ಡೇಟಾ ಬಹಿರಂಗವಾಗಿದೆಯೇ ಎಂದು <a href="../search.html"><strong>ನೀವು ಇಲ್ಲಿ ಪರಿಶೀಲಿಸಬಹುದು</strong></a>.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 ಯಾವ ಮಾಹಿತಿ ಕಳವಾಗಿದೆ?</h3>
+      <p>92,000+ ಫೈಲ್‌ಗಳು ಕಳವಾಗಿವೆ. ಇವುಗಳಲ್ಲಿ ಸೇರಿವೆ:</p>
+      <ul>
+        <li><strong>ನಿಮ್ಮ ಗುರುತಿನ ದಾಖಲೆಗಳು</strong> — ಆಧಾರ್ ಕಾರ್ಡ್, ಪ್ಯಾನ್ ಕಾರ್ಡ್, ಪಾಸ್‌ಪೋರ್ಟ್ ಪ್ರತಿಗಳು</li>
+        <li><strong>ಖಾತೆ ವಿವರಗಳು</strong> — ಸಾಲ ದಾಖಲೆಗಳು, ವ್ಯವಹಾರ ದಾಖಲೆಗಳು</li>
+        <li><strong>ಬ್ಯಾಂಕಿನ ಆಂತರಿಕ ಫೈಲ್‌ಗಳು</strong> — ಭದ್ರತಾ ವರದಿಗಳು, ಉದ್ಯೋಗಿ ಡೇಟಾ, ನೆಟ್‌ವರ್ಕ್ ಪಾಸ್‌ವರ್ಡ್‌ಗಳು</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ ನಾನು ಚಿಂತಿಸಬೇಕೇ?</h3>
+      <p>ನೀವು ಜಾಗರೂಕರಾಗಿರಬೇಕು. ಸ್ಕ್ಯಾಮರ್‌ಗಳು ಈ ಮಾಹಿತಿಯನ್ನು ನಿಮ್ಮಂತೆ ನಟಿಸಲು, ನಿಮ್ಮನ್ನು ಮೋಸಗೊಳಿಸಲು ಅಥವಾ ಹಣ ಕಳವು ಮಾಡಲು ಬಳಸಬಹುದು. ಆದರೆ ಭಯಪಡಬೇಡಿ — ನಿಮ್ಮನ್ನು ರಕ್ಷಿಸಿಕೊಳ್ಳಲು ಸರಳ ಕ್ರಮಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಬಹುದು.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ ನಾನು ಈಗ ಏನು ಮಾಡಬೇಕು?</h3>
+      <ul>
+        <li><strong>ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್ ಪಾಸ್‌ವರ್ಡ್ ಬದಲಿಸಿ</strong> ಮತ್ತು ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ಆನ್ ಮಾಡಿ</li>
+        <li><strong>ಪ್ರತಿ ವ್ಯವಹಾರಕ್ಕೂ SMS ಎಚ್ಚರಿಕೆಗಳನ್ನು ಆನ್ ಮಾಡಿ</strong></li>
+        <li><strong>ಇತ್ತೀಚಿನ ವ್ಯವಹಾರಗಳನ್ನು ಪರಿಶೀಲಿಸಿ</strong> ಯಾವುದೇ ಅನುಮಾನಾಸ್ಪದ ಚಟುವಟಿಕೆಗಾಗಿ</li>
+        <li><strong>SMS ಅಥವಾ ಇಮೇಲ್‌ನಲ್ಲಿನ ಲಿಂಕ್‌ಗಳ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಬೇಡಿ</strong> — ಅವು ಬ್ಯಾಂಕ್ ಆಫ್ ಬರೋಡಾದಿಂದ ಬಂದಂತೆ ನಟಿಸಬಹುದು</li>
+        <li><strong>ನಿಮ್ಮ OTP ಅಥವಾ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಯಾರೊಂದಿಗೂ ಹಂಚಿಕೊಳ್ಳಬೇಡಿ</strong> ಫೋನ್‌ನಲ್ಲಿ ಮಾತನಾಡುವವರೊಂದಿಗೂ ಅಲ್ಲ</li>
+        <li><strong>ನಿಮ್ಮ CIBIL ಸ್ಕೋರ್ ಅನ್ನು ನಿಯಮಿತವಾಗಿ ಪರಿಶೀಲಿಸಿ</strong> ಯಾರಾದರೂ ನಿಮ್ಮ ಹೆಸರಲ್ಲಿ ಸಾಲ ತೆಗೆದುಕೊಳ್ಳುತ್ತಿದ್ದಾರೆಯೇ ಎಂದು</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 ಯಾರು ಸಹಾಯ ಮಾಡಬಹುದು?</h3>
+      <ul>
+        <li><strong>ಬ್ಯಾಂಕ್ ಆಫ್ ಬರೋಡಾ ಸಹಾಯವಾಣಿ:</strong> 1800 258 44 55</li>
+        <li><strong>RBI ಬ್ಯಾಂಕಿಂಗ್ ಲೋಕಪಾಲ:</strong> cms.rbi.org.in</li>
+        <li><strong>ಸೈಬರ್ ಕ್ರೈಮ್ ಪೋರ್ಟಲ್:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Malayalam ═══ -->
+  <div class="lang-content" id="lang-ml">
+    <div class="eli5-card">
+      <h3>🔴 എന്താണ് സംഭവിച്ചത്?</h3>
+      <p>"ട്രിപ്പിൾ എക്സ്" എന്ന സൈബർ കുറ്റവാളികൾ ബാങ്ക് ഓഫ് ബറോഡയുടെ കമ്പ്യൂട്ടർ സിസ്റ്റത്തിൽ കടന്നുകയറി ഉപഭോക്താക്കളുടെ സ്വകാര്യ വിവരങ്ങൾ മോഷ്ടിച്ചു. ഈ മോഷ്ടിച്ച ഡാറ്റ മുഴുവൻ അവർ ഇന്റർനെറ്റിൽ പരസ്യമാക്കി. ഇത് ജൂലൈ 2026 അവസാനത്തിലാണ് സംഭവിച്ചത്.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 ഞാൻ ബാധിതനാണോ?</h3>
+      <p><strong>നിങ്ങൾക്ക് ബാങ്ക് ഓഫ് ബറോഡയിൽ (ഇന്ത്യ) അക്കൗണ്ടുണ്ടെങ്കിൽ, അതെ — നിങ്ങൾ ബാധിതനായിരിക്കാം.</strong> ഇന്ത്യയിലുടനീളമുള്ള 1,088+ ശാഖകളുടെ ഫയലുകൾ ഹാക്കർമാർക്ക് ലഭിച്ചു. നിങ്ങളുടെ ശാഖയുടെ ഡാറ്റ ചോർന്നിട്ടുണ്ടോ എന്ന് <a href="../search.html"><strong>നിങ്ങൾക്ക് ഇവിടെ പരിശോധിക്കാം</strong></a>.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 ഏത് വിവരമാണ് മോഷ്ടിക്കപ്പെട്ടത്?</h3>
+      <p>92,000+ ഫയലുകൾ മോഷ്ടിക്കപ്പെട്ടു. ഇവയിൽ ഉൾപ്പെടുന്നു:</p>
+      <ul>
+        <li><strong>നിങ്ങളുടെ തിരിച്ചറിയൽ രേഖകൾ</strong> — ആധാർ കാർഡ്, പാൻ കാർഡ്, പാസ്പോർട്ട് പകർപ്പുകൾ</li>
+        <li><strong>അക്കൗണ്ട് വിശദാംശങ്ങൾ</strong> — വായ്പ രേഖകൾ, ഇടപാട് രേഖകൾ</li>
+        <li><strong>ബാങ്കിന്റെ ആന്തരിക ഫയലുകൾ</strong> — സുരക്ഷാ റിപ്പോർട്ടുകൾ, ജീവനക്കാരുടെ ഡാറ്റ, നെറ്റ്‌വർക്ക് പാസ്‌വേഡുകൾ</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ ഞാൻ ആശങ്കപ്പെടേണ്ടതുണ്ടോ?</h3>
+      <p>നിങ്ങൾ ജാഗ്രത പാലിക്കണം. സ്കാമർമാർ ഈ വിവരങ്ങൾ ഉപയോഗിച്ച് നിങ്ങളായി നടിക്കാനും നിങ്ങളെ കബളിപ്പിക്കാനും അല്ലെങ്കിൽ പണം മോഷ്ടിക്കാനും ശ്രമിച്ചേക്കാം. എന്നാൽ പരിഭ്രാന്തരാകേണ്ട — നിങ്ങളെ സംരക്ഷിക്കാൻ ലളിതമായ നടപടികളുണ്ട്.</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ ഞാൻ ഇപ്പോൾ എന്ത് ചെയ്യണം?</h3>
+      <ul>
+        <li><strong>നെറ്റ് ബാങ്കിംഗ് പാസ്‌വേഡ് മാറ്റുക</strong> രണ്ട്-ഘടക പ്രാമാണീകരണം ഓൺ ചെയ്യുക</li>
+        <li><strong>ഓരോ ഇടപാടിനും SMS അലേർട്ടുകൾ ഓൺ ചെയ്യുക</strong></li>
+        <li><strong>സമീപകാല ഇടപാടുകൾ പരിശോധിക്കുക</strong> സംശയാസ്പദമായ പ്രവർത്തനത്തിനായി</li>
+        <li><strong>SMS അല്ലെങ്കിൽ ഇമെയിലിലെ ലിങ്കുകളിൽ ക്ലിക്ക് ചെയ്യരുത്</strong> — അവ ബാങ്ക് ഓഫ് ബറോഡയിൽ നിന്നാണെന്ന് അവകാശപ്പെട്ടേക്കാം</li>
+        <li><strong>നിങ്ങളുടെ OTP അല്ലെങ്കിൽ പാസ്‌വേഡ് ആരുമായും പങ്കിടരുത്</strong> ഫോണിൽ വിളിക്കുന്നവരുമായി പോലുമില്ല</li>
+        <li><strong>നിങ്ങളുടെ CIBIL സ്കോർ പതിവായി പരിശോധിക്കുക</strong> ആരെങ്കിലും നിങ്ങളുടെ പേരിൽ വായ്പ എടുക്കുന്നുണ്ടോ എന്നറിയാൻ</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 ആർക്ക് സഹായിക്കാനാകും?</h3>
+      <ul>
+        <li><strong>ബാങ്ക് ഓഫ് ബറോഡ ഹെൽപ്പ്‌ലൈൻ:</strong> 1800 258 44 55</li>
+        <li><strong>RBI ബാങ്കിംഗ് ലോക്പാൽ:</strong> cms.rbi.org.in</li>
+        <li><strong>സൈബർ ക്രൈം പോർട്ടൽ:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══ Odia ═══ -->
+  <div class="lang-content" id="lang-or">
+    <div class="eli5-card">
+      <h3>🔴 କ'ଣ ଘଟିଲା?</h3>
+      <p>"ଟ୍ରିପଲ୍ ଏକ୍ସ" ନାମକ ସାଇବର ଅପରାଧୀମାନେ ବ୍ୟାଙ୍କ ଅଫ୍ ବରୋଦାର କମ୍ପ୍ୟୁଟର ସିଷ୍ଟମରେ ପ୍ରବେଶ କରି ଗ୍ରାହକଙ୍କ ବ୍ୟକ୍ତିଗତ ସୂଚନା ଚୋରି କରିଥିଲେ। ସେମାନେ ଏହି ସମସ୍ତ ଚୋରି ତଥ୍ୟ ଇଣ୍ଟରନେଟରେ ସାର୍ବଜନୀନ କରିଦେଇଥିଲେ। ଏହା ଜୁଲାଇ 2026 ଶେଷରେ ଘଟିଥିଲା।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🙋 ମୁଁ ପ୍ରଭାବିତ କି?</h3>
+      <p><strong>ଯଦି ଆପଣଙ୍କର ବ୍ୟାଙ୍କ ଅଫ୍ ବରୋଦା (ଇଣ୍ଡିଆ)ରେ ଖାତା ଅଛି, ତେବେ ହଁ — ଆପଣ ପ୍ରଭାବିତ ହୋଇପାରନ୍ତି।</strong> ହ୍ୟାକରମାନେ ସମଗ୍ର ଭାରତର 1,088+ ଶାଖାର ଫାଇଲ୍ ପାଇଛନ୍ତି। ଆପଣଙ୍କ ଶାଖାର ତଥ୍ୟ ଫାସ୍ ହୋଇଛି କି ନାହିଁ <a href="../search.html"><strong>ଆପଣ ଏଠାରେ ଯାଞ୍ଚ କରିପାରିବେ</strong></a>।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>📂 କ'ଣ ସୂଚନା ଚୋରି ହେଲା?</h3>
+      <p>92,000+ ଫାଇଲ୍ ଚୋରି ହୋଇଛି। ଏଥିରେ ଅନ୍ତର୍ଭୁକ୍ତ:</p>
+      <ul>
+        <li><strong>ଆପଣଙ୍କ ପରିଚୟ ପତ୍ର</strong> — ଆଧାର କାର୍ଡ, ପ୍ୟାନ୍ କାର୍ଡ, ପାସ୍‌ପୋର୍ଟ କପି</li>
+        <li><strong>ଖାତା ବିବରଣୀ</strong> — ଋଣ କାଗଜପତ୍ର, ଲାଣ୍ଡେଣ ରେକର୍ଡ</li>
+        <li><strong>ବ୍ୟାଙ୍କର ଆଭ୍ୟନ୍ତରୀଣ ଫାଇଲ୍</strong> — ସୁରକ୍ଷା ରିପୋର୍ଟ, କର୍ମଚାରୀ ତଥ୍ୟ, ନେଟ୍‌ୱାର୍କ ପାସ୍‌ୱାର୍ଡ</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>⚠️ ମୁଁ ଚିନ୍ତା କରିବା ଉଚିତ୍ କି?</h3>
+      <p>ଆପଣ ସତର୍କ ରହିବା ଉଚିତ୍। ସ୍କାମରମାନେ ଏହି ସୂଚନା ବ୍ୟବହାର କରି ଆପଣଙ୍କ ରୂପ ଧାରଣ କରିପାରନ୍ତି, ଆପଣଙ୍କୁ ଠକିପାରନ୍ତି କିମ୍ବା ଟଙ୍କା ଚୋରି କରିପାରନ୍ତି। କିନ୍ତୁ ଭୟ କରନ୍ତୁ ନାହିଁ — ନିଜକୁ ସୁରକ୍ଷିତ ରଖିବା ପାଇଁ ସରଳ ପଦକ୍ଷେପ ଅଛି।</p>
+    </div>
+    <div class="eli5-card">
+      <h3>🛡️ ମୁଁ ବର୍ତ୍ତମାନ କ'ଣ କରିବା ଉଚିତ୍?</h3>
+      <ul>
+        <li><strong>ନେଟ୍ ବ୍ୟାଙ୍କିଂ ପାସ୍‌ୱାର୍ଡ ବଦଳାନ୍ତୁ</strong> ଏବଂ ଦୁଇ-ପାଦ ପ୍ରାମାଣିକରଣ ଚାଲୁ କରନ୍ତୁ</li>
+        <li><strong>ପ୍ରତ୍ୟେକ ଲାଣ୍ଡେଣ ପାଇଁ SMS ସତର୍କତା ଚାଲୁ କରନ୍ତୁ</strong></li>
+        <li><strong>ନିକଟରେ ହୋଇଥିବା ଲାଣ୍ଡେଣ ଯାଞ୍ଚ କରନ୍ତୁ</strong> କୌଣସି ସନ୍ଦେହଜନକ କାର୍ଯ୍ୟକଳାପ ପାଇଁ</li>
+        <li><strong>SMS କିମ୍ବା ଇମେଲର ଲିଙ୍କରେ କ୍ଲିକ୍ କରନ୍ତୁ ନାହିଁ</strong> — ସେଗୁଡିକ ବ୍ୟାଙ୍କ ଅଫ୍ ବରୋଦା ରୁ ଆସିଥିବା ଦାବି କରିପାରେ</li>
+        <li><strong>ନିଜର OTP କିମ୍ବା ପାସ୍‌ୱାର୍ଡ କାହାରିକୁ ଦିଅନ୍ତୁ ନାହିଁ</strong> ଫୋନରେ କଥା ହେଉଥିବା ବ୍ୟକ୍ତିଙ୍କୁ ମଧ୍ୟ ନୁହେଁ</li>
+        <li><strong>ନିଜର CIBIL ସ୍କୋର ନିୟମିତ ଯାଞ୍ଚ କରନ୍ତୁ</strong> ଦେଖିବା ପାଇଁ କେହି ଆପଣଙ୍କ ନାମରେ ଋଣ ଖୋଲୁଛି କି</li>
+      </ul>
+    </div>
+    <div class="eli5-card">
+      <h3>📞 କିଏ ସାହାଯ୍ୟ କରିପାରିବ?</h3>
+      <ul>
+        <li><strong>ବ୍ୟାଙ୍କ ଅଫ୍ ବରୋଦା ହେଲ୍ପଲାଇନ:</strong> 1800 258 44 55</li>
+        <li><strong>RBI ବ୍ୟାଙ୍କିଂ ଲୋକପାଳ:</strong> cms.rbi.org.in</li>
+        <li><strong>ସାଇବର କ୍ରାଇମ ପୋର୍ଟାଲ:</strong> cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><strong>⚠️ BoBBreach</strong> — Bank of Baroda Data Breach Investigation by <a href="https://cashlessconsumer.in">CashlessConsumer</a></p>
+  <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
+  <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
+  <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="../pages/overview.html">Overview</a> | <a href="../pages/eli5.html">TL;DR</a> | <a href="vector.html">🔬 Vector</a> | <a href="../search.html">🔍 Branches</a> | <a href="../pages/demands.html">⚖️ Demands</a> | <a href="censorship.html">🔇 Censored</a> | <a href="../pages/about.html">About</a></p>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+  const saved = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', saved);
+  updateIcon(saved);
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateIcon(next);
+  });
+  function updateIcon(theme) {
+    themeIcon.innerHTML = theme === 'dark'
+      ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+      : '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g>';
+  }
+
+  // ── Language tabs ──
+  const tabs = document.querySelectorAll('.lang-tab');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('lang-' + tab.dataset.lang).classList.add('active');
+  }));
+</script>
+</body>
+</html>

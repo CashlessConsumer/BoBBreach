@@ -62,10 +62,16 @@
       <span></span><span></span><span></span>
     </button>
     <span class="logo">⚠️ BoBBreach</span>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="search.html" class="active">🔍 IFSC Check</a>
+        <div class="links" id="navLinks">
+      <a href="index.html" >Home</a>
+      <a href="pages/overview.html">📋 Full Overview</a>
+      <a href="pages/eli5.html">🧒 TL;DR / ELI5</a>
+      <a href="pages/vector.html">🔬 Vector</a>
+      <a href="search.html" class="active" >🔍 Branches</a>
+      <a href="pages/demands.html">⚖️ Demands</a>
+      <a href="pages/why.html">☢️ Why</a>
       <a href="pages/about.html">About</a>
+      <a href="pages/censorship.html">🔇 Censored</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -76,30 +82,46 @@
   </div>
 </nav>
 
-<!-- LLM Disclaimer -->
-<div style="background:var(--card);border-bottom:1px solid var(--border);padding:16px;font-size:1rem;line-height:1.7;color:var(--muted)">
-  <div style="max-width:var(--maxw);margin:0 auto;display:flex;gap:12px;align-items:flex-start">
-    <span style="font-size:1.4rem;flex-shrink:0;margin-top:3px;">🤖</span>
-    <div>
-      <strong style="color:var(--fg);font-size:1.1rem;">LLM-Enabled Investigation — Read This First.</strong><br>
-      The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.
-      <br><br>
-      <strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.
-    </div>
+<!-- ═══ LLM Disclosure (collapsible) ═══ -->
+<details class="disclosure">
+  <summary>
+    <span class="d-icon">🤖</span>
+    <strong>LLM-Enabled Investigation</strong>
+    <span class="d-toggle">▾</span>
+  </summary>
+  <div class="disclosure-body">
+    <p>The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.</p>
+    <p><strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.</p>
   </div>
+</details>
 </div>
 
 <!-- Search Hero -->
 <section class="search-hero" id="overview">
   <span class="date-badge">🔍 IFSC Branch Check</span>
   <h1>Was Your Branch Exposed?</h1>
-  <p class="subtitle">Enter your Bank of Baroda IFSC code to search 1,088+ branches with confirmed data exposure in the Triple X dump. Branch data resolved via Razorpay IFSC database (9,992 codes) cross-referenced against the breach inventory.</p>
+  <p class="subtitle">Enter your Bank of Baroda IFSC code to check if your branch has confirmed data exposure in the Triple X dump. Branch data resolved by cross-referencing the dump's directory listing against the Razorpay IFSC database (9,992 BoB IFSC codes on record). Of these, <strong id="liveImpactedCount">1,088+</strong> branches matched files in the dump.
+    <span style="display:inline-block;position:relative;">
+      <span style="cursor:help;border-bottom:1px dotted var(--muted);" title="9,992 = all active BoB IFSC codes in the public Razorpay database. 1,088+ = branches whose file paths appeared in the Tor dump directory listing. The remaining ~8,900 codes had no matching files in the dump — those customers' data may still have been exposed through other systems, including the core banking database (Finacle)." aria-label="9,992 is the total number of BoB IFSC codes listed in the public Razorpay database. 1,088+ is the number of branches whose file paths appeared in the Tor dump directory listing.">ⓘ</span>
+    </span>
+  </p>
 </section>
 
 <div class="stats-row">
   <div class="stat-box"><div class="num" id="statBranches">1,088+</div><div class="label">Branches Impacted</div></div>
   <div class="stat-box"><div class="num" id="statCities">248</div><div class="label">Cities Affected</div></div>
   <div class="stat-box"><div class="num" id="statStates">31</div><div class="label">States & UTs</div></div>
+</div>
+
+<!-- TODO: Leaflet Map -->
+<div style="max-width:var(--maxw);margin:0 auto 20px;padding:0 16px;">
+  <details style="background:var(--bg2);border:1px dashed var(--border);border-radius:var(--radius);padding:12px 16px;cursor:pointer;">
+    <summary style="font-size:.82rem;color:var(--muted);font-weight:600;">🗺️ Interactive map coming soon — click for details</summary>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:8px;line-height:1.5;">
+      A Leaflet.js map visualising all 1,088+ impacted branches across 248 cities in 31 states/UTs is in development. The map will show branch locations, cluster by region, and link directly to IFSC search results.
+      <br><em>Priority: high · Blocked on geocoding pipeline for branch addresses.</em>
+    </p>
+  </details>
 </div>
 
 <!-- Search Main -->
@@ -116,6 +138,29 @@
 
 <!-- Risk Guide -->
 <section style="max-width:var(--maxw);margin:0 auto;padding:0 16px 48px;">
+  <div class="card">
+    <h3>🔬 Methodology & How This Was Built</h3>
+    <p style="font-size:.88rem;color:var(--muted);">This branch checker matches file paths observed in the publicly available Triple X Tor dump directory listing against the Razorpay IFSC database.</p>
+    <div class="grid2" style="margin-top:12px;">
+      <div>
+        <p style="font-size:.85rem;"><strong>Step 1 — Dump crawl</strong><br><span style="color:var(--muted);">We crawled the directory structure visible on the Triple X Tor leak server. File names, paths, and metadata were recorded. <strong>No actual file contents were downloaded or accessed.</strong></span></p>
+        <p style="font-size:.85rem;"><strong>Step 2 — IFSC extraction</strong><br><span style="color:var(--muted);">File paths in the dump frequently contain IFSC codes, branch codes, city names, or region abbreviations embedded in folder and document names. These were extracted programmatically.</span></p>
+      </div>
+      <div>
+        <p style="font-size:.85rem;"><strong>Step 3 — Cross-reference</strong><br><span style="color:var(--muted);">Extracted branch identifiers were matched against the Razorpay IFSC database, which lists ~9,992 active BoB IFSC codes. This maps exposed files to specific branches, cities, and states.</span></p>
+        <p style="font-size:.85rem;"><strong>Step 4 — Validation</strong><br><span style="color:var(--muted);">Matches were manually reviewed against directory naming patterns. Some branches may have data in the dump without a resolvable IFSC pattern in file paths — this dataset undercounts rather than overcounts.</span></p>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:12px;background:var(--bg2);border-radius:8px;font-size:.82rem;color:var(--yellow);">
+      <strong>⚠️ Important caveats:</strong>
+      <ul style="margin-top:4px;padding-left:18px;">
+        <li><strong>Metadata only</strong> — counts reflect file paths in the directory listing, not file content</li>
+        <li><strong>Indicative numbers</strong> — branch counts are from initial ongoing analysis and may change as we refine mapping</li>
+        <li><strong>File server ≠ core banking</strong> — this maps what was on the compromised SharePoint, not the Finacle database. Customers of branches not in this dataset may still be affected via other systems</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="card">
     <h3>Understanding Results</h3>
     <div class="grid2">
@@ -152,21 +197,25 @@
   <p style="margin-top:8px;">Fintech & DPI research initiative. Investigation led by Srikanth (CashlessConsumer).</p>
   <p style="margin-top:8px;">Data sources: OSINT crawl of Triple X Tor dump directory listing, Razorpay IFSC database, threat intelligence reports.</p>
   <p style="margin-top:4px;"><strong>Privacy:</strong> No PII from the dump is distributed on this site. Raw data retained for investigative purposes only.</p>
-  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="pages/about.html">About</a> | <a href="index.html">Home</a></p>
+  <p style="margin-top:12px;">📧 <a href="mailto:cashlessconsumerin@gmail.com">Contact</a> | <a href="https://github.com/CashlessConsumer">GitHub</a> | <a href="https://x.com/logic">X/Twitter</a> | <a href="pages/demands.html">⚖️ Demands</a>
+      <a href="pages/why.html">☢️ Why</a>
+       | <a href="pages/censorship.html">🔇 Censored</a> | <a href="pages/about.html">About</a> | <a href="index.html">Home</a></p>
 </footer>
 
 <script src="js/main.js"></script>
 <script>
 // ── Branches by State ──
 let branchData = [];
+let impactedBranches = [];
 
 async function loadBranchData() {
   try {
     const resp = await fetch('data/branches.min.json');
     branchData = await resp.json();
-    const cities = new Set(branchData.map(b => b.c));
-    const states = new Set(branchData.map(b => b.s));
-    document.getElementById('statBranches').textContent = branchData.length.toLocaleString();
+    impactedBranches = branchData.filter(b => b.t === 1);
+    const cities = new Set(impactedBranches.map(b => b.c));
+    const states = new Set(impactedBranches.map(b => b.s));
+    document.getElementById('statBranches').textContent = impactedBranches.length.toLocaleString();
     document.getElementById('statCities').textContent = cities.size;
     document.getElementById('statStates').textContent = states.size;
     renderStateFilters();
@@ -178,13 +227,15 @@ async function loadBranchData() {
 }
 
 function renderStateFilters() {
-  const states = [...new Set(branchData.map(b => b.s))].sort();
+  const impacted = branchData.filter(b => b.t === 1);
+  const states = [...new Set(impacted.map(b => b.s))].sort();
   const bar = document.getElementById('stateFilters');
   bar.innerHTML = '<button class="filter-btn active" data-state="all">All States</button>';
   states.forEach(s => {
+    const cnt = impacted.filter(b => b.s === s).length;
     const btn = document.createElement('button');
     btn.className = 'filter-btn';
-    btn.textContent = `${s} (${branchData.filter(b=>b.s===s).length})`;
+    btn.textContent = `${s} (${cnt})`;
     btn.dataset.state = s;
     btn.onclick = () => {
       document.querySelectorAll('#stateFilters .filter-btn').forEach(b => b.classList.remove('active'));
@@ -198,7 +249,8 @@ function renderStateFilters() {
 function renderBranches(state) {
   const list = document.getElementById('branchList');
   const count = document.getElementById('branchCount');
-  const filtered = state === 'all' ? branchData : branchData.filter(b => b.s === state);
+  const impacted = branchData.filter(b => b.t === 1);
+  const filtered = state === 'all' ? impacted : impacted.filter(b => b.s === state);
   list.innerHTML = filtered.map(b => `
     <div class="search-result">
       <div class="branch-info">
