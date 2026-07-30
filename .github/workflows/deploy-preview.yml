@@ -3,6 +3,7 @@ name: Deploy PR Preview
 on:
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -17,17 +18,29 @@ concurrency:
 jobs:
   deploy-preview:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - id: deployment
+      - id: deploy
         uses: actions/deploy-pages@v4
+
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const url = '${{ steps.deploy.outputs.page_url }}';
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## 🔍 Preview deployed
+
+| Branch | Preview |
+|--------|---------|
+| \`${context.payload.pull_request.head.ref}\` | [Preview](${url}) |
+
+> Auto-updates on every push to this PR.`
+            });
