@@ -20,33 +20,20 @@
   </style>
 </head>
 <body>
-<!-- ═══ Navigation ═══ -->
-<nav>
-  <div class="inner">
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-    <span class="logo">⚠️ BoBBreach</span>
-        <div class="links" id="navLinks">
-      <a href="../">Home</a>
-      <a href="overview.html">📋 Full Overview</a>
-      <a href="eli5.html">🧒 TL;DR / ELI5</a>
-      <a href="vector.html">🔬 Vector</a>
-      <a href="../search.html">🔍 Branches</a>
-      <a href="demands.html" class="active" >⚖️ Demands</a>
-      <a href="why.html">☢️ Why</a>
-      <a href="about.html">About</a>
-      <a href="censorship.html">🔇 Censored</a>
-    </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
-      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    </button>
+<aside class="sidebar" id="sidebar">
+  <a href="index.html" class="logo-wrap"><span class="logo-icon">⚠️</span><span class="logo-text">BoBBreach</span></a>
+  <nav class="nav-links"><a href="../index.html" class="nav-item"><span class="icon">🏠</span> Home</a><a href="../search.html" class="nav-item"><span class="icon">🔍</span> Branches</a><a href="pages/overview.html" class="nav-item"><span class="icon">📋</span> Overview</a><a href="pages/eli5.html" class="nav-item"><span class="icon">🧒</span> TL;DR/ELI5</a><a href="pages/vector.html" class="nav-item"><span class="icon">🔬</span> Attack Vector</a><a href="#" class="nav-item active"><span class="icon">⚖️</span> Demands</a><a href="pages/why.html" class="nav-item"><span class="icon">☢️</span> Why We Built</a><a href="pages/censorship.html" class="nav-item"><span class="icon">🔇</span> Censored</a><a href="pages/about.html" class="nav-item"><span class="icon">ℹ️</span> About</a></nav>
+  <div class="sidebar-footer">
     <span class="badge">Active Breach</span>
+    <button class="theme-btn" id="sidebarThemeToggle" title="Toggle theme">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </div>
-</nav>
-
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="main-wrapper">
+<header class="top-header"><button class="nav-toggle-sidebar" id="sidebarToggle" aria-label="Toggle sidebar">☰</button><span class="page-title">⚖️ Demands</span><span class="flex-spacer"></span><a href="../search.html" class="branch-link">🔍 Check Branch</a></header>
+<div class="content-area">
 <!-- ═══ LLM Disclosure (collapsible) ═══ -->
 <details class="disclosure">
   <summary>
@@ -148,5 +135,6 @@
     }
   </script>
 <script src="../js/main.js"></script>
-</body>
+</div></div>
+
 </html>

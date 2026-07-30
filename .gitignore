@@ -16,3 +16,20 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Investigation data archives (not part of the site)
+crawl_archive/
+crawler/
+download_scripts/
+downloaded/
+inventories/
+investigation_worthy/
+reports/
+scripts/*.py
+_add_nav.py
+_rebuild_nav.py
+rebuild_nav.py
+rebuild-layout.py
+redesign-layout.py
+add-nav-layout.py
+site/
