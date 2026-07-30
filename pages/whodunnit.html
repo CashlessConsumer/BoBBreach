@@ -80,28 +80,62 @@
 </head>
 <body>
 
-<!-- ═══ Navigation ═══ -->
-<nav>
-  <div class="inner">
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
-    <span class="logo">⚠️ BoBBreach</span>
-    <div class="links" id="navLinks">
-      <a href="../">🏠 Home</a>
-      <a href="breach.html">📋 The Breach</a>
-      <a href="data-exposed.html">📂 Data Exposed</a>
-      <a href="threat-actor.html">🕵️ Threat Actor</a>
-      <a href="../search.html">🔍 Branches</a>
-      <a href="timeline.html">📅 Timeline</a>
-      <a href="consumer-guide.html">🛡️ Guide</a>
-      <a href="eli5.html">🧒 ELI5</a>
-      <a href="about.html">About</a>
-    </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
+<!-- ═══ Sidebar ═══ -->
+<div class="sidebar" id="sidebar">
+  <div class="logo">
+    <span class="badge" style="margin-right:8px;">⚠️</span>
+    <span>BoBBreach</span>
+  </div>
+  <div class="nav-links">
+    <a href="../"><span class="icon">🏠</span> Home</a>
+    <a href="breach.html"><span class="icon">📋</span> The Breach</a>
+    <a href="data-exposed.html"><span class="icon">📂</span> Data Exposed</a>
+    <a href="threat-actor.html"><span class="icon">🕵️</span> Threat Actor</a>
+    <a href="../search.html"><span class="icon">🔍</span> Branches</a>
+    <a href="timeline.html"><span class="icon">📅</span> Timeline</a>
+    <a href="consumer-guide.html"><span class="icon">🛡️</span> Guide</a>
+    <a href="demands.html"><span class="icon">⚖️</span> Demands</a>
+    <a href="eli5.html"><span class="icon">🧒</span> ELI5</a>
+    <a href="vector.html"><span class="icon">🔬</span> Vector</a>
+    <a href="why.html"><span class="icon">☢️</span> Why</a>
+    <a href="about.html"><span class="icon">ℹ️</span> About</a>
+    <a href="censorship.html"><span class="icon">🔇</span> Censored</a>
+  </div>
+  <div class="badge-area">
     <span class="badge">Whodunnit</span>
   </div>
-</nav>
+</div>
+
+<!-- Sidebar overlay for mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Main layout -->
+<div class="main-wrapper">
+
+<!-- Top header -->
+<div class="top-header">
+  <button class="nav-toggle-sidebar" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+  <span style="font-weight:600;font-size:.9rem;">🔮 Whodunnit</span>
+  <span class="spacer"></span>
+  <!-- theme-toggle removed to top-header --><!-- <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</div>
+
+<!-- ═══ LLM Disclosure (collapsible) ═══ -->
+<details class="disclosure">
+  <summary>
+    <span class="d-icon">🤖</span>
+    <strong>LLM-Enabled Investigation</strong>
+    <span class="d-toggle">▾</span>
+  </summary>
+  <div class="disclosure-body">
+    <p>The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.</p>
+    <p><strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.</p>
+  </div>
+</details>
+
+<div class="content-area">
 
 <!-- ═══ Hero ═══ -->
 <div class="whodunnit-hero">
@@ -379,6 +413,9 @@
 <!-- ═══ FOOTER NOTE ═══ -->
 <div class="footer-note">
   <p><em>Research & scenarios by CashlessConsumer. Written Jul 29, 2026. Based on open-source reporting, threat intelligence platforms, market data, and institutional knowledge of PSB operations. This is a <strong>"whodunnit" framework</strong>, not a definitive attribution — treat each scenario as having [medium-low to medium-high] probability pending forensic evidence.</em></p>
+</div>
+
+</div>
 </div>
 
 <footer>
