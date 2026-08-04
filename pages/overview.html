@@ -56,17 +56,17 @@
 </details>
 <!-- Hero -->
 <section class="hero" id="overview">
-  <span class="date-badge">🔴 July 27, 2026 — Ongoing Investigation</span>
+  <span class="date-badge">🔴 August 4, 2026 — Ongoing Investigation</span>
   <h1>Your Data Was in the BoB Breach.<br><span>Here's What We Found.</span></h1>
-  <!-- CTA INSERT --> <p class="subtitle">On July 24, 2026, the Triple X ransomware group claimed to have exfiltrated 1 TB of data from India's second-largest public sector bank. The full dump is publicly accessible on Tor with <strong>over 92,000 files</strong> observed — including customer KYC, security reports, and internal audit documents. <em>These are indicative numbers from initial ongoing analysis.</em></p>
+  <!-- CTA INSERT --> <p class="subtitle">On July 24, 2026, the Triple X ransomware group claimed to have exfiltrated 1 TB of data from India's second-largest public sector bank. The full dump is publicly accessible on Tor — our completed crawl (0 errors) identified <strong>162,111 files</strong> across <strong>16,474 directories</strong>, totalling ≈1.07 TB in listed file sizes — including customer KYC, security reports, and internal audit documents. <em>Metadata-level analysis of file names and paths only; no file contents reviewed. Crawl complete as of Aug 4, 2026.</em></p>
   <a href="#breach" class="cta">→ Understand the Breach</a>
   <a href="../search.html" class="cta" style="background:var(--bg2);color:var(--fg);margin-left:12px;">🔍 Check Your Branch</a>
   <div class="stats">
-    <div class="stat-card"><div class="num">92K+</div><div class="label">Files Observed</div></div>
-    <div class="stat-card"><div class="num">9,783</div><div class="label">Directories</div></div>
-    <div class="stat-card"><div class="num">62</div><div class="label">Top-Level Branches</div></div>
+    <div class="stat-card"><div class="num">162K+</div><div class="label">Files Observed</div></div>
+    <div class="stat-card"><div class="num">16,474</div><div class="label">Directories</div></div>
+    <div class="stat-card"><div class="num">90</div><div class="label">Top-Level Directories</div></div>
     <div class="stat-card"><div class="num">1,088+</div><div class="label">Branches Impacted</div></div>
-    <div class="stat-card"><div class="num">~1 TB</div><div class="label">Data Volume</div></div>
+    <div class="stat-card"><div class="num">1.07 TB</div><div class="label">Data Volume (Observed)</div></div>
   </div>
 </section>
 
@@ -88,7 +88,7 @@
   <div class="card">
     <h3>What is this breach?</h3>
     <p>On July 24, 2026, a ransomware group called <strong>Triple X</strong> claimed to have broken into Bank of Baroda's internal systems and stolen massive amounts of data. The group published the stolen data on the dark web (Tor network) — completely accessible to anyone, with no password required.</p>
-    <p>The investigation by CashlessConsumer confirmed <strong>over 92,000 files</strong> across <strong>9,783 directories</strong> are visible in the publicly available dump. The data comes from what appears to be Bank of Baroda's internal SharePoint / file-sharing system — not directly from the core banking database (Finacle), but enough to cause serious harm.</p>
+    <p>The investigation by CashlessConsumer confirmed <strong>162,111 files</strong> across <strong>16,474 directories</strong> are visible in the publicly available dump — a completed Tor crawl (0 errors, Aug 4, 2026) covering file names and sizes only. The data comes from what appears to be Bank of Baroda's internal SharePoint / file-sharing system — not directly from the core banking database (Finacle), but enough to cause serious harm.</p>
   </div>
 
   <div class="grid2">
@@ -121,7 +121,7 @@
 
   <div class="card">
     <h3>Who is affected?</h3>
-    <p><strong>Virtually all Bank of Baroda customers</strong> are potentially affected. The compromised file server covered operations across <strong>62 top-level branches</strong> including zones and regions spanning all of India and 12+ international locations. Customer data was found in KYC lists, transaction dumps, loan files, and audit documents — meaning if you've had any relationship with BoB, your data may be in the dump.</p>
+    <p><strong>Virtually all Bank of Baroda customers</strong> are potentially affected. The compromised file server covered operations across <strong>90 top-level branches</strong> including zones and regions spanning all of India and 12+ international locations. Customer data was found in KYC lists, transaction dumps, loan files, and audit documents — meaning if you've had any relationship with BoB, your data may be in the dump.</p>
   </div>
 
   <div class="alert alert-yellow"><strong>⚡ Important:</strong> The dump does NOT appear to include direct access to Finacle (core banking system), so account passwords and sensitive transaction credentials may not be directly exposed. However, the KYC data (Aadhaar, PAN, photos) and loan documents are sufficient for identity theft and social engineering attacks.</div>
@@ -163,14 +163,14 @@
     <h3>File Types Breakdown</h3>
     <p style="font-size:.85rem;">The most common file types in the dump:</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px;">
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">PDF</strong><br><span style="font-size:.8rem;color:var(--muted);">13,678 files (86.7%)</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">XLSX/XLS</strong><br><span style="font-size:.8rem;color:var(--muted);">993 files</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">ZIP/7z</strong><br><span style="font-size:.8rem;color:var(--muted);">436 archives</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">JPG/PNG</strong><br><span style="font-size:.8rem;color:var(--muted);">601 images</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">APK/IPA</strong><br><span style="font-size:.8rem;color:var(--muted);">23 mobile binaries</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">DB/ACCDB</strong><br><span style="font-size:.8rem;color:var(--muted);">17 database files</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">PCAP</strong><br><span style="font-size:.8rem;color:var(--muted);">2 network captures</span></div>
-      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">E codes, WSDL, CERT</strong><br><span style="font-size:.8rem;color:var(--muted);">5+ enterprise archives</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">PDF</strong><br><span style="font-size:.8rem;color:var(--muted);">84,291 files (52.0%)</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">XLSX/XLS/CSV</strong><br><span style="font-size:.8rem;color:var(--muted);">16,040 files</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">ZIP/7z/RAR</strong><br><span style="font-size:.8rem;color:var(--muted);">2,681 archives</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">JPG/PNG</strong><br><span style="font-size:.8rem;color:var(--muted);">6,834 images</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">APK/IPA</strong><br><span style="font-size:.8rem;color:var(--muted);">31 mobile binaries</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">DB/ACCDB</strong><br><span style="font-size:.8rem;color:var(--muted);">391 database files</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">PCAP</strong><br><span style="font-size:.8rem;color:var(--muted);">7 network captures</span></div>
+      <div style="padding:10px;background:var(--bg2);border-radius:6px;"><strong style="color:var(--fg);">Certs & Keys</strong><br><span style="font-size:.8rem;color:var(--muted);">47 key files</span></div>
     </div>
   </div>
 </section>
@@ -342,18 +342,16 @@
 <script>
 // ── Data ──
 const exposureCategories = [
-  {id:"AUDIT",label:"Audit Reports",icon:"📊",color:"var(--blue)",count:3352,severity:"medium"},
-  {id:"CUSTOMER_PII",label:"Customer PII",icon:"🆔",color:"var(--red)",count:248,severity:"critical"},
-  {id:"KYC",label:"KYC Documents",icon:"📋",color:"var(--red)",count:169,severity:"critical"},
-  {id:"TRANSACTION",label:"Transaction Data",icon:"💳",color:"var(--red)",count:613,severity:"critical"},
-  {id:"LOAN",label:"Loan Records",icon:"💰",color:"var(--yellow)",count:920,severity:"high"},
-  {id:"CREDENTIAL",label:"Credentials",icon:"🔑",color:"var(--red)",count:228,severity:"critical"},
-  {id:"VAPT",label:"VAPT Reports",icon:"🔒",color:"var(--red)",count:95,severity:"critical"},
-  {id:"NETWORK",label:"Network Configs",icon:"🌐",color:"var(--yellow)",count:162,severity:"high"},
-  {id:"FRAUD",label:"Fraud Data",icon:"🚩",color:"var(--red)",count:39,severity:"critical"},
-  {id:"INTERNATIONAL",label:"Intl. Operations",icon:"🌍",color:"var(--yellow)",count:387,severity:"high"},
-  {id:"EMPLOYEE",label:"Employee Data",icon:"👤",color:"var(--yellow)",count:960,severity:"high"},
-  {id:"FINANCIAL",label:"Financial Records",icon:"📈",color:"var(--yellow)",count:389,severity:"high"},
+  {id:"AUDIT",label:"Audit Reports",icon:"📊",color:"var(--blue)",count:5784,severity:"medium"},
+  {id:"MOBILE_APP",label:"Mobile App / BOB World",icon:"📱",color:"var(--yellow)",count:2526,severity:"high"},
+  {id:"BRANCH_OPS",label:"Branch Operations",icon:"🏦",color:"var(--blue)",count:1852,severity:"medium"},
+  {id:"LOANS",label:"Loan Records",icon:"💰",color:"var(--yellow)",count:1219,severity:"high"},
+  {id:"TRANSACTION",label:"Transaction Data",icon:"💳",color:"var(--red)",count:982,severity:"critical"},
+  {id:"KYC_DATA",label:"Customer KYC & PII",icon:"🆔",color:"var(--red)",count:791,severity:"critical"},
+  {id:"INTERNATIONAL",label:"Intl. Operations",icon:"🌍",color:"var(--yellow)",count:661,severity:"high"},
+  {id:"IT_SECURITY",label:"IT Security",icon:"🔒",color:"var(--red)",count:553,severity:"critical"},
+  {id:"SERVER_CONFIG",label:"Server Config",icon:"🖥️",color:"var(--red)",count:343,severity:"critical"},
+  {id:"FRAUD",label:"Fraud Data",icon:"🚩",color:"var(--red)",count:6,severity:"critical"},
 ];
 
 const timeline = [
@@ -362,9 +360,9 @@ const timeline = [
   {date:"May 22, 2026",title:"BNI Breach Published",description:"Triple X publishes BNI breach details. Sample data posted including passports and ID cards.",type:"disclosure"},
   {date:"June 2026",title:"Triple X Added to WatchGuard Tracker",description:"Ransomware monitoring services track Triple X as a new active threat group.",type:"intel"},
   {date:"July 24, 2026",title:"Triple X Claims BoB Breach",description:"Group lists Bank of Baroda on leak site, claiming ~1 TB data exfiltrated via 'weak password'.",type:"breach"},
-  {date:"July 25, 2026",title:"BoB Dump Server Goes Live",description:"Full directory of 15,774+ files published on Tor. CKYC, VAPT reports, admin credentials exposed.",type:"disclosure"},
+  {date:"July 25, 2026",title:"BoB Dump Server Goes Live",description:"Initial listing of 15,774+ files observed on Tor. CKYC, VAPT reports, admin credentials exposed.",type:"disclosure"},
   {date:"July 25-26, 2026",title:"Server Intermittent",description:"BoB dump server briefly goes offline then returns. Threat intel amplified on X/Twitter.",type:"threat"},
-  {date:"July 26, 2026",title:"Full OSINT Investigation",description:"CashlessConsumer begins comprehensive crawl: 995s, 925 HTTP fetches, 0 errors. Over 92,000 entries identified from publicly visible directory listing.",type:"evidence"},
+  {date:"July 26, 2026",title:"Full OSINT Investigation",description:"CashlessConsumer launches full Tor crawl — completed Aug 4 with 0 errors: 16,474 directories, 162,111 files (≈1.07 TB of listed file sizes) identified from the publicly visible directory listing.",type:"evidence"},
   {date:"July 27, 2026",title:"Consumer Portal Launched",description:"bobbreach.cashlessconsumer.in launched to help customers check impact and understand next steps.",type:"response"},
 ];
 

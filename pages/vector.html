@@ -116,11 +116,11 @@
   <div class="evidence-box">
     <h4>Observed Characteristics of the Dump</h4>
     <ul>
-      <li><strong>Hierarchical branch structure:</strong> 62 top-level directories correspond to zones, regions, and branches — consistent with an organisational SharePoint site collection or mapped network drive</li>
+      <li><strong>Hierarchical branch structure:</strong> 90 top-level directories correspond to zones, regions, and branches — consistent with an organisational SharePoint site collection or mapped network drive</li>
       <li><strong>Named employee folders:</strong> Individual user directories visible within branch structures, suggesting personal workspaces or department shares rather than a central archive</li>
       <li><strong>Cross-departmental scope:</strong> Separate directories for audit, legal, IT/security, HR, and international operations — each with its own sub-structure</li>
       <li><strong>Technical artifacts present:</strong> Server config files (httpd.conf), mobile app binaries (APK/IPA), network packet captures (PCAP), Access databases (ACCDB), WSDL service definitions</li>
-      <li><strong>Volume and granularity:</strong> ~92,000 files, ~9,700 directories, ~1 TB — not a single bulk export but a fine-grained directory tree</li>
+      <li><strong>Volume and granularity:</strong> ~162,000 files, ~16,500 directories, ≈1.07 TB of listed file sizes — corroborating the ~1 TB claim; not a single bulk export but a fine-grained directory tree</li>
     </ul>
   </div>
 
@@ -139,7 +139,7 @@
       <h4>📮 If It Were Purely Email</h4>
       <ul>
         <li>Data would likely be in mailbox export format (.PST) or individual .MSG/.EML files</li>
-        <li>Would reflect one user's correspondence — unlikely to span 62 branch directories</li>
+        <li>Would reflect one user's correspondence — unlikely to span 90 branch directories</li>
         <li>Would contain primarily email attachments, not server configs, mobile app binaries, or Access databases</li>
         <li>A 1 TB mailbox is extremely unusual — Microsoft 365 caps mailboxes at 100 GB (with archive)</li>
         <li>Access DB files, PCAPs, httpd.conf — these are not typical email attachments</li>
@@ -171,7 +171,7 @@
     </ul>
   </div>
 
-  <p>If the dump spans 62 top-level branches, 1,088+ branch directories, IT/security repositories, international operations, and named employee workspaces — the compromised account must have had remarkably broad permissions within the bank's M365 / SharePoint environment.</p>
+  <p>If the dump spans 90 top-level branches, 1,088+ branch directories, IT/security repositories, international operations, and named employee workspaces — the compromised account must have had remarkably broad permissions within the bank's M365 / SharePoint environment.</p>
 
   <p>In enterprise SharePoint deployments, this pattern typically results from one of a few configurations:</p>
 
@@ -198,7 +198,7 @@
 
     <div class="question-item">
       <span class="q">How long was the account compromised before exfiltration?</span>
-      <span class="a">Exfiltrating ~1 TB of data across 92,000+ files takes time — especially if done covertly. Was the intruder present for days, weeks, or months? The bank's statement doesn't address dwell time. The answer would be in the audit logs, not in the dump.</span>
+      <span class="a">Exfiltrating ~1 TB of data across 162,000+ files takes time — especially if done covertly. Was the intruder present for days, weeks, or months? The bank's statement doesn't address dwell time. The answer would be in the audit logs, not in the dump.</span>
     </div>
 
     <div class="question-item">
@@ -230,7 +230,7 @@
     <div class="col" style="border-left: 3px solid var(--blue);">
       <h4>📧 Model A: Email-Only Compromise</h4>
       <p style="font-size:.85rem;color:var(--muted);margin-bottom:10px;">The attacker accessed a single employee's mailbox and extracted attachments, then organised them into a directory structure for publication.</p>
-      <p style="font-size:.85rem;color:var(--muted);">Would need to explain: how server configs, APK/IPA files, Access databases, and network PCAPs came to be in that mailbox; how 62 branch directories were represented in one person's correspondence; and how the volume reached ~1 TB within standard mailbox limits.</p>
+      <p style="font-size:.85rem;color:var(--muted);">Would need to explain: how server configs, APK/IPA files, Access databases, and network PCAPs came to be in that mailbox; how 90 branch directories were represented in one person's correspondence; and how the volume reached ~1 TB within standard mailbox limits.</p>
       <span class="tag-small tag-question">Plausibility: Low based on dump structure</span>
     </div>
     <div class="col" style="border-left: 3px solid var(--accent);">
