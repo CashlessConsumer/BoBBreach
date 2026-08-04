@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Coverage — Bank of Baroda Breach | bobbreach.cashlessconsumer.in</title>
+  <meta name="description" content="Comprehensive tracking of media coverage of the Bank of Baroda data breach — links, dates, classification, and the coverage gaps.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏦</text></svg>">
+  <script defer data-domain="bobbreach.cashlessconsumer.in" src="https://plausible.cashlessconsumer.in/js/script.js"></script>
+  <style>
+    .media-container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+    .media-container h2 { margin-top: 40px; }
+    .media-container .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+    .media-container .card h3 { margin: 0 0 8px 0; }
+    .media-container .card .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px 0; }
+    .legend .chip { font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); background: var(--card); color: var(--fg); }
+    .media-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .media-table th { text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .media-table td { padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .media-table a { color: var(--link, #3b82f6); text-decoration: underline; text-underline-offset: 2px; word-break: break-word; }
+    .media-table .nowrap { white-space: nowrap; }
+    .phase-row td { background: rgba(139,148,158,.06); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .gap-item { margin-bottom: 12px; padding-left: 4px; }
+    .gap-item strong { color: var(--red); }
+  </style>
+</head>
+<body>
+  <nav>
+  <div class="inner">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="logo">⚠️ BoBBreach</span>
+        <div class="links" id="navLinks">
+      <a href="../">Home</a>
+      <a href="overview.html">📋 Full Overview</a>
+      <a href="eli5.html">🧒 TL;DR / ELI5</a>
+      <a href="vector.html">🔬 Vector</a>
+      <a href="../search.html">🔍 Branches</a>
+      <a href="demands.html">⚖️ Demands</a>
+      <a href="why.html">☢️ Why</a>
+      <a href="media.html" class="active" >📡 Media</a>
+      <a href="about.html">About</a>
+      <a href="censorship.html">🔇 Censored</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+    <span class="badge">Active Breach</span>
+  </div>
+</nav>
+
+  <details class="llm-disclosure" open>
+  <summary><strong>⚠️ LLM Disclosure</strong> — How this page was produced (click to expand)</summary>
+  <div class="disclosure-body">
+    <p>The research, data analysis, and narrative on this site were produced with the assistance of large language models (LLMs) as analytical tools. All metadata-driven findings (file names, directory structures, timestamps, document sizes) were extracted programmatically from the publicly available Tor dump and cross-referenced via automated scripts. Human researchers directed every query, verified every substantive claim, and maintained the editorial chain of custody.</p>
+    <p><strong>No LLM has access to the actual contents of the dumped files</strong> — this is a <strong>metadata-level analysis</strong> of file names, paths, and document types visible in the leak directory structure. This is early, ongoing analysis and may contain errors. Independent verification is encouraged.</p>
+  </div>
+</details>
+
+  <main class="media-container">
+    <h1>📡 Media Coverage &amp; Public Response</h1>
+    <p style="color:var(--muted);margin-bottom:24px;">
+      Tracking how the Bank of Baroda breach was reported — <strong>links, dates, and classification</strong> of every piece of coverage found, plus an honest accounting of what did <em>not</em> get covered. Last checked: <strong>4 August 2026</strong>.
+    </p>
+
+    <div class="stats">
+      <div class="stat-card"><div class="num">30+</div><div class="label">Coverage Items Tracked</div></div>
+      <div class="stat-card"><div class="num">48 hrs</div><div class="label">To First Major Wave</div></div>
+      <div class="stat-card"><div class="num">5 days</div><div class="label">Sustained News Cycle</div></div>
+      <div class="stat-card"><div class="num">0</div><div class="label">RBI / CERT-In Statements</div></div>
+    </div>
+
+    <div class="alert alert-red" style="margin-top:20px;">
+      <strong>🔴 The headline nobody wrote:</strong> a ~1 TB leak of a top-5 Indian bank's customer data — including Aadhaar-linked KYC documents — generated a <strong>5-day news cycle and zero public statements from RBI or CERT-In</strong>. The biggest consumer-security outlet in the world did not cover it at all.
+    </div>
+
+    <!-- Section Navigation -->
+    <div class="section-nav">
+      <a href="#snapshot">📊 Snapshot</a>
+      <a href="#legend">🏷️ Classification</a>
+      <a href="#timeline">📅 Coverage Timeline</a>
+      <a href="#well">✅ What Got Covered</a>
+      <a href="#gaps">❌ Coverage Gaps</a>
+      <a href="#sourced">🔎 Coverage Sourced From This Investigation</a>
+      <a href="#method">🧭 Method</a>
+    </div>
+
+    <!-- 1. Snapshot -->
+    <section class="anchor" id="snapshot">
+      <h2>📊 Coverage Snapshot <span class="sub">The shape of the media response, in four numbers</span></h2>
+      <div class="card">
+        <h3>What the numbers say</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li><strong>Fast first wave:</strong> TripleX listed the dump on <strong>24 July 2026</strong>. Threat-intel trackers followed within a day, and the first major news wave (Deccan Herald, CNBC-TV18, Reuters, The Hindu…) hit on <strong>27 July</strong> — the same day the bank confirmed the incident. ~48 hours from claim to mainstream coverage.</li>
+          <li><strong>Front-loaded and shallow:</strong> Most items (18 of ~30 tracked) appeared on <strong>27–28 July</strong> and reported the same facts — the 1 TB claim, the bank's "single employee email" statement. Analysis, verification, and consumer-guide pieces were thinner and came later.</li>
+          <li><strong>Short half-life:</strong> Substantive coverage effectively ended by <strong>29–31 July</strong>. As of 4 August there is no sustained follow-up, no regulator action story, no "what happened next" journalism.</li>
+          <li><strong>Regulators silent:</strong> Reuters reported that <strong>RBI and CERT-In did not respond</strong> to requests for comment. India Today (28 July) was left asking whether RBI/CERT-In would face penalties. No public statement from either body was found as of 4 August.</li>
+          <li><strong>One outlet engaged with the metadata:</strong> The New Indian Express (28 July) cited inventory figures — <em>92,000+ files across 9,783 directories</em> — consistent with the earlier crawl snapshot. Nobody covered the fuller inventory this site now documents (<strong>162,111 files, 16,474 directories, 1.07 TB observed</strong>), and no outlet built a branch-level search tool.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 2. Legend -->
+    <section class="anchor" id="legend">
+      <h2>🏷️ Classification Legend <span class="sub">How each item is categorised</span></h2>
+      <div class="card">
+        <div class="legend">
+          <span class="chip">🧵 Wire &amp; syndicated</span>
+          <span class="chip">🔬 Cybersecurity press</span>
+          <span class="chip">🏦 Indian financial / business press</span>
+          <span class="chip">📰 Indian &amp; international general press</span>
+          <span class="chip">📈 Trade, NGO &amp; vendor analysis</span>
+          <span class="chip">🛰️ Threat-intel &amp; dark-web trackers</span>
+          <span class="chip">🗣️ Social &amp; community</span>
+        </div>
+        <p style="margin:12px 0 0 0;font-size:0.85rem;color:var(--muted);">
+          Classification is editorial and reflects the outlet's primary role in this story. "Analysis" items add verification or context beyond the bank's statement; "report" items relay the claim and the bank's response.
+        </p>
+      </div>
+    </section>
+
+    <!-- 3. Timeline -->
+    <section class="anchor" id="timeline">
+      <h2>📅 Coverage Timeline <span class="sub">Every tracked item, in order — link, date, and class</span></h2>
+      <div class="card" style="overflow-x:auto;">
+        <table class="media-table">
+          <thead>
+            <tr><th style="width:90px;">Date</th><th>Outlet</th><th>Headline / Item</th><th style="width:70px;">Class</th></tr>
+          </thead>
+          <tbody>
+            <tr class="phase-row"><td colspan="4">Phase 1 — Claim &amp; trackers (24–26 July)</td></tr>
+            <tr>
+              <td class="nowrap">24 Jul</td>
+              <td>Ransomware.live</td>
+              <td>TripleX leak-site listing tracked: ~1 TB claimed, 100K–300K customer account forms. (Listing page rotates; link is to the tracker.)</td>
+              <td>🛰️</td>
+            </tr>
+            <tr>
+              <td class="nowrap">25 Jul</td>
+              <td>Dark Web Intelligence<br>(@DailyDarkWeb)</td>
+              <td>"Threat Actor Claims 1 TB Bank of Baroda Data Leak" — sample + download links posted on X.</td>
+              <td>🛰️</td>
+            </tr>
+            <tr>
+              <td class="nowrap">26 Jul</td>
+              <td>@logic · Srikanth.CashlessConsumer</td>
+              <td>SOS thread with live root-folder proof of the dump, cc'd to @CyberDost and @RBI. Later embedded by Deccan Herald &amp; The Hans India.</td>
+              <td>🗣️</td>
+            </tr>
+
+            <tr class="phase-row"><td colspan="4">Phase 2 — First wave: bank confirms (27 July)</td></tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>Deccan Herald</td>
+              <td><a href="https://www.deccanherald.com/technology/data-breach-in-bank-of-baroda-1tb-of-customer-details-aadhaar-phone-numbers-leaked-on-darknet-4088773" target="_blank" rel="noopener">"Data breach in Bank of Baroda? 1TB of customer details, Aadhaar, phone numbers leaked on darknet"</a></td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>The Hans India</td>
+              <td><a href="https://www.thehansindia.com/technology/tech-news/bank-of-baroda-data-leak-1-tb-account-details-names-numbers-and-aadhaar-data-1101902" target="_blank" rel="noopener">"Bank of Baroda Data Leak (1 TB): Account Details, Names, Numbers, and Aadhaar Data"</a></td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>CNBC-TV18</td>
+              <td><a href="https://www.cnbctv18.com/technology/bank-of-baroda-alleged-data-breach-hacker-claims-1tb-customer-records-leak-aadhaar-loan-19954576.htm" target="_blank" rel="noopener">"Bank of Baroda hit by alleged data breach; hacker claims 1TB of customer records leaked"</a></td>
+              <td>🏦</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>Republic World</td>
+              <td><a href="https://www.republicworld.com/business/immediate-containment-measures-implemented-bank-of-baroda-issues-clarity-on-1tb-data-leak-2026-07-27-133590" target="_blank" rel="noopener">"'Immediate Containment Measures Implemented': Bank of Baroda Issues Clarity on Alleged 1TB Data Leak"</a></td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>India Today</td>
+              <td><a href="https://www.indiatoday.in/business/story/bank-of-baroda-data-leak-online-1-tb-is-your-money-safe-what-customers-should-do-now-2957190-2026-07-27" target="_blank" rel="noopener">"Bank of Baroda data leak: If you are a BoB customer, here's what you should do now"</a> — consumer guide</td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>Economic Times</td>
+              <td><a href="https://m.economictimes.com/news/new-updates/bank-of-baroda-data-breached-is-your-account-in-danger-7-things-you-can-do-to-protect-your-account/articleshow/132676958.cms" target="_blank" rel="noopener">"Bank of Baroda data breached: Is your account in danger? 7 things you can do to protect your account"</a> — consumer guide</td>
+              <td>🏦</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>The Hindu</td>
+              <td><a href="https://www.thehindu.com/business/Industry/bank-of-baroda-initiates-forensic-investigation-on-data-breach-that-leaked-critical-customer-information/article71273011.ece" target="_blank" rel="noopener">"Bank of Baroda initiates forensic investigation on data breach that leaked critical customer information"</a></td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>News18</td>
+              <td><a href="https://www.news18.com/india/bank-of-baroda-data-leak-personal-data-of-3-lakh-customers-compromised-core-banking-systems-secure-10236269.html" target="_blank" rel="noopener">"Bank Of Baroda Data Leak: Personal Data Of 3 Lakh Customers Compromised, Core Banking Systems Secure"</a></td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>Reuters</td>
+              <td><a href="https://www.reuters.com/technology/customer-data-indias-bank-baroda-leaked-online-source-researcher-say-2026-07-27/" target="_blank" rel="noopener">"Customer data from India's Bank of Baroda leaked online, source and researcher say"</a> — wire; quoted the Cashless Consumer founder</td>
+              <td>🧵</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>Fortune India</td>
+              <td><a href="https://www.fortuneindia.com/enterprise/bank-of-baroda-confirms-data-breach-cybersecurity-experts-see-1tb-breach-as-concerning/122589" target="_blank" rel="noopener">"Bank of Baroda confirms data breach; cybersecurity experts see 1TB breach as concerning"</a> — expert analysis</td>
+              <td>📈</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>GovInfoSecurity (ISMG)</td>
+              <td><a href="https://www.govinfosecurity.com/bank-baroda-breach-tests-disclosure-readiness-a-32335" target="_blank" rel="noopener">"Bank of Baroda Breach Tests Disclosure Readiness"</a> — analysis; notes internal audit spreadsheets exposed</td>
+              <td>🔬</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>Moneycontrol</td>
+              <td><a href="https://www.moneycontrol.com/technology/bank-of-baroda-data-leak-bank-says-core-banking-systems-remain-secure-after-employee-email-compromise-article-13984933.html" target="_blank" rel="noopener">"Bank of Baroda data leak: Bank says core banking systems remain secure after employee email compromise"</a></td>
+              <td>🏦</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul</td>
+              <td>CNBC-TV18 (video)</td>
+              <td><a href="https://www.youtube.com/watch?v=orPuGr0sqAk" target="_blank" rel="noopener">"Bank of Baroda Shares Fall Amid Data Breach; Customer Records, Aadhaar Details Leaked on Dark Web"</a> — market-reaction segment</td>
+              <td>🏦</td>
+            </tr>
+
+            <tr class="phase-row"><td colspan="4">Phase 3 — Analysis &amp; international press (28 July)</td></tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>The Record<br>(Recorded Future News)</td>
+              <td><a href="https://therecord.media/india-bank-of-baroda-reports-cybersecurity-incident" target="_blank" rel="noopener">"India's Bank of Baroda confirms cyber incident after hackers claim data theft"</a></td>
+              <td>🔬</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>The New Indian Express</td>
+              <td><a href="https://www.newindianexpress.com/business/2026/Jul/28/bank-of-baroda-data-leak-internal-documents-allegedly-exposed-after-cyberattack" target="_blank" rel="noopener">"Bank of Baroda data leak: Internal documents allegedly exposed after cyberattack"</a> — cited 92,000+ files / 9,783 directories</td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>Business Standard</td>
+              <td><a href="https://www.business-standard.com/companies/news/bank-of-baroda-data-breach-india-biggest-corporate-cyberattacks-126072800727_1.html" target="_blank" rel="noopener">"BoB data breach: A look at India's biggest corporate cyberattacks"</a> — context piece</td>
+              <td>🏦</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>The Asian Banker</td>
+              <td><a href="https://www.theasianbanker.com/updates-and-articles/india-s-bank-of-baroda-data-breach-exposes-customer-records-after-employee-email-compromise" target="_blank" rel="noopener">"India's Bank of Baroda data breach exposes customer records after employee email compromise"</a> — trade press</td>
+              <td>📈</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>Yahoo Finance<br>(India Today Tech syndication)</td>
+              <td><a href="https://finance.yahoo.com/technology/ai/articles/india-bank-baroda-faces-alleged-113047992.html" target="_blank" rel="noopener">"India's Bank of Baroda faces alleged 1TB data leak on dark web"</a></td>
+              <td>🧵</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>News18 Explainers</td>
+              <td><a href="https://www.news18.com/explainers/bob-says-only-1-employees-email-was-hacked-so-how-did-1tb-of-indias-banking-data-end-up-on-dark-web-ws-l-10237457.html" target="_blank" rel="noopener">"BoB Blames One Hacked Email. So How Did 1TB Of India's Banking Data End Up On Dark Web?"</a> — pushback explainer</td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>Economic Times (CISO)</td>
+              <td><a href="https://ciso.economictimes.indiatimes.com/news/data-breaches/bob-data-breach-puts-spotlight-on-banking-cybersecurity-as-sensitive-customer-records-surface-on-dark-web/132725840" target="_blank" rel="noopener">"BoB data breach puts spotlight on banking cybersecurity as sensitive customer records surface on dark web"</a></td>
+              <td>🏦</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>India Today</td>
+              <td><a href="https://www.indiatoday.in/business/companies/story/bank-of-baroda-data-leak-1tb-breach-rbi-cert-in-face-penalties-rbi-customer-safety-2957745-2026-07-28" target="_blank" rel="noopener">"Bank of Baroda data leak: Will RBI, CERT-In face penalties for the 1TB breach?"</a> — regulator-accountability angle</td>
+              <td>📰</td>
+            </tr>
+            <tr>
+              <td class="nowrap">28 Jul</td>
+              <td>Gulf News (UAE)</td>
+              <td><a href="https://gulfnews.com/business/banking/bank-of-baroda-data-leak-what-we-know-so-far-about-alleged-cyber-breach-1.500621898" target="_blank" rel="noopener">"Bank of Baroda Data Leak: Dark Web Breach, Customer … What We Know So Far"</a> — notes 700GB+ per Reuters metadata; cites researcher verification</td>
+              <td>📰</td>
+            </tr>
+
+            <tr class="phase-row"><td colspan="4">Phase 4 — Consumer guides &amp; vendor analysis (29–31 July)</td></tr>
+            <tr>
+              <td class="nowrap">29 Jul</td>
+              <td>TechTimes</td>
+              <td><a href="https://www.techtimes.com/articles/321928/20260729/bank-baroda-breach-triplex-dumps-1-tb-aadhaar-account-data-free.htm" target="_blank" rel="noopener">"Bank of Baroda Breach: TripleX Dumps 1 TB of Aadhaar and Account Data for Free"</a> — consumer guide</td>
+              <td>🔬</td>
+            </tr>
+            <tr>
+              <td class="nowrap">29 Jul</td>
+              <td>GBHackers</td>
+              <td>"Bank of Baroda Confirms Data Breach After Employee Email Account Compromised" (also in the outlet's weekly top-50 newsletter)</td>
+              <td>🔬</td>
+            </tr>
+            <tr>
+              <td class="nowrap">Late Jul</td>
+              <td>CyberPeace</td>
+              <td><a href="https://cyberpeace.org/resources/blogs/the-bank-of-baroda-data-breach-what-we-know-what-we-dont-and-what-comes-next" target="_blank" rel="noopener">"The Bank of Baroda Data Breach ~ What We Know, What We Don't, and What Comes Next"</a> — NGO analysis</td>
+              <td>📈</td>
+            </tr>
+            <tr>
+              <td class="nowrap">Late Jul</td>
+              <td>Gurucul</td>
+              <td><a href="https://gurucul.com/blog/bank-of-baroda-data-leak-analysis-of-the-triple-x-extortion-claim-and-exposed-customer-data" target="_blank" rel="noopener">"Bank of Baroda Data Leak: Analysis of the Triple X Extortion Claim and Exposed Customer Data"</a> — vendor analysis</td>
+              <td>📈</td>
+            </tr>
+            <tr>
+              <td class="nowrap">Late Jul</td>
+              <td>Ravenmail</td>
+              <td><a href="https://ravenmail.io/blog/bank-of-baroda-leak" target="_blank" rel="noopener">"Bank of Baroda Data Leak: Beyond the Email Compromise"</a> — vendor analysis</td>
+              <td>📈</td>
+            </tr>
+            <tr>
+              <td class="nowrap">30–31 Jul</td>
+              <td>DoubleCheck by Sanket (Instagram)</td>
+              <td>Consumer walkthrough videos: pull credit report, lock Aadhaar biometrics via mAadhaar, report via 1930 / cybercrime.gov.in.</td>
+              <td>🗣️</td>
+            </tr>
+
+            <tr class="phase-row"><td colspan="4">Community &amp; regional amplification (27 Jul – 3 Aug)</td></tr>
+            <tr>
+              <td class="nowrap">27 Jul+</td>
+              <td>Reddit</td>
+              <td>r/IndiaTax thread "Bank of Baroda 1TB data leaked…" and r/technology thread on the Reuters report.</td>
+              <td>🗣️</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27 Jul+</td>
+              <td>Instagram / Threads / Facebook</td>
+              <td>News reels (India Today, CNBC-TV18, DoubleCheck), Threads post by @rvcjinsta, Facebook posts (Goa365, viehgroup — the latter spreading the incorrect "42 million users compromised" framing).</td>
+              <td>🗣️</td>
+            </tr>
+            <tr>
+              <td class="nowrap">27–30 Jul</td>
+              <td>News18 regional</td>
+              <td>Story ran in Marathi (Lokmat), Bengali, and Telugu editions — regional-language reach confirmed.</td>
+              <td>📰</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. What got covered -->
+    <section class="anchor" id="well">
+      <h2>✅ What Got Covered Well <span class="sub">Credit where it's due</span></h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>⚡ Speed</h3>
+          <p>From TripleX's 24 July listing to a full news wave — including Reuters and The Record — took <strong>~48–72 hours</strong>. Indian financial press (CNBC-TV18, Moneycontrol, ET) moved fast, and international cyber press arrived within a day of the bank's confirmation.</p>
+        </div>
+        <div class="card">
+          <h3>🛡️ Bank response verification</h3>
+          <p>Media did confirm the essentials: the incident, the compromised employee email, the forensic investigation, and the "core systems not accessed" claim. Several outlets (GovInfoSecurity, Gulf News, News18) noted what the bank did <em>not</em> disclose — customer count, scope, regions.</p>
+        </div>
+        <div class="card">
+          <h3>📋 Consumer guides</h3>
+          <p>ET, India Today, TechTimes and creator channels produced actionable checklists: monitor accounts, change passwords, freeze Aadhaar biometrics, watch for phishing, report via 1930. These are the closest thing to consumer protection the coverage produced.</p>
+        </div>
+        <div class="card">
+          <h3>🔍 Independent researcher sourcing</h3>
+          <p>Reuters quoted the <strong>Cashless Consumer founder</strong> as the researcher who verified samples and alerted the bank; Gulf News, Fortune India, Deccan Herald and Hans India also cited or embedded this investigation's thread.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Coverage gaps -->
+    <section class="anchor" id="gaps">
+      <h2>❌ Coverage Gaps <span class="sub">What the media missed — or chose not to cover</span></h2>
+      <div class="alert alert-yellow"><strong>⚠️ Reading this section:</strong> "No coverage" means no item was found in the archives checked as of 4 August 2026. Absence of a link is not proof of absence of coverage — it is a documented search result.</div>
+      <div class="card">
+        <h3>The eight gaps</h3>
+        <div class="gap-item"><strong>1. BleepingComputer — silent.</strong> The world's most-read consumer security outlet covered far smaller bank incidents in the same window but published nothing on a ~1 TB leak of an Indian top-5 bank with Aadhaar-linked KYC data. Its "bank" tag archive for the period shows no BoB story.</div>
+        <div class="gap-item"><strong>2. Zero regulator statements.</strong> Reuters reported RBI and CERT-In did not respond to requests. No public statement, advisory, or action from either body was found. India Today's 28 July piece asking whether they'd face penalties is the only outlet that even raised the question — and there has been no follow-up.</div>
+        <div class="gap-item"><strong>3. Five-day news cycle.</strong> The last substantive coverage was 29–31 July (consumer guides, vendor analysis). As of 4 August — ten days after the claim — there is no "what happened next" story, no investigation of the bank's disclosure, no parliamentary or regulatory angle. A 1 TB breach of a bank serving millions simply stopped being news.</div>
+        <div class="gap-item"><strong>4. The inventory was never examined.</strong> Only The New Indian Express engaged with the metadata (92,000+ files / 9,783 directories — the earlier snapshot). No outlet covered the fuller picture this site documents: <strong>162,111 files, 16,474 directories, CKYC form dumps, security/VAPT reports and internal audit documents inside the dump, a 1,088+ branch footprint across cities, and 1.07 TB observed volume</strong>.</div>
+        <div class="gap-item"><strong>5. No branch-level consumer tool.</strong> No newsroom built what this site ships: a searchable branch/IFSC checker so customers can see whether their branch's files are in the dump. Consumers were told to "monitor accounts" but never given the tool to check exposure.</div>
+        <div class="gap-item"><strong>6. The bank's framing went largely unchallenged.</strong> "Single employee email, core systems secure" was repeated near-verbatim by most outlets. The pushback — how one mailbox yields a terabyte, why SharePoint-adjacent data still matters — came mainly from News18's explainer, Fortune India's quoted experts, and vendor blogs (Gurucul, Ravenmail). No major outlet tested the framing on the record.</div>
+        <div class="gap-item"><strong>7. The TripleX–BNI pattern under-covered.</strong> TripleX's earlier targeting of Indian banking infrastructure (the BNI breach) was noted only in vendor analysis. No mainstream piece connected the dots on method, messaging, or the "free dump" strategy.</div>
+        <div class="gap-item"><strong>8. Misinformation went uncorrected.</strong> Social posts claimed "42 million users' data compromised" (a conflation of BoB's total customer base with the breach scope). No outlet ran a scope-correction piece. The Aadhaar angle — the most serious consumer dimension — was mentioned but never examined: what it means when KYC documents with Aadhaar numbers are dumped publicly, and what customers should do about biometric identity risk.</div>
+      </div>
+    </section>
+
+    <!-- 6. Sourced from this investigation -->
+    <section class="anchor" id="sourced">
+      <h2>🔎 Coverage Sourced From This Investigation <span class="sub">Where the media's reporting actually came from</span></h2>
+      <div class="card">
+        <ul style="margin:0;padding-left:18px;line-height:1.9;">
+          <li><strong>Reuters</strong> (27 Jul) — quoted "cybersecurity researcher Srikanth L, founder of Cashless Consumer" as verifying leaked samples and alerting the bank; the story's framing ("source and researcher say") rests partly on this work.</li>
+          <li><strong>Gulf News</strong> (28 Jul) — reported the researcher verified sample documents before alerting the bank and authorities, and noted the 700GB+ metadata observation.</li>
+          <li><strong>Fortune India</strong> (27 Jul) — quoted the researcher urging NPCI and RBI to consider temporarily disconnecting BoB from payment rails during the investigation.</li>
+          <li><strong>Deccan Herald</strong> and <strong>The Hans India</strong> (27 Jul) — embedded the SOS thread screenshot (the live root-folder proof) as their visual evidence.</li>
+          <li><strong>The New Indian Express</strong> (28 Jul) — cited inventory metadata (92,000+ files / 9,783 directories) drawn from the public dump analysis.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Method -->
+    <section class="anchor" id="method">
+      <h2>🧭 Method &amp; Limitations <span class="sub">How this tracking was done</span></h2>
+      <div class="card">
+        <p><strong>How items were found:</strong> targeted web searches per outlet (Reuters, The Record, BleepingComputer, CNBC-TV18, Moneycontrol, ET, Business Standard, The Hindu, India Today, TOI, News18, NIE, Deccan Herald, Hans India, Republic, Gulf News, Yahoo Finance, The Asian Banker, TechTimes, GBHackers, GovInfoSecurity, CyberPeace, Gurucul, Ravenmail, Fortune India) plus X/Reddit/Instagram/Threads/Facebook searches. Every listed link was reachable at the time of writing.</p>
+        <p><strong>Limitations:</strong> (1) this is a snapshot as of <strong>4 August 2026</strong>; syndication and paywalled variants may exist beyond the listed URLs; (2) "no coverage" claims reflect checked archives, not proof of absence; (3) Ransomware.live listing pages rotate, so the link is to the tracker, not the ephemeral listing; (4) classification is editorial; (5) regional-language coverage may be under-counted — only News18's Marathi/Bengali/Telugu editions were confirmed.</p>
+        <p style="margin-bottom:0;"><strong>Last update:</strong> 4 August 2026. This page will be refreshed as new coverage (or notable silence) is found.</p>
+      </div>
+    </section>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:32px 0;">
+      <a href="../search.html" class="cta">🔍 Check Your Branch</a>
+      <a href="demands.html" class="cta" style="background:var(--bg2);color:var(--fg);">⚖️ Consumer Demands</a>
+      <a href="why.html" class="cta" style="background:var(--bg2);color:var(--fg);">☢️ Why This Matters</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+      <strong>BoBBreach — Indicative Triage</strong> · Published by <a href="https://www.cashlessconsumer.in" target="_blank">CashlessConsumer</a> · 
+      <a href="https://github.com/CashlessConsumer/BoBBreach" target="_blank">Open Source on GitHub</a> · 
+      <a href="about.html">Methodology &amp; Disclaimer</a>
+    </p>
+    <p style="margin-top:8px;font-size:0.8rem;color:var(--muted);">
+      Data on this site is based on <strong>initial, ongoing OSINT analysis</strong> and has not been independently verified by the affected entities.
+      This is <strong>not legal advice</strong>. If you are a Bank of Baroda customer, contact your branch directly or visit the official BoB website for authoritative information.
+    </p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', saved);
+    updateIcon(saved);
+    themeToggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcon(next);
+    });
+    function updateIcon(theme) {
+      themeIcon.innerHTML = theme === 'dark'
+        ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+        : '<circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g>';
+    }
+  </script>
+<script src="../js/main.js"></script>
+</body>
+</html>
